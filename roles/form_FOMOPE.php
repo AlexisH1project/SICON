@@ -270,7 +270,7 @@
 
 			<div class="form-group col-md-6">
 
-							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalR" data-whatever="@getbootstrap">Rechazar</button>
+							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalR" data-whatever="@getbootstrap">Rechazar por captura</button>
 			</div>
 							<div class="modal fade" id="exampleModalR" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							  <div class="modal-dialog" role="document">
@@ -667,10 +667,70 @@
 
 				</div>
 			</form>
+			
+
+		 <form name="captura" action="observacion.php" method="POST"> 
+							<div class="form-row">
+							<div class="form-group col-md-8">
+						<div class="form-row">
+							<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope?>" style="display:none">
+						</div>
+						<div class="form-row">
+							<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $id_rol?>" style="display:none">
+						</div>
+						<div class="form-row">
+							<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
+						</div>
+					
+				<div class="form-group col-md-6">
+
+							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalRT" data-whatever="@getbootstrap">Rechazo por validacion</button>
+				</div>
+							<div class="modal fade" id="exampleModalRT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title" id="exampleModalLabel">Motivo de rechazo</h5>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+							        <form action="./Controller/rechazoAblanco.php" method="POST">
+							         <textarea class="form-control border border-dark" id="obs" rows = "4" name="comentarioR" placeholder="Observación por rechazo"><?php echo $row[5] ?></textarea>
+							          <div class="form-row">
+										<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope?>" style="display:none">
+										</div>
+										<div class="form-row">
+											<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $id_rol?>" style="display:none">
+										</div>
+										<div class="form-row">
+											<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
+										</div>
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+
+							        <button type="submit" class="btn btn-primary">Aceptar</button>
+							        </form>
+
+							      </div>
+							    </div>
+							  </div>
+							</div>
+
+				</div>
+			</form>
 				
+			
+		</div>
+
+			
 
 		</div>
-		<br><br>
+
+		
+		<br>
 	</body>
 </html>
 
