@@ -143,7 +143,7 @@
 			<?php
 				include "configuracion.php";
 				$usuarioSeguir =  $_GET['usuario_rol'];
-				//Hola ALexis
+				//Hola ALexis como te va
 			?>
 
 			<div class="row">
