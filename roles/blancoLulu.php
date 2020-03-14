@@ -213,7 +213,7 @@
 				<div class="col-md-4 col-md-offset-4">
 
 				  		<div class="form-group col-md-8" >
-					  		<label for="fechaIngreso"> FECHA DE INGRESO: </label>
+					  		<label for="fechaIngreso"> FECHA DE RECIBIDO: </label>
 						    <input type="date" class="form-control border border-dark" id="fechaIngreso" name="fechaIngreso" placeholder="Ingresa Fecha del ingreso" required>
 						    
 				  		</div>

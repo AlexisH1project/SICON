@@ -668,19 +668,6 @@
 				</div>
 			</form>
 			
-
-		 <form name="captura" action="observacion.php" method="POST"> 
-							<div class="form-row">
-							<div class="form-group col-md-8">
-						<div class="form-row">
-							<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope?>" style="display:none">
-						</div>
-						<div class="form-row">
-							<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $id_rol?>" style="display:none">
-						</div>
-						<div class="form-row">
-							<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
-						</div>
 					
 				<div class="form-group col-md-6">
 
@@ -690,14 +677,14 @@
 							  <div class="modal-dialog" role="document">
 							    <div class="modal-content">
 							      <div class="modal-header">
-							        <h5 class="modal-title" id="exampleModalLabel">Motivo de rechazo</h5>
+							        <h5 class="modal-title" id="exampleModalLabel">Volante de rechazo</h5>
 							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							          <span aria-hidden="true">&times;</span>
 							        </button>
 							      </div>
 							      <div class="modal-body">
 							        <form action="./Controller/rechazoAblanco.php" method="POST">
-							         <textarea class="form-control border border-dark" id="obs" rows = "4" name="comentarioR" placeholder="Observación por rechazo"><?php echo $row[5] ?></textarea>
+							         <textarea class="form-control border border-dark" id="obs" rows = "4" name="comentarioR" placeholder="Redactar el volante de rechazo"></textarea>
 							          <div class="form-row">
 										<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope?>" style="display:none">
 										</div>
@@ -720,9 +707,7 @@
 							</div>
 
 				</div>
-			</form>
-				
-			
+
 		</div>
 
 			
