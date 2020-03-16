@@ -8,8 +8,7 @@
 		$usuario = $_POST['usuario'];
 		//echo $usuario;
 		$color_es = $_POST['color_esta'];
-
-
+	
 		if($idRol == 3){
 			
 					$hoy = "select CURDATE()";
