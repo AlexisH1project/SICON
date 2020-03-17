@@ -1,6 +1,7 @@
 
 <html>
 	<head>
+		<!-- ola kevss -->
 		<meta charset="utf-8">
 		<title>FOMOPE Autorizar</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -143,7 +144,7 @@
 			<?php
 				include "configuracion.php";
 				$usuarioSeguir =  $_GET['usuario_rol'];
-
+				//Hola ALexis como te va
 			?>
 
 			<div class="row">

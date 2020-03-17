@@ -4,7 +4,6 @@
 		//header ('Content-type: text/html; charset=utf-8');
 		$usuarioEdito = $_POST['userName'];
 		$idFomope = $_POST['idFom'];
-		$usuarioTurno = $_POST['usuar'];
 /*
 			$tiempo =  date_default_timezone_set("America/Mexico_City");
 			$tiempo =  time();
@@ -19,7 +18,7 @@
 			 }
 
 
-			$sql = "UPDATE fomope SET color_estado='amarillo', usuario_name = '$usuarioEdito', fechaAutorizacion = '$row[0] - $usuarioEdito', analistaCap = '$usuarioTurno' WHERE id_movimiento = '$idFomope'" ;
+			$sql = "UPDATE fomope SET color_estado='amarillo', usuario_name = '$usuarioEdito', fechaAutorizacion = '$row[0] - $usuarioEdito' WHERE id_movimiento = '$idFomope'" ;
 			$sql2 = "INSERT historial (id_movimiento,usuario,fechaMovimiento,horaMovimiento) VALUES ('$idFomope','$usuarioEdito','$row[0]','$row2[0]')";
 
 			 if (mysqli_query($conexion,$sql) AND mysqli_query($conexion,$sql2) ) {
