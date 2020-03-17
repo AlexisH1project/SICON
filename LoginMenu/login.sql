@@ -10,3 +10,6 @@ CREATE TABLE usuarios (
 insert into usuarios values (1,"AlexisHdzG","12345"); 
 
 select * from usuarios; 
+
+/*select * from usuario1; 
+select * from usuario2;*/ 
