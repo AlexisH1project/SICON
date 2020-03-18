@@ -396,10 +396,10 @@
 						<label class="plantilla-label" for="NO">Clave presupuestaria:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="clavepres" name="clavepres" placeholder="Ej. 0001" value="" maxlength="35" onkeyup="javascript:this.value=this.value.toUpperCase();">
 					</div>
-					<div class="form-group col-md-8">
+					<!-- <div class="form-group col-md-8">
 						<label class="plantilla-label" for="codmov">*Código de movimiento:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control cod2 border border-dark" id="cod2_1" name="cod2_1" placeholder="Ej. 4550" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
+					</div> -->
 						
 				</div>
 				<div class="form-row">
@@ -473,7 +473,12 @@
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
 								Capturar Fomope 
 						</button>
-					</div>
+
+						</div>
+
+						<div class="form-group col-md-6">
+							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalRT" data-whatever="@getbootstrap">Rechazo por validacion</button>
+						</div>
 					</div>
 						
 
@@ -668,11 +673,7 @@
 				</div>
 			</form>
 			
-					
-				<div class="form-group col-md-6">
-
-							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalRT" data-whatever="@getbootstrap">Rechazo por validacion</button>
-				</div>
+				
 							<div class="modal fade" id="exampleModalRT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							  <div class="modal-dialog" role="document">
 							    <div class="modal-content">
@@ -683,8 +684,21 @@
 							        </button>
 							      </div>
 							      <div class="modal-body">
-							        <form action="./Controller/rechazoAblanco.php" method="POST">
-							         <textarea class="form-control border border-dark" id="obs" rows = "4" name="comentarioR" placeholder="Redactar el volante de rechazo"></textarea>
+					        <form action="./generarVolanteRechazo/volanteT.php" method="POST">
+
+   
+							        	<div class="form-group col-md-12">
+											<input onkeypress="return pulsar(event)" type="text" class="form-control cod2 border border-dark" id="cod2_1" name="cod2_1" placeholder="Cod. de Movimiento" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+										</div>
+
+
+							        	<div class="form-group col-md-12">
+											<input type="text" class="form-control border-dark" id="unidadR" name="unidadR" placeholder="Unidad">
+										</div>
+										<div class="form-group col-md-12">
+											<input type="text" class="form-control border-dark" id="unidadR" name="unidadR" placeholder="Unidad">
+										</div>
+							         <textarea class="form-control border border-dark" id="obs" rows = "4" name="comentarioR" placeholder="Redactar el volante de rechazo" required></textarea>
 							          <div class="form-row">
 										<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope?>" style="display:none">
 										</div>
@@ -694,12 +708,13 @@
 										<div class="form-row">
 											<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
 										</div>
+										
 							      </div>
 							      <div class="modal-footer">
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
 
 							        <button type="submit" class="btn btn-primary">Aceptar</button>
-							        </form>
+							     </form>
 
 							      </div>
 							    </div>
