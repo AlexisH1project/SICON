@@ -86,14 +86,14 @@
 							<div class="col">
 						      <div class="md-form mt-0">
 						       <label for="rfcL">RFC: </label>
-						    	<input type="text" class="form-control" id="rfc" name="rfc" placeholder="Ingresa rfc" maxlength="13" value="<?php echo $ver[4] ?>"  required readonly pattern="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$">
+						    	<input type="text" class="form-control" id="rfc" name="rfc" placeholder="Ingresa rfc" maxlength="13" value="<?php echo $ver[4] ?>"   readonly>
 						      </div>
 						    </div>
 
 						    <div class="col">
 						      <div class="md-form mt-0">
 						        <label for="CURP">CURP: </label>
-						   		 <input type="text" class="form-control" id="curp" name="curp" placeholder="Ingresa CURP" maxlength="18" value="<?php echo $ver[5] ?>" required readonly pattern="^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$">
+						   		 <input type="text" class="form-control" id="curp" name="curp" placeholder="Ingresa CURP" maxlength="18" value="<?php echo $ver[5] ?>" readonly>
 						      </div>
 						    </div>
 						</div>
@@ -126,7 +126,7 @@
 				<div class="col-md-4 col-md-offset-4">
 
 				  		<div class="form-group col-md-12" >
-					  		<label for="fechaIngreso"> FECHA DE INGRESO: </label>
+					  		<label for="fechaIngreso"> FECHA DE RECIBIDO: </label>
 						    <input type="date" class="form-control" id="fechaIngreso" name="fechaIngreso" placeholder="Ingresa Fecha del ingreso" value="<?php echo $ver[9] ?>" required readonly>
 						    
 				  		</div>
@@ -174,30 +174,7 @@
 											        ¿Estas seguro de autorizar esta información?
 											      </div>
 									<center>
-														      <div class="form-row">
-									<div class="box" >
-
-										<label  class="plantilla-label" for="laQna">¿A quien será turnado?</label>
-												 
-												<select class="form-control unexp border border-dark custom-select" name="usuar">
-													
-													<?php
-													if (!$conexion->set_charset("utf8")) {//asignamos la codificación comprobando que no falle
-													       die("Error cargando el conjunto de caracteres utf8");
-													}
-
-													$consulta = "SELECT * FROM usuarios WHERE id_rol = 3 OR id_rol = 2";
-													$resultado = mysqli_query($conexion , $consulta);
-													$contador=0;
-
-													while($misdatos = mysqli_fetch_assoc($resultado)){ $contador++;?>
-													<option  value="<?php echo $misdatos["usuario"]; ?>"><?php echo $misdatos["nombrePersonal"]; ?></option>
-													<?php }?>          
-													</select>
-										</div>
-							     					       <br>     <br>     <br>   <br>  
-
-										</div>
+								
 										</center>
 											      <div class="modal-footer">
 
