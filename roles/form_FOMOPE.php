@@ -1,8 +1,4 @@
 
-<?php
-  $mysqli = new mysqli('localhost', 'root', '', 'p_fomopes');
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -72,6 +68,53 @@
 										var cod2 = response[0]['cod2'];
 										var nomb_mov = response[0]['nomb_mov'];
 										document.getElementById('cod2_'+indice).value = cod2;
+										document.getElementById('nomb_mov_'+indice).value = nomb_mov;
+									}
+								}
+							});
+							return false;
+						}
+					});
+				});
+			});
+
+
+$(document).ready(function(){
+				$(document).on('keydown', '.cod4', function(){
+					var id = this.id;
+					var splitid = id.split('_');
+					var indice = splitid[1];
+					$('#'+id).autocomplete({
+						source: function(request, response){
+							$.ajax({
+								url: "resultados_cmov.php",
+								type: 'post',
+								dataType: "json",
+								data: {
+									busqueda: request.term,request:1
+								},
+								success: function(data){
+									response(data);
+								}
+							});
+						},
+						select: function (event, ui){
+							$(this).val(ui.item.label);
+							var buscarid = ui.item.value;
+							$.ajax({
+								url: 'resultados_cmov.php',
+								type: 'post',
+								data: {
+									buscarid:buscarid,request:2
+								},
+								dataType: 'json',
+								success:function(response){
+									var len = response.length;
+									if(len > 0){
+										var idmov = response[0]['idmov'];
+										var cod2 = response[0]['cod4'];
+										var nomb_mov = response[0]['nomb_mov'];
+										document.getElementById('cod4_'+indice).value = cod2;
 										document.getElementById('nomb_mov_'+indice).value = nomb_mov;
 									}
 								}
@@ -396,10 +439,10 @@
 						<label class="plantilla-label" for="NO">Clave presupuestaria:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="clavepres" name="clavepres" placeholder="Ej. 0001" value="" maxlength="35" onkeyup="javascript:this.value=this.value.toUpperCase();">
 					</div>
-					<!-- <div class="form-group col-md-8">
+					<div class="form-group col-md-8">
 						<label class="plantilla-label" for="codmov">*Código de movimiento:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control cod2 border border-dark" id="cod2_1" name="cod2_1" placeholder="Ej. 4550" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div> -->
+					</div>
 						
 				</div>
 				<div class="form-row">
@@ -419,10 +462,7 @@
 						</div>
 					</div>
 					<div class="form-row">
-					<div class="form-group col-md-4">
-						<label class="plantilla-label" for="estad">*Estado:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="estad" name="estad" placeholder="Ej. Ciudad de México" maxlength="13" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div> 
+					
 					<div class="form-row">
 						<div class="form-group col-mt-8">
 						<label class="plantilla-label" for="estad">*Estado:</label>
@@ -688,9 +728,8 @@
 
    
 							        	<div class="form-group col-md-12">
-											<input onkeypress="return pulsar(event)" type="text" class="form-control cod2 border border-dark" id="cod2_1" name="cod2_1" placeholder="Cod. de Movimiento" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+											<input  type="text" class="form-control cod4 border border-dark" id="cod4_1" name="cod4_1" placeholder="Cod. de Movimiento"  required>
 										</div>
-
 
 							        	<div class="form-group col-md-12">
 											<input type="text" class="form-control border-dark" id="unidadR" name="unidadR" placeholder="Unidad">
