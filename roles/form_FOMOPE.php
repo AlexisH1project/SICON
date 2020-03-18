@@ -419,10 +419,10 @@
 						</div>
 					</div>
 					<div class="form-row">
-					<!-- <div class="form-group col-md-4">
+					<div class="form-group col-md-4">
 						<label class="plantilla-label" for="estad">*Estado:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="estad" name="estad" placeholder="Ej. Ciudad de México" maxlength="13" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div> -->
+					</div> 
 					<div class="form-row">
 						<div class="form-group col-mt-8">
 						<label class="plantilla-label" for="estad">*Estado:</label>
