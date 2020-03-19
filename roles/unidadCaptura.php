@@ -51,7 +51,11 @@
 				font-family: Verdana, Geneva, sans-serif;
 				padding: 12px;
 			}
-
+			.plantilla-input-imp{
+				background-color: #276F7B;
+				font-family: Verdana, Geneva, sans-serif;
+				padding: 12px;
+			}
 			.plantilla-label{
 				font-weight: bold;
 			}
@@ -102,10 +106,7 @@
 		<img class="img-responsive" src="img/img-salud.jpg" height="150" width="400">
 		
 		<center>			
-				<h3>Sistema de Control de Registro de Formato de Movimiento de Personal (SICON).</h3>
-				<br>
-				<h5> DEPARTAMENTO DE DICTAMINACIÓN SALARIAL Y CONTRATOS POR HONORARIOS - DDSCH</h5>
-			
+				
 			
 			<?php
 				include "configuracion.php";
@@ -123,6 +124,7 @@
 				</div>
 			</div>
 			<br>
+			
 			
 			<form method="post" action=""> 
 				<div class="rounded border border-dark plantilla-input text-center">
@@ -306,20 +308,6 @@
 								?>
 												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Editar</button>
 								<?php	
-											}else if($ver[1] == "verde"){
-
-								?>	
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Capturar</button>
-
-								<?php
-											}else if($ver[1] == "gris"){
-												$datosCaptura = $ver[0]."||".$usuarioSeguir."||2";
-
-								?>
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Editar</button>
-
-											
-								<?php
 											}
 										}
 									}
@@ -340,119 +328,7 @@
 		</table>
 		
 
-			<div class="col-sm-12">
-				
-					<div class="card bg-secondary text-white">
-						    <div class="card-body"><h2>Por Escanear</h2></div>
-					</div>
-					<table class="table table-hover table-white">
-						<thead>
-						    <tr>
-							<!-- <td>Observacion</td>
-							<td>ID Fomope</td> -->
-						      <th scope="titulo">Color Estado</th>
-						      <th scope="titulo">Unidad</th>
-						      <th scope="titulo">RFC</th>
-						      <th scope="titulo">QNA Aplicada</th>
-			           		<th scope="titulo">Fecha Ingreso</th>
-			           		<th scope="titulo">Fecha por Autorizador</th>
-
-						   </tr>
-					 	 </thead>
-
-						<?php 
-							include "configuracion.php";
-
-							$sql="SELECT id_movimiento,color_estado,unidad, rfc,quincenaAplicada,fechaIngreso
-								,fechaAutorizacion	from fomope WHERE color_estado = 'Verde'";
-							$result=mysqli_query($conexion,$sql);
-
-							while($ver=mysqli_fetch_row($result)){ 
-
-							
-								$consulta2 = " SELECT * FROM fomope WHERE id_movimiento = ".$ver[0];
-
-						        if($resultado2 = mysqli_query($conexion,$consulta2)){
-					        		$row = mysqli_fetch_assoc($resultado2);
-					        		$id_mov = $row['id_movimiento'];
-					        	}
-					        	$datos=$id_mov."||".
-								$ver[0]."||0";
-
-
-						 ?>
-
-						<tr>
-							<td><?php echo $ver[1] ?></td>
-							<td><?php echo $ver[2] ?></td>
-							<td><?php echo $ver[3] ?></td>
-							<td><?php echo $ver[4] ?></td>
-							<td><?php echo $ver[5] ?></td>
-							<td><?php echo $ver[6] ?></td>
-							<td>
-								<?php
-									$sqlColor="SELECT colorAsignado FROM usuarios WHERE usuario='$usuarioSeguir'";
-
-									if ($resultColor = mysqli_query($conexion,$sqlColor)) {
-										$verColor=mysqli_fetch_row($resultColor);
-										$totalColor = mysqli_num_rows($resultColor);  
-
-										$colores2 = explode(",",$verColor[0]);
-										//echo $verColor[0] . "  >>>>>>>";
-										//echo $colores2[1] . "  >>>>>>>";
-										$datosCaptura = $ver[0]."||".$usuarioSeguir."||0";
-
-
-										if($totalColor != 0){
-											if($ver[1] == "negro" ){
-												$datosCaptura = $ver[0]."||".$usuarioSeguir."||1";
-
-										
-								?>
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Editar</button>
-								<?php	
-											}else if($ver[1] == "verde"){
-								?>	
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Capturar</button>
-
-								<?php	
-
-											}
-										}
-									}
-								
-								?>	
-									
-
-							</td>
-						</tr>
-						<?php 
-						
-						 
-					}
-						 ?>
-
-					</table>
-			</div>
-			<?php 
-						 		include "configuracion.php";
-							$sql="SELECT id_movimiento,color_estado,unidad, rfc,quincenaAplicada,fechaIngreso
-								,fechaAutorizacion	from fomope WHERE color_estado = 'verde'";
-							$result=mysqli_query($conexion,$sql);
-
-							$totalFilas    =    mysqli_num_rows($result);  
-							if($totalFilas == 0){
-									
-									echo('
-										<div class="col-sm-12 ">
-										<div class="p-3 mb-5 bg-warning text-dark">
-										    <div class="card-body"><h2>No existen fomopes por lotear</h2></div>
-									</div>
-									</div>');
-							}
-
-
-						  ?>
+		
 
 			<div class="col-sm-12">
 				
@@ -476,8 +352,17 @@
 						<?php 
 							include "configuracion.php";
 
+							$sqlu="SELECT unidadCorrespondiente from usuarios WHERE usuario = '$usuarioSeguir'";
+
+							if($unidad = mysqli_query($conexion,$sqlu)){
+					        		$rowU = mysqli_fetch_assoc($unidad);
+					        		$unidadUsuario = $rowU['unidadCorrespondiente'];
+
+					        		
+					        	
+
 							$sql="SELECT id_movimiento,color_estado,unidad, rfc,quincenaAplicada,fechaIngreso
-								,fechaAutorizacion	from fomope WHERE color_estado = 'negro'";
+								,fechaAutorizacion	from fomope WHERE color_estado = 'negro' AND unidad = '$unidadUsuario' ";
 							$result=mysqli_query($conexion,$sql);
 
 							while($ver=mysqli_fetch_row($result)){ 
@@ -488,6 +373,7 @@
 						        if($resultado2 = mysqli_query($conexion,$consulta2)){
 					        		$row = mysqli_fetch_assoc($resultado2);
 					        		$id_mov = $row['id_movimiento'];
+					        			
 					        	}
 					        	$datos=$ver[0]."||".$usuarioSeguir."||1";
 
@@ -521,13 +407,14 @@
 						
 						 
 					}
+				}
 						 ?>
 					</table>
 			</div>
 				<?php 
 						 		include "configuracion.php";
 							$sql="SELECT id_movimiento, unidad, rfc,fechaOficio 
-								,fechaAutorizacion	from fomope WHERE color_estado = 'negro' OR color_estado = 'gris'";
+								,fechaAutorizacion	from fomope WHERE color_estado = 'negro'";
 							$result=mysqli_query($conexion,$sql);
 
 							$totalFilas    =    mysqli_num_rows($result);  

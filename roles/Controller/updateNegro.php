@@ -32,21 +32,29 @@
 
 		if($fechaIngresoUp <= $row[0] ){
 
-					$sqlRol = "SELECT id_rol FROM usuarios WHERE usuario = '$rolSegimiento'";
-					if ($result = mysqli_query($conexion,$sqlRol)) {
-						$rowRol = mysqli_fetch_row($result);
+					$sqlUser = "SELECT * FROM usuarios WHERE usuario = '$rolSegimiento'";
+		if($resultado2 = mysqli_query($conexion,$sqlUser)){
+					        		$rowU = mysqli_fetch_assoc($resultado2);
+					        		$id_rol = $rowU['id_rol'];
+					        		$unidadC = 	$rowU['unidadCorrespondiente'];
 
-						if($rowRol[0] == '0'){
+						if($id_rol == '0' && $unidadC == ''){
 							$sqlL = "UPDATE fomope SET color_estado='$colorAccion',usuario_name='$rolSegimiento', unidad='$unidadUp',rfc='$rfcUp',curp='$curpUp',apellido_1='$apellido1Up',apellido_2='$apellido2Up',nombre='$nombreUp',fechaIngreso='$fechaIngresoUp',tipoEntrega='$tipoEntregaUp',tipoDeAccion='$radioUpRechazar',justificacionRechazo='$motivoRUp', fechaAutorizacion = '$row[0] - $rolSegimiento', analistaCap='$analista', vigenciaDel = '$fechaDel', vigenciaAl = '$fechaAl' WHERE id_movimiento = '$id_Fom'";
 								mysqli_query($conexion,$sqlL);
 
 		               			echo "<script> alert('Fomope Actualizado'); window.location.href = '../luluConsulta.php?usuario_rol=$rolSegimiento'</script>";
 
 
-						}else if($rowRol[0] == '1'){
+						}else if($id_rol == '1'){
 							$sqlCL = "UPDATE fomope SET color_estado='amarillo',usuario_name='$rolSegimiento', unidad='$unidadUp',rfc='$rfcUp',curp='$curpUp',apellido_1='$apellido1Up',apellido_2='$apellido2Up',nombre='$nombreUp',fechaIngreso='$fechaIngresoUp',tipoEntrega='$tipoEntregaUp',tipoDeAccion='$radioUpRechazar',justificacionRechazo='$motivoRUp', analistaCap='$analista', fechaCaptura = '$row[0] - $rolSegimiento' , vigenciaDel = '$fechaDel', vigenciaAl = '$fechaAl' WHERE id_movimiento = '$id_Fom'";
 								mysqli_query($conexion,$sqlCL);
 		               			echo "<script> alert('Fomope Actualizado'); window.location.href = '../lulu.php?usuario_rol=$rolSegimiento'</script>";
+
+						}else if($id_rol == '0' && $unidadC != ''){
+							$sqlL = "UPDATE fomope SET color_estado='$colorAccion',usuario_name='$rolSegimiento', unidad='$unidadUp',rfc='$rfcUp',curp='$curpUp',apellido_1='$apellido1Up',apellido_2='$apellido2Up',nombre='$nombreUp',fechaIngreso='$fechaIngresoUp',tipoEntrega='$tipoEntregaUp',tipoDeAccion='$radioUpRechazar',justificacionRechazo='$motivoRUp', fechaAutorizacion = '$row[0] - $rolSegimiento', analistaCap='$analista', vigenciaDel = '$fechaDel', vigenciaAl = '$fechaAl' WHERE id_movimiento = '$id_Fom'";
+								mysqli_query($conexion,$sqlL);
+
+		               			echo "<script> alert('Fomope Actualizado'); window.location.href = '../unidadCaptura.php?usuario_rol=$rolSegimiento'</script>";
 
 						}
 						$sqlH = "INSERT INTO historial (usuario,fechaMovimiento,horaMovimiento) VALUES ('$rolSegimiento','$row[0]','$row2[0]')";

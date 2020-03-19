@@ -251,7 +251,7 @@
 								</div>
 						</div> -->
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-											 Autorizar
+											 Enviar
 											</button>
 							  			<br>
 
@@ -266,7 +266,7 @@
 											        </button>
 											      </div>
 											      <div class="modal-body">
-											        ¿Estas seguro de autorizar esta información?
+											        ¿Estas seguro de enviar esta información?
 											      </div>
 									<center>
 						      <div class="form-group col-md-8">
