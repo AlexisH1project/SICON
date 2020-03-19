@@ -510,159 +510,20 @@ $(document).ready(function(){
 					</div>
 						<div class="form-group col-md-12">
 						
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
-								Capturar Fomope 
-						</button>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Capturar Fomope </button>
+								 
 
 						</div>
 
 						<div class="form-group col-md-6">
-							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalRT" data-whatever="@getbootstrap">Rechazo por validacion</button>
+							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalRT" >Rechazo por validacion </button>
+
+
 						</div>
 					</div>
 						
 
 
-					<!-- <div class="form-group col-md-6">
-						<label class="plantilla-label" for="fecharedgrh">*Fecha de recibido por parte de la DGRH:</label>
-						<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fecharedgrh" name="fecharedgrh" placeholder="Fecha de recibido por parte de la DGRH" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
-				        </small>  
-					</div>
-					
-					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="npuesto">*No de puesto:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="npuesto" name="npuesto" placeholder="Ej. 0005" maxlength="18" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required> 
-					</div>
-					<div class="form-group col-md-4">
-						<label class="plantilla-label" for="ap_pat">*Apellido Paterno:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="ap_pat" name="ap_pat" placeholder="Apellido Paterno" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-4">
-						<label class="plantilla-label" for="ap_mat">*Apellido Materno:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="ap_mat" name="ap_mat" placeholder="Apellido Materno" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-4">
-						<label class="plantilla-label" for="nombre_s">*Nombre(s):</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="nombre_s" name="nombre_s" placeholder="Nombre(s)" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					
-					<div class="form-group col-md-8">
-						<label class="plantilla-label" for="rfc">*RFC:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="rfc" name="rfc" placeholder="Ej. JORL249105" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required >
-					</div>
-					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="fechaentseg">*Fecha de entrega de formato a seguros:</label>
-						<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechaentseg" name="fechaentseg" placeholder="Fecha de entrega de formato a seguros" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
-				        </small>  
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="codmov">*Código de movimiento:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="codmov" name="codmov" placeholder="Ej. 4550" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="mesing">*Mes:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control am border border-dark" id="mesingmesing" name="mesing" placeholder="Ej. Enero" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>		
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="ofrel">*Oficio o Relación:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="ofrel" name="ofrel" placeholder="Ej. Captura directa" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="afecplan">*No. de afectación o adecuación plantilla:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="afecplan" name="afecplan" placeholder="Ej. No" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="modifp">*Modificacón plantilla:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="modifp" name="modifp" placeholder="Ej. No" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="justif">*Justificación:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="justif" name="justif" placeholder="Ej. No" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="nota1">*Nota adicional:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="nota1" name="nota1" placeholder="Ej. No" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="quinc">*Quincena aplicada:</label>
-						<input type="text" class="form-control" id="quinc" name="quinc" placeholder="Ej. 1" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="foliospc">*Folio SPC:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="foliospc" name="foliospc" placeholder="Ej. 5" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="pasarf">*Pasar a firma:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="pasarf" name="pasarf" placeholder="Ej. JLATC-09-01-2020" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="ur1">*U.R.:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="ur1" name="ur1" placeholder="Ej. 160" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="noficio">*No de oficio:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="noficio" name="noficio" placeholder="Ej. 1835" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="segu">*Seguros:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="segu" name="segu" placeholder="Ej. No" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="desig">*Designación:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="desig" name="desig" placeholder="Ej. DESIGNACION POR ART.34" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="archiev">*Archivo:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="archiev" name="archiev" placeholder="Ej. ----" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="entreofi">*Entrega en oficios a pagos:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="entreofi" name="entreofi" placeholder="Ej. Disp" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="entreing">*Entrega a ingeniero Dario:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="entreing" name="entreing" placeholder="Ej. No" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="enviorig">*Envio originales a captura:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="enviorig" name="enviorig" placeholder="Ej. X" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="devorig">*Devuelven originales capturados:</label>
-						<input onkeypress="return pulsar(event)" type="date" class="form-control colon border border-dark" id="devorig" name="devorig" placeholder="" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="entregdir">*Se entrega con oficio a direct. de personal:</label>
-						<input onkeypress="return pulsar(event)" type="date" class="form-control colon border border-dark" id="entregdir" name="entregdir" placeholder="" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="enviarch">*Envio a archivo:</label>
-						<input onkeypress="return pulsar(event)" type="date" class="form-control colon border border-dark" id="enviarch" name="enviarch" placeholder="" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="entreorigin">*Entrega originales a unidad:</label>
-						<input onkeypress="return pulsar(event)" type="date" class="form-control colon border border-dark" id="entreorigin" name="entreorigin" placeholder="" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="afectvaca">*Se afecta a vacancia:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="afectvaca" name="afectvaca" placeholder="Ej. Si" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div>
-					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="afectpla">*Se afecta plantilla:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="afectpla" name="afectpla" placeholder="Ej. Si" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
-					</div> -->
 
 				 <form name="captura" action="observacion.php" method="POST"> 
 					<div class="form-row">
@@ -700,7 +561,9 @@ $(document).ready(function(){
 								      </div>
 								      <div class="modal-footer">
 								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-								       	<button type="submit" class="btn btn-primary">Capturar</button>
+										<input type="submit" class="btn btn-primary" name="accionB"  value="Capturar">
+
+								       	<!-- <button type="submit" class="btn btn-primary">Capturar</button> -->
 								       	
 								      </div>
 								    </div>
@@ -711,9 +574,7 @@ $(document).ready(function(){
 					
 
 				</div>
-			</form>
-			
-				
+
 							<div class="modal fade" id="exampleModalRT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							  <div class="modal-dialog" role="document">
 							    <div class="modal-content">
@@ -724,43 +585,24 @@ $(document).ready(function(){
 							        </button>
 							      </div>
 							      <div class="modal-body">
-					        <form action="./generarVolanteRechazo/volanteT.php" method="POST">
-
-   
-							        	<div class="form-group col-md-12">
-											<input  type="text" class="form-control cod4 border border-dark" id="cod4_1" name="cod4_1" placeholder="Cod. de Movimiento"  required>
-										</div>
-
-							        	<div class="form-group col-md-12">
-											<input type="text" class="form-control border-dark" id="unidadR" name="unidadR" placeholder="Unidad">
-										</div>
-										<div class="form-group col-md-12">
-											<input type="text" class="form-control border-dark" id="unidadR" name="unidadR" placeholder="Unidad">
-										</div>
 							         <textarea class="form-control border border-dark" id="obs" rows = "4" name="comentarioR" placeholder="Redactar el volante de rechazo" required></textarea>
-							          <div class="form-row">
-										<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope?>" style="display:none">
-										</div>
-										<div class="form-row">
-											<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $id_rol?>" style="display:none">
-										</div>
-										<div class="form-row">
-											<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
-										</div>
-										
-							      </div>
+							       
 							      <div class="modal-footer">
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+									<input type="submit" class="btn btn-primary" name="accionB"  value="Aceptar">
 
-							        <button type="submit" class="btn btn-primary">Aceptar</button>
-							     </form>
-
+							        <!-- <button type="submit" class="btn btn-primary">Aceptar</button> -->
 							      </div>
 							    </div>
 							  </div>
 							</div>
 
 				</div>
+
+			</form>
+			
+				
+						
 
 		</div>
 

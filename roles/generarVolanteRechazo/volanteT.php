@@ -1,7 +1,41 @@
 <?php 
 
 		include "configuracion.php";
-		require "conexion_excel.php";
+
+		$idFomope = $_POST['noFomope'];
+		$elRol = $_POST['id_rol'];
+		$usuarioEdito = $_POST['usuario'];
+		$motivoR = $_POST['comentarioR'];
+
+
+
+		 $hoy = "select CURDATE()";
+		   	$tiempo ="select curTime()";
+
+					 if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
+					 		$row = mysqli_fetch_row($resultHoy);
+					 		$row2 = mysqli_fetch_row($resultTime);
+					 }
+
+
+					$sql = "UPDATE fomope SET color_estado='negro1', usuario_name = '$usuarioEdito', 	justificacionRechazo = '$motivoR' WHERE id_movimiento = '$idFomope'" ;
+
+					 $sql2 = "INSERT INTO historial (id_movimiento,usuario,fechaMovimiento,horaMovimiento) VALUES ('$idFomope','$usuarioEdito','$row[0]','$row2[0]')";
+
+					 $sql3 = "INSERT INTO rechazos (id_movimiento,justificacionRechazo,usuario,fechaRechazo) VALUES ($idFomope,'$motivoR','$usuarioEdito','$row[0]')";
+
+					
+					 if (mysqli_query($conexion,$sql) AND mysqli_query($conexion,$sql2) AND mysqli_query($conexion,$sql3) ) {
+						
+		              		echo "<script> alert('Fomope Actualizado'); window.location.href = '../analista.php?usuario_rol=$usuarioEdito'</script>";
+					
+
+					}else {
+						echo '<script type="text/javascript">alert("Error en la conexion");</script>';
+						echo '<script type="text/javascript">alert("error '. mysqli_error($conexion).'");</script>';
+					}
+	
+		/*require "conexion_excel.php";
 
 		include 'Classes/PHPExcel/IOFactory.php';
 
@@ -43,5 +77,5 @@
 
 
 
-	    $writer->save('php://output');
+	    $writer->save('php://output');*/
  ?>
