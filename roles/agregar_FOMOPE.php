@@ -71,15 +71,21 @@
 				    $writer = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
 
 				    header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-				    header('Content-Disposition: attachment;filename='."volanteRechazo_".$rowUni[1].".xlsx");
-				    header('Cache-Control: max-age=0');
+				    header('Content-Disposition: attachment;filename='."volanteRechazo_".$rowUni[1].".xlsx"); //attachment inline
+					header('Cache-Control: max-age=0');
+//Location: ./analista.php?usuario_rol=$usuarioEdito
+		
+
 				    ob_end_clean();
 
 			   		$writer->save('php://output');
+	
+			   		
 			   		exit();
 
 			}
 	}
+	
 		
 
 	if($elBoton == "Capturar" || $elBoton == "aceptar y modificar"){
@@ -178,11 +184,40 @@
 				$tiempo ="select curTime()";
 					
 				if (mysqli_query($conexion,$sql1)) {
+					if (mysqli_query($conexion,$sql) AND mysqli_query($conexion,$sql2) AND mysqli_query($conexion,$sql3) ) {
 						if($datoId[0] == 2){
-							   echo "<script> alert('el fomope fue capturado'); window.location.href = './analista.php?usuario_rol=Tostado'</script>";
+							   //echo "<script> alert('el fomope fue capturado'); window.location.href = './analista.php?usuario_rol=Tostado';  alert('alerta 2');</script>";
+							  
+								genearExcel();
+
+								//echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+							    echo "<script> alert('el fomope fue capturado');</script>";
+
+							   //echo "<script> window.location.href = './analista.php?usuario_rol=$usuarioEdito' </script>";
+
+				// $fecha_recibido =$_POST['fechareci'];
+				// $motivoR = $_POST['comentarioR'];
+				// $idfom = $_POST['noFomope'];
+
+								//echo "<script> alert('Fomope Rechazado'); window.location.href = './analista.php?usuario_rol=$usuarioEdito' </script>";              		 
+							
 							}elseif ($datoId[0] == 3) {
+								echo "<script> window.location.href = './analista.php?usuario_rol=$usuarioEdito' </script>";              		 
+									//echo "<script> alert('Fomope Rechazado'); window.location.href = './analista.php?usuario_rol=$usuarioEdito' </script>";              		 
+									
+									genearExcel();
+
 								  echo "<script> alert('el fomope fue actualizado'); window.location.href = './capturistaTostado.php?usuario_rol=$usuario'</script>";
 							}
+							
+							
+
+																			
+					}else {
+						echo '<script type="text/javascript">alert("Error en la conexion");</script>';
+						echo '<script type="text/javascript">alert("error '. mysqli_error($conexion).'");</script>';
+					}
+						
 							
 
 					}else {
@@ -193,18 +228,7 @@
 					 echo "<script> alert('Se detecto incosistencia en las fechas');window.location.href='./form_FOMOPE.php?usuario=$usuario&id_rol=$usuario_rol&noFomope=$noFomope'</script>";
 		}	
 					
-		if (mysqli_query($conexion,$sql) AND mysqli_query($conexion,$sql2) AND mysqli_query($conexion,$sql3) ) {
-							echo "<script> window.location.href = './analista.php?usuario_rol=$usuarioEdito' </script>";              		 
-							//echo "<script> alert('Fomope Rechazado'); window.location.href = './analista.php?usuario_rol=$usuarioEdito' </script>";              		 
-							
-							genearExcel();
-							
-
-																			
-					}else {
-						echo '<script type="text/javascript">alert("Error en la conexion");</script>';
-						echo '<script type="text/javascript">alert("error '. mysqli_error($conexion).'");</script>';
-					}
+		
 
 	}
 		
