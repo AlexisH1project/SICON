@@ -11,6 +11,9 @@
 		<link href='jquery/jquery-ui.min.css' type='text/css' rel='stylesheet'>
 		<link href='jquery/jquery-ui.css' type='text/css' rel='stylesheet'>
 
+		<script type="text/javascript" src="./include/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="./include/jquery.validate.js"></script>
+
 		  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 		<script src="js/funciones.js"></script>
@@ -132,6 +135,36 @@
 			});
 
 
+			function enviarDatos(){
+				var formulario = document.captura1;
+				formulario.action= './Controller/agregarNewRegistro.php';
+				    var a = $("#unexp_1").val();
+				    var b = $("#rfcL_1").val();
+				    var c = $("#curp").val();
+				    var d = $("#apellido1").val();
+				    var e = $("#apellido2").val();
+				    var f = $("#nombre").val();
+				    var g = $("#fechaIngreso").val();
+				    //var h = $("#TipoEntregaArchivo").val();
+				    
+
+				      if (a=="" || b=="" || c==""|| d==""|| e==""|| f==""|| g==""|| $('input:radio[name=TipoEntregaArchivo]:checked').val() =="Ninguno" ) {
+				        alert("Existen valores por acompletar");		
+				        return false;
+				      } else 
+				      	formulario.submit();
+				    
+				/*formulario.submit(function() {
+				    var x = $("#unexp_1").val();
+				      if (x!="") {
+				        alert("Valor introducido no válido");		
+				        return false;
+				      } else 
+				          return true;			
+				    });*/
+				//window.location.href =' ./Controller/agregarNewRegistro.php';
+
+			}
 
 /*		$(document).ready(function(){
 
@@ -158,14 +191,16 @@
 				<br>
 
 			<div class="col-md-8 col-md-offset-8">
-				<form name="captura1" action="./Controller/agregarNewRegistro.php" method="POST"> 
+				<!-- <form name="captura2" action="./Controller/agregarNewRegistro.php" method="POST">  -->
+
+				<form  id="formDatos" name="captura1" action="" enctype="multipart/form-data" method="POST"> 
 				 		<div class="form-row">
 							<input type="text" class="form-control" id="userName" name="userName" value="<?php echo $usuarioSeguir ?>" style="display:none">
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-12" >
 								<label class="plantilla-label" for="unexp_1">Unidad:</label>
-								<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="unexp_1" name="unexp_1" placeholder="Ej. 111" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+								<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="unexp_1" name="unexp_1" placeholder="Ej. 111" value="<?php if(isset($_POST["unexp_1"])){ echo $_POST["unexp_1"];} ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
 							</div>
 						</div>
 
@@ -173,14 +208,14 @@
 							<div class="col">
 						      <div class="md-form mt-0">
 						       <label class="plantilla-label" for="rfcL_1" >RFC: </label>
-						    	<input type="text"  type="text" class="form-control rfcL border border-dark" id="rfcL_1" name="rfcL_1" placeholder="RFC"  onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingresa rfc" maxlength="13"  required>
+						    	<input type="text"  type="text" class="form-control rfcL border border-dark" id="rfcL_1" name="rfcL_1" placeholder="RFC" value="<?php if(isset($_POST["rfcL_1"])){ echo $_POST["rfcL_1"];} ?>"  onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingresa rfc" maxlength="13"  required>
 						      </div>
 						    </div>
 
 						    <div class="col">
 						      <div class="md-form mt-0">
 						        <label for="CURP">CURP: </label>
-						   		 <input type="text" class="form-control border border-dark" id="curp" name="curp" placeholder="Ingresa CURP" maxlength="18"  required>
+						   		 <input type="text" class="form-control border border-dark" id="curp" name="curp" placeholder="Ingresa CURP" value="<?php if(isset($_POST["curp"])){ echo $_POST["curp"];} ?>" maxlength="18"  required>
 						      </div>
 						    </div>
 						</div>
@@ -193,19 +228,19 @@
 
 				  			<div class="col">
 						      <div class="md-form mt-0">
-						        <input type="text" class="form-control border border-dark" id="apellido1" name="apellido1" placeholder="Apellido Paterno" maxlength="30"required>
+						        <input type="text" class="form-control border border-dark" id="apellido1" name="apellido1" placeholder="Apellido Paterno" value="<?php if(isset($_POST["apellido1"])){ echo $_POST["apellido1"];} ?>" maxlength="30"required>
 						      </div>
 						    </div>
 
 						    <div class="col">
 						      <div class="md-form mt-0">
-						        <input type="text" class="form-control border border-dark" id="apellido2" name="apellido2" placeholder="Apellido Materno" maxlength="30"required>
+						        <input type="text" class="form-control border border-dark" id="apellido2" name="apellido2" placeholder="Apellido Materno" value="<?php if(isset($_POST["apellido2"])){ echo $_POST["apellido2"];} ?>" maxlength="30"required>
 						      </div>
 						    </div>
 
 						    <div class="col">
 						      <div class="md-form mt-0">
-						        <input type="text" class="form-control border border-dark" id="nombre" name="nombre" placeholder="Nombre" maxlength="40" value="" required>
+						        <input type="text" class="form-control border border-dark" id="nombre" name="nombre" placeholder="Nombre" maxlength="40" value="<?php if(isset($_POST["nombre"])){ echo $_POST["nombre"];} ?>" required>
 						      </div>
 						    </div>
 						</div>
@@ -214,7 +249,7 @@
 
 				  		<div class="form-group col-md-8" >
 					  		<label for="fechaIngreso"> FECHA DE RECIBIDO: </label>
-						    <input type="date" class="form-control border border-dark" id="fechaIngreso" name="fechaIngreso" placeholder="Ingresa Fecha del ingreso" required>
+						    <input type="date" class="form-control border border-dark" id="fechaIngreso" name="fechaIngreso" placeholder="Ingresa Fecha del ingreso" value="<?php if(isset($_POST["fechaIngreso"])){ echo $_POST["fechaIngreso"];} ?>" required>
 						    
 				  		</div>
 				  	<div class="form-row">
@@ -222,7 +257,7 @@
 							<div class="text-center">
 								<label class="plantilla-label" for="del2">*Del:</label>
 							</div>
-							<input type="date" class="form-control border border-dark" id="del2" name="del2" placeholder="Del" >
+							<input type="date" class="form-control border border-dark" id="del2" name="del2" value="<?php if(isset($_POST["del2"])){ echo $_POST["del2"];} ?>" placeholder="Del" >
 							<small name= "alertVigencia" id= "alertVigencia" class="text-danger">
 				        	</small> 
 						</div>
@@ -230,7 +265,7 @@
 							<div class="text-center">
 								<label class="plantilla-label" for="al3">al:</label>
 							</div>
-						<input  type="date" class="form-control border border-dark" id="al3" name="al3" placeholder="al"> <!--required-->
+						<input  type="date" class="form-control border border-dark" id="al3" name="al3" value="<?php if(isset($_POST["al3"])){ echo $_POST["al3"];} ?>" placeholder="al"> <!--required-->
 						</div>
 					</div>
 				  		<div class="form-group col-md-12" >	
@@ -238,6 +273,7 @@
 						</div>
 
 				  		<div class="form-group col-md-12" >
+				  			<input id="TipoEntregaArchivo" type="radio" name="TipoEntregaArchivo" value="Ninguno" style="display:none" checked >
 							<label class="radio-inline"><input id="TipoEntregaArchivo" type="radio" name="TipoEntregaArchivo" value="Fisico" required>Fisico</label>
 							<label class="radio-inline"><input id="TipoEntregaArchivo" type="radio" name="TipoEntregaArchivo" value="Digital" required >Digital</label>
 							<label class="radio-inline"><input id="TipoEntregaArchivo" type="radio" name="TipoEntregaArchivo" value="Ambos" required >Ambos</label>
@@ -284,22 +320,37 @@
 								</div> -->
 							</div>
 						</div>	
+						<div class="col">
+						  	<div class="md-form md-0">
+							
+									<input type="submit" name="guardarAdj" onclick="'<?php $_GET['usuario_rol']; ?>'" class="btn btn-outline-info tamanio-button" value="Adjuntar"><br>
+							</div>	
+						</div>	
+
 					</div>	
+								
 				</div>	
 				<br>
-			<div class="col-md-4 col-md-offset-4">
-				<div class="col">
-					<ul class="list-group list-group-flush">
-					  <li class="list-group-item">Cras justo odio</li>
-					  <li class="list-group-item">Dapibus ac facilisis in</li>
-					  <li class="list-group-item">Morbi leo risus</li>
-					  <li class="list-group-item">Porta ac consectetur ac</li>
-					  <li class="list-group-item">Vestibulum at eros</li>
-					</ul>
-				</div>
-				
+			<?php 
+				if(isset($_POST['guardarAdj'])){
 
-			</div>
+						echo '		<div class="col-md-4 col-md-offset-4">
+								<div class="col">
+									<ul class="list-group">
+									  <li class="list-group-item">Cras justo odio</li>
+									  <li class="list-group-item">Dapibus ac facilisis in</li>
+									  <li class="list-group-item">Morbi leo risus</li>
+									  <li class="list-group-item">Porta ac consectetur ac</li>
+									  <li class="list-group-item">Vestibulum at eros</li>
+									</ul>
+								</div>
+								
+				
+							</div>';
+				}
+
+			?>
+
 <br> <br> 
 							
 								
@@ -350,12 +401,12 @@
 										</div>
 										 <br>  
 
-										</div>
+								</div>
 										</center>
 											      <div class="modal-footer">
 
 											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-							        				<input type="submit" class="btn btn-primary" value="Aceptar" name="botonAccion">
+							        				<input type="button" onclick="enviarDatos();" class="btn btn-primary" value="Aceptar" name="botonAccion">
 											      </div>
 											    </div>
 											  </div>
@@ -391,10 +442,10 @@
 							  </div>
 							</div>
 
-				</form>
-
+			
 				</div>
-		
+			</form>
+
 	</body>
 
 		

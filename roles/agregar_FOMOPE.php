@@ -25,6 +25,7 @@
 		$clave_presupuestaria =$_POST['clavepres'];
 		//$codigo_movimiento =$_POST['cod2_1'];
 		//$concepto =$_POST['concept'];//descripción del movimiento		 
+		$movimientoYcodigo = $_POST['cod2_1'];
 		$nombreCompletoMov = explode("_", $_POST['cod2_1']);
 		$codigo_movimiento = $nombreCompletoMov[0];
 		$concepto = $nombreCompletoMov[1];
@@ -142,7 +143,7 @@
 		}else{
 					 echo "<script> alert('Se detecto incosistencia en las fechas');window.location.href='./form_FOMOPE.php?usuario=$usuario&id_rol=$usuario_rol&noFomope=$noFomope'</script>";
 		}
-	}else if($elBoton == "Aceptar"){
+	}else if($elBoton == "descargar"){
 		$motivoR = $_POST['comentarioR'];
 
 
@@ -154,19 +155,12 @@
 					 		$row = mysqli_fetch_row($resultHoy);
 					 		$row2 = mysqli_fetch_row($resultTime);
 					 }
-
-
 					$sql = "UPDATE fomope SET color_estado='negro1', usuario_name = '$usuarioEdito', 	justificacionRechazo = '$motivoR' WHERE id_movimiento = '$idFomope'" ;
 
 					 $sql2 = "INSERT INTO historial (id_movimiento,usuario,fechaMovimiento,horaMovimiento) VALUES ('$idFomope','$usuarioEdito','$row[0]','$row2[0]')";
 
 					 $sql3 = "INSERT INTO rechazos (id_movimiento,justificacionRechazo,usuario,fechaRechazo) VALUES ($idFomope,'$motivoR','$usuarioEdito','$row[0]')";
-
-					$sqlRol = "SELECT id_rol FROM usuarios WHERE usuario = '$usuario'";
-		$resRol = mysqli_query($conexion,$sqlRol);
-		$datoId = mysqli_fetch_row($resRol);
-
-
+	
 		$hoy = "select CURDATE()";
 		$tiempo ="select curTime()";
 
@@ -185,53 +179,36 @@
 					
 				if (mysqli_query($conexion,$sql1)) {
 					if (mysqli_query($conexion,$sql) AND mysqli_query($conexion,$sql2) AND mysqli_query($conexion,$sql3) ) {
-						if($datoId[0] == 2){
-							   //echo "<script> alert('el fomope fue capturado'); window.location.href = './analista.php?usuario_rol=Tostado';  alert('alerta 2');</script>";
-							  
-								genearExcel();
-
-								//echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
-							    echo "<script> alert('el fomope fue capturado');</script>";
-
-							   //echo "<script> window.location.href = './analista.php?usuario_rol=$usuarioEdito' </script>";
-
-				// $fecha_recibido =$_POST['fechareci'];
-				// $motivoR = $_POST['comentarioR'];
-				// $idfom = $_POST['noFomope'];
-
-								//echo "<script> alert('Fomope Rechazado'); window.location.href = './analista.php?usuario_rol=$usuarioEdito' </script>";              		 
-							
-							}elseif ($datoId[0] == 3) {
-								echo "<script> window.location.href = './analista.php?usuario_rol=$usuarioEdito' </script>";              		 
-									//echo "<script> alert('Fomope Rechazado'); window.location.href = './analista.php?usuario_rol=$usuarioEdito' </script>";              		 
-									
-									genearExcel();
-
-								  echo "<script> alert('el fomope fue actualizado'); window.location.href = './capturistaTostado.php?usuario_rol=$usuario'</script>";
-							}
-							
-							
-
+							genearExcel();
 																			
 					}else {
 						echo '<script type="text/javascript">alert("Error en la conexion");</script>';
 						echo '<script type="text/javascript">alert("error '. mysqli_error($conexion).'");</script>';
 					}
-						
-							
-
-					}else {
+				}else {
 						echo '<script type="text/javascript">alert("Error en la conexion");</script>';
 						echo '<script type="text/javascript">alert("error '. mysqli_error($conexion).'");</script>';
 					}
 		}else{
-					 echo "<script> alert('Se detecto incosistencia en las fechas');window.location.href='./form_FOMOPE.php?usuario=$usuario&id_rol=$usuario_rol&noFomope=$noFomope'</script>";
+					  echo "<script> alert('Se detecto incosistencia en las fechas');window.location.href='./form_FOMOPE.php?usuario=$usuario&id_rol=$usuario_rol&noFomope=$noFomope'</script>";
 		}	
 					
 		
 
-	}
+	}else if($elBoton == "bandeja principal"){
 		
+
+		$sqlRol = "SELECT id_rol FROM usuarios WHERE usuario = '$usuario'";
+		$resRol = mysqli_query($conexion,$sqlRol);
+		$datoId = mysqli_fetch_row($resRol);
+				if($datoId[0] == 2){
+ 					echo "<script> window.location.href = './analista.php?usuario_rol=$usuarioEdito' </script>";
+				}elseif ($datoId[0] == 3) {
+								
+				  echo "<script>window.location.href = './capturistaTostado.php?usuario_rol=$usuario'</script>";
+				}
+	}
+	
 
  ?>
 	

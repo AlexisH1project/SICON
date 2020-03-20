@@ -588,10 +588,11 @@ $(document).ready(function(){
 							         <textarea class="form-control border border-dark" id="obs" rows = "4" name="comentarioR" placeholder="Redactar el volante de rechazo" required></textarea>
 							       
 							      <div class="modal-footer">
-							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-									<input type="submit" class="btn btn-primary" name="accionB"  value="Aceptar">
-
-							        <!-- <button type="submit" class="btn btn-primary">Aceptar</button> -->
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">REGRESAR</button>
+									<input type="submit" class="btn btn-primary" name="accionB"  value="descargar">
+							      </div>
+							      <div class="modal-footer">
+									<input type="submit" class="btn btn-danger" name="accionB"  value="bandeja principal">
 							      </div>
 							    </div>
 							  </div>
@@ -600,9 +601,7 @@ $(document).ready(function(){
 				</div>
 
 			</form>
-			
-				
-						
+
 
 		</div>
 

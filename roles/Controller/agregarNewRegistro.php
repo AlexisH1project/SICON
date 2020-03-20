@@ -109,10 +109,10 @@
 										$rowRol = mysqli_fetch_row($resultU);
 										if($rowRol[0] == 0){
 
-										echo "<script> alert('Fomope enviado a revision'); window.location.href = '../luluConsulta.php?usuario_rol=$usuarioEdito'</script>";
+										//si-- echo "<script> alert('Fomope enviado a revision'); window.location.href = '../luluConsulta.php?usuario_rol=$usuarioEdito'</script>";
 
 										}else if ($rowRol[0] == 1){
-										echo "<script> alert('Fomope enviado a revision'); window.location.href = '../lulu.php?usuario_rol=$usuarioEdito'</script>";
+										//si-- echo "<script> alert('Fomope enviado a revision'); window.location.href = '../lulu.php?usuario_rol=$usuarioEdito'</script>";
 
 										}
 									}
@@ -160,13 +160,13 @@
 
 										if($id_rol == 0 && $unidadC == ''){
 
-										echo "<script> alert('Fomope enviado a revision'); window.location.href = '../luluConsulta.php?usuario_rol=$usuarioEdito'</script>";
+										//si-- echo "<script> alert('Fomope enviado a revision'); window.location.href = '../luluConsulta.php?usuario_rol=$usuarioEdito'</script>";
 
 										}else if ($id_rol == 1){
-										echo "<script> alert('Fomope enviado a revision'); window.location.href = '../lulu.php?usuario_rol=$usuarioEdito'</script>";
+										//si-- echo "<script> alert('Fomope enviado a revision'); window.location.href = '../lulu.php?usuario_rol=$usuarioEdito'</script>";
 
 										}else if ($id_rol == 0 && $unidadC != ''){
-										echo "<script> alert('Fomope enviado a revision'); window.location.href = '../unidadCaptura.php?usuario_rol=$usuarioEdito'</script>";
+										//si-- echo "<script> alert('Fomope enviado a revision'); window.location.href = '../unidadCaptura.php?usuario_rol=$usuarioEdito'</script>";
 
 										}
 								

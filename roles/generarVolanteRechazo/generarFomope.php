@@ -1,10 +1,19 @@
 
-<?php
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+	
+		
+		<?php
 
 				require "conexion_excel.php";
 				include "configuracion.php";
 				include 'Classes/PHPExcel/IOFactory.php';
-
+			
 				$fileType = 'Excel5';
 				$fileName = 'rechazoT.xls';
 
@@ -35,14 +44,14 @@
 				    header('Content-Disposition: attachment;filename='."volanteRechazo_".$rowUni[1].".xlsx");
 				    header('Cache-Control: max-age=0');
 				    ob_end_clean();
-				    regresar();
+				  
 			   		$writer->save('php://output');
 			   		exit();
 
 					          		 
 				}
 
-				//echo "<script> alert('Fomope Rechazado'); window.location.href = '../analista.php?usuario_rol=$usuarioEdito' </script>";    
-      header("Location: ../analista.php?usuario_rol=$usuarioEdito");
-      exit;	
 ?>
+</body>
+</html>
+
