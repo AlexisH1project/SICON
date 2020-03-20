@@ -21,53 +21,111 @@
 		<script src="js/jquery-ui.js" type="text/javascript"></script>
 			<style type="text/css">
 			
+			p.one {
+			  border-style: solid;
+			  border-color: hsl(0, 100%, 50%); /* red */
+			}
+
+			p.two {
+			  border-style: solid;
+			  border-color: hsl(240, 100%, 50%); /* blue */
+			}
+
+			p.three {
+			  border-style: solid;
+			  border-color: hsl(0, 0%, 73%); /* grey */
+			}
+			
 			.formulario_fomope{
 				padding-left: 10%;
 				padding-right: 10%;
 			}
-			
+			.bord {
+			  border-style: solid;
+			  border-color: #9f2241; /* grey */
+			}
+			.bordg {
+			  border-style: solid;
+			  border-color: #6f7271; /* grey */
+			}
 			input{
 				text-transform: uppercase;
 			}
 
 			.estilo-color{
-				color: red;
+				font-family: Monserrat, Medium;
+				font-size: 25px;
+				color:  #9f2241 ;
+				font-weight: bold;
+			}
+			.estilo-colorr{
+				color:  #f2ebd7 ;
+				font-weight: bold;
+			}
+			.estilo-colorn{
+				color:  #000000 ;
+				font-weight: bold;
+			}
+			.estilo-colorb{
+				color:  #ffffff ;
 				font-weight: bold;
 			}
 
 			.plantilla-titulos{
 				background-color: #A9D0F5;
-				font-family: Verdana, Geneva, sans-serif;
-				font-size: 22px;
+				font-family: Monserrat, Medium;
+				font-size: 25px;
 				font-weight: bold;
 				padding: 12px 12px 0px 12px;
 			}
 
 			.plantilla-subtitulos{
-				font-family: Verdana, Geneva, sans-serif;
+				font-family: Monserrat, Medium;
 				font-size: 18px;
 				font-weight: bold;
 			}
-
-			.plantilla-input{
-				background-color: #CEE3F6;
-				font-family: Verdana, Geneva, sans-serif;
-				padding: 12px;
+			.plantilla-subtitulosp{
+				font-family: Monserrat, Medium;
+				font-size: 22px;
+				font-weight: bold;
+			}
+			.plantilla-subtitulospr{
+				font-family: Monserrat, Medium;
+				font-size: 25px;
+				font-weight: bold;
 			}
 
-			.plantilla-input-imp{
-				background-color: #276F7B;
-				font-family: Verdana, Geneva, sans-serif;
+			.plantilla-inputb{
+				text-color: #ffffff;
+				font-family: Monserrat, Medium;
+				padding: 12px;
+			}
+			.plantilla-input{
+				background-color: #9f2241;
+				font-family: Monserrat, Medium;
+				padding: 12px;
+			}
+			.plantilla-inputg{
+				background-color: #6f7271;
+				font-family: Monserrat, Medium;
+				padding: 25px;
+			}
+			.plantilla-inputv{
+				background-color: #f2ebd7;
+				font-family: Monserrat, Medium;
 				padding: 12px;
 			}
 
 			.plantilla-label{
 				font-weight: bold;
+				border-color: hsl(0, 100%, 50%); /* red */
+				font-family: Monserrat, Medium;
+				font-size: 18px;
 			}
 
 			.plantilla-lugnac{
 				background-color: #A9D0F5;
-				font-family: Verdana, Geneva, sans-serif;
+				font-family: Monserrat, Medium;
 				font-size: 21px;
 				font-weight: bold;
 				padding: 12px 12px 2px 12px;
@@ -75,7 +133,7 @@
 
 			.plantilla-depend{
 				background-color: #A9D0F5;
-				font-family: Verdana, Geneva, sans-serif;
+				font-family: Monserrat, Medium;
 				font-size: 22px;
 				font-weight: bold;
 				padding: 12px 12px 8px 12px;
@@ -83,7 +141,7 @@
 
 			.plantilla-inputdepend{
 				background-color: #CEE3F6;
-				font-family: Verdana, Geneva, sans-serif;
+				font-family: Monserrat, Medium;
 				padding: 36px 12px 36px 12px;
 			}
 
@@ -91,13 +149,17 @@
 				font-weight: bold;
 				font-size: 25px;
 			}
+			.tamanio-button2{
+				font-weight: bold;
+				font-size: 13px;
+			}
 
 		</style>
 
 	</head>
 	<body>
 
-		<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<nav class="navbar fixed-top navbar-expand-lg navbar-dark plantilla-input fixed-top">
 		    <div class="container">
 		      <div class="collapse navbar-collapse" id="navbarResponsive">
 		        <ul class="navbar-nav ml-auto">          
@@ -114,9 +176,9 @@
 		<img class="img-responsive" src="img/img-salud.jpg" height="150" width="400">
 		
 		<center>			
-						<h3>Sistema de Control de Registro de Formato de Movimiento de Personal (SICON).</h3>
+						<h3 class="estilo-color plantilla-subtitulospr">Sistema de Control de Registro de Formato de Movimiento de Personal (SICON).</h3>
 				<br>
-				<h5> DEPARTAMENTO DE DICTAMINACIÓN SALARIAL Y CONTRATOS POR HONORARIOS - DDSCH</h5>
+				<h5  class=" plantilla-subtitulop" > DEPARTAMENTO DE DICTAMINACIÓN SALARIAL Y CONTRATOS POR HONORARIOS - DDSCH</h5>
 
 				<script type="text/javascript">
 
@@ -147,18 +209,10 @@
 				//Hola ALexis como te va
 			?>
 
-			<div class="row">
-				<div class="col text-center">
-
-					<td>
-									<button type="button" class="btn btn-info" onclick="agregaf('<?php echo $usuarioSeguir ?>')" id="" >Capturar Fomope</button>
-
-							</td>
-				</div>
-			</div>
+			
 			<br>
 			<form method="post" action="generarReporteAnalista/generarFomope.php"> 
-				<div class="rounded border border-dark plantilla-input-imp text-center">
+				<div class="plantilla-inputv text-center">
 					<div class="form-row">
 						<div class="col">
 							<div class="form-group col-md-12">
@@ -185,16 +239,16 @@
 
 							<div class="form-group col-md-12">
 								<label class="plantilla-label" for="fechaImp1">Fecha a Imprimir:</label>
-								<input type="date" class="form-control unexp border border-dark" id="fechaImp1" name="fechaImp1" required>
+								<input type="date" class="form-control border-dark" id="fechaImp1" name="fechaImp1" required>
 							</div>
 						</div>
 
-								<input type="input" class="form-control unexp border border-dark" id="nombreUsuario" name="nombreUsuario" value="<?php echo "$usuarioSeguir" ?>" style="display:none">
+								<input type="input" class="form-control border-dark" id="nombreUsuario" name="nombreUsuario" value="<?php echo "$usuarioSeguir" ?>" style="display:none">
 			
 						<div class="col">
 							<div class="form-group col-md-12">
 								<label class="plantilla-label" for="fechaImp2">Rango de Fecha:</label>
-								<input type="date" class="form-control unexp border border-dark" id="fechaImp2" name="fechaImp2">
+								<input type="date" class="form-control border-dark" id="fechaImp2" name="fechaImp2">
 							</div>
 						</div>		
 					</div>
@@ -204,7 +258,7 @@
 
 					<div class="form-group col-md-12">
 						<div class="col text-center">
-							<input type="submit" name="impReporte" class="btn btn-outline-info tamanio-button" value="Generar Reporte"><br>
+							<input type="submit" name="impReporte" class="btn btn btn-danger tamanio-button plantilla-input text-white bord" value="Generar Reporte"><br>
 
 							<!-- <button type="submit" name="buscar" class="btn btn-outline-info tamanio-button">Buscar</button> -->
 						</div>
@@ -217,12 +271,12 @@
 
 
 			<form method="post" action=""> 
-				<div class="rounded border border-dark plantilla-input text-center">
+				<div class="plantilla-inputv text-center">
 					<div class="form-row">
 						<div class="col">
 							<div class="form-group col-md-12">
 								<label class="plantilla-label" for="elRfc">*RFC:</label>
-								<input type="text" class="form-control unexp border border-dark" id="rfc" name="rfc" placeholder="Ingresa rfc" maxlength="13"  >
+								<input type="text" class="form-control border-dark" id="rfc" name="rfc" placeholder="Ingresa rfc" maxlength="13"  >
 							</div>
 
 						</div>
@@ -232,7 +286,7 @@
 							<div class="form-group col-md-12">
 								<label  class="plantilla-label" for="laQna">*QNA: </label>
 									 
-									<select class="form-control unexp border border-dark custom-select" name="qnaOption">
+									<select class="form-control custom-select border-dark" name="qnaOption">
 										<?php
 										if (!$conexion->set_charset("utf8")) {//asignamos la codificación comprobando que no falle
 										       die("Error cargando el conjunto de caracteres utf8");
@@ -253,7 +307,7 @@
 							<div class="form-group col-md-12">
 								<label  class="plantilla-label" for="elAnio">AÑO: </label>
 									 
-									<select class="form-control unexp border border-dark custom-select" name="anio">
+									<select class="form-control custom-select border-dark" name="anio">
 										<option value=""></option>
 										<option value="2019">2019</option>
 	  									<option value="2020">2020</option>	
@@ -267,7 +321,7 @@
 
 					<div class="form-group col-md-12">
 						<div class="col text-center">
-							<input type="submit" name="buscar" onclick="'<?php $_GET['usuario_rol']; ?>'" class="btn btn-outline-info tamanio-button" value="Buscar"><br>
+							<input type="submit" name="buscar" onclick="'<?php $_GET['usuario_rol']; ?>'" class="btn btn btn-danger tamanio-button plantilla-input text-white bord" value="Buscar"><br>
 
 							<!-- <button type="submit" name="buscar" class="btn btn-outline-info tamanio-button">Buscar</button> -->
 						</div>
@@ -358,7 +412,7 @@
 											<br>
 											<br>
 											<div class="col-sm-12 ">
-											<div class="p-3 mb-5 bg-warning text-dark ">
+											<div class="plantilla-inputv text-dark ">
 											    <div class="card-body"><h2 align="center">No existe resultados de la busqueda, vuelve intentar.</h2></div>
 										</div>
 										</div>');
@@ -397,27 +451,27 @@
 
 										
 								?>
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Editar</button>
+												<button type="button" class="btn btn-outline-secondary" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Editar</button>
 								<?php	
 											}else if($ver[1] == "verde2"){
 													$datosCaptura = $ver[0]."||".$usuarioSeguir."||4";
 
 
 								?>	
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Ver</button>
+												<button type="button" class="btn btn-outline-secondary" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Ver</button>
 
 								<?php
 											}else if($ver[1] == "gris"){
 												$datosCaptura = $ver[0]."||".$usuarioSeguir."||2";
 
 								?>
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Editar</button>
+												<button type="button" class="btn btn-outline-secondary" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Editar</button>
 								<?php
 											}else if($ver[1] == "amarillo0"){
 												$datosCaptura = $ver[0]."||".$usuarioSeguir."||3";
 
 								?>
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Ver</button>
+												<button type="button" class="btn btn-outline-secondary" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Ver</button>
 
 											
 											
@@ -445,7 +499,7 @@
 			<div class="col-sm-12">
 				
 					<div class="card bg-secondary text-white">
-						    <div class="card-body"><h2>Autorizar</h2></div>
+						    <div class="card-body plantilla-inputg"><h2>Autorizar</h2></div>
 					</div>
 			<form name="radioALL" id="radioALL" action="" method="POST"> 
 					<table class="table table-hover table-white">
@@ -523,12 +577,12 @@
 
 										
 								?>
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="ver" >Ver</button>
+												<button type="button" class="btn btn-outline-secondary" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="ver" >Ver</button>
 								<?php	
 											}else if($ver[1] == "verde2"){
 												$datosCaptura = $ver[0]."||".$usuarioSeguir."||4";
 								?>	
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="ver2" >Ver</button>
+												<button type="button" class="btn btn-outline-secondary" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="ver2" >Ver</button>
 
 								<?php	
 
@@ -551,7 +605,7 @@
 						
 				</form>
 				
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+				<button type="button" class="btn btn btn-danger tamanio-button plantilla-input text-white bord" data-toggle="modal" data-target="#exampleModal">
 											 Autorizar
 				</button>
 							  			<br>
@@ -591,7 +645,7 @@
 									
 									echo('
 										<div class="col-sm-12 ">
-										<div class="p-3 mb-5 bg-warning text-dark">
+										<div class="plantilla-inputv text-dark">
 										    <div class="card-body"><h2>No existen fomopes por lotear</h2></div>
 									</div>
 									</div>');
@@ -603,7 +657,7 @@
 			<div class="col-sm-12">
 				
 					<div class="card bg-secondary text-white">
-						    <div class="card-body"><h2>Rechazados</h2></div>
+						    <div class="card-body plantilla-inputg"><h2>Rechazados</h2></div>
 					</div>
 					<table class="table table-hover table-white">
 						<thead>
@@ -625,7 +679,7 @@
 						<?php 
 							include "configuracion.php";
 
-							$sql="SELECT id_movimiento,color_estado,unidad, rfc,quincenaAplicada,fechaIngreso, codigoMovimiento, fechaAutorizacion, fechaCaptura from fomope WHERE color_estado = 'negro' OR color_estado = 'gris' ORDER BY color_estado";
+							$sql="SELECT id_movimiento,color_estado,unidad, rfc,quincenaAplicada,fechaIngreso, codigoMovimiento, fechaAutorizacion, fechaCaptura from fomope WHERE color_estado = 'gris' ";
 							$result=mysqli_query($conexion,$sql);
 
 							while($ver=mysqli_fetch_row($result)){ 
@@ -654,17 +708,10 @@
 							<td>
 							   <?php
 								
-											if($ver[1] == "negro" ){
-												$datosCaptura = $ver[0]."||".$usuarioSeguir."||1";
-
-										
-								?>
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Editar</button>
-								<?php	
-											}else if($ver[1] == "gris"){
+											 if($ver[1] == "gris"){
 												$datosCaptura = $ver[0]."||".$usuarioSeguir."||2";
 								?>	
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Editar</button>
+												<button type="button" class="btn btn-outline-secondary" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Editar</button>
 
 								<?php	
 
@@ -685,7 +732,7 @@
 				<?php 
 						 		include "configuracion.php";
 							$sql="SELECT id_movimiento, unidad, rfc,fechaOficio 
-									from fomope WHERE color_estado = 'negro' OR color_estado = 'gris'";
+									from fomope WHERE color_estado = 'gris'";
 							$result=mysqli_query($conexion,$sql);
 
 							$totalFilas    =    mysqli_num_rows($result);  
@@ -693,7 +740,7 @@
 									
 									echo('
 										<div class="col-sm-12 ">
-										<div class="p-3 mb-5 bg-warning text-dark">
+										<div class="plantilla-inputv text-dark">
 										    <div class="card-body"><h2>No existen fomopes por editar.</h2></div>
 									</div>
 									</div>');
@@ -705,7 +752,7 @@
 			<div class="col-sm-12">
 				
 					<div class="card bg-secondary text-white">
-						    <div class="card-body"><h2>Por Escanear</h2></div>
+						    <div class="card-body plantilla-inputg"><h2>Por Escanear</h2></div>
 					</div>
 					<table class="table table-hover table-white">
 						<thead>
@@ -770,16 +817,9 @@
 
 
 										if($totalColor != 0){
-											if($ver[1] == "negro" ){
-												$datosCaptura = $ver[0]."||".$usuarioSeguir."||1";
-
-										
-								?>
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Editar</button>
-								<?php	
-											}else if($ver[1] == "verde"){
+										 if($ver[1] == "verde"){
 								?>	
-												<button type="button" class="btn btn-info" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Capturar</button>
+												<button type="button" class="btn btn-outline-secondary" onclick="accionesRolL('<?php echo $datosCaptura ?>')" id="" >Capturar</button>
 
 								<?php	
 
@@ -811,7 +851,7 @@
 									
 									echo('
 										<div class="col-sm-12 ">
-										<div class="p-3 mb-5 bg-warning text-dark">
+										<div class="plantilla-inputv text-dark">
 										    <div class="card-body"><h2>No existen fomopes por lotear</h2></div>
 									</div>
 									</div>');
