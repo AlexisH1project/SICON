@@ -241,10 +241,68 @@
 							<label class="radio-inline"><input id="TipoEntregaArchivo" type="radio" name="TipoEntregaArchivo" value="Fisico" required>Fisico</label>
 							<label class="radio-inline"><input id="TipoEntregaArchivo" type="radio" name="TipoEntregaArchivo" value="Digital" required >Digital</label>
 							<label class="radio-inline"><input id="TipoEntregaArchivo" type="radio" name="TipoEntregaArchivo" value="Ambos" required >Ambos</label>
-				  		</div>
-
+				  		</div> 
+				</div>
 				
-						
+				<div class="col-md-8 col-md-offset-8">
+						 <div class="form-row">
+
+						  	<div class="col">
+						  		<div class="md-form md-0">
+								    <!-- <label  class="plantilla-label" for="archivo_1">Adjuntar un archivos</label> -->
+								    <!--  <input type="hidden" name="MAX_FILE_SIZE" value="30000" /> -->
+								    <input type="file" name="nameArchivo" >
+								   <!--  <p class="help-block">Ejemplo de texto de ayuda.</p> -->
+								</div>
+							</div>
+
+						   <!-- <label  class="plantilla-label" for="arch">Nombre del archivo: </label> -->
+						  	<div class="col">
+						  		<div class="md-form md-0">
+									<div class="box" >
+
+												<select class="form-control border border-dark custom-select" name="documentoSelct">
+													
+													<?php
+													if (!$conexion->set_charset("utf8")) {//asignamos la codificación comprobando que no falle
+													       die("Error cargando el conjunto de caracteres utf8");
+													}
+
+													$consulta = "SELECT * FROM m1ct_documentos";
+													$resultado = mysqli_query($conexion , $consulta);
+													$contador=0;
+
+													while($listDoc = mysqli_fetch_assoc($resultado)){ $contador++;?>
+													<option value="<?php echo $listDoc["nombre_documento"]; ?>"><?php echo $listDoc["nombre_documento"]; ?></option>
+													<?php }?>          
+													</select>
+										</div>
+
+
+						  		<!-- <div class="md-form md-0">
+									<input type="text" class="form-control unexp border border-dark" id="archA" name="archA" placeholder="Ingresa el nombre del archivo" maxlength="35" required >
+								</div> -->
+							</div>
+						</div>	
+					</div>	
+				</div>	
+				<br>
+			<div class="col-md-4 col-md-offset-4">
+				<div class="col">
+					<ul class="list-group list-group-flush">
+					  <li class="list-group-item">Cras justo odio</li>
+					  <li class="list-group-item">Dapibus ac facilisis in</li>
+					  <li class="list-group-item">Morbi leo risus</li>
+					  <li class="list-group-item">Porta ac consectetur ac</li>
+					  <li class="list-group-item">Vestibulum at eros</li>
+					</ul>
+				</div>
+				
+
+			</div>
+<br> <br> 
+							
+								
 				  		<!-- <div class="form-group col-md-12">
 								<div class="col text-center">
 								  	<input type="submit" class="btn btn-primary" name="botonAccion" value="Agregar Informacion">

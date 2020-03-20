@@ -201,7 +201,7 @@
 			//echo $id_rol;
 			$usuario = $_GET['usuario'];
 			//echo $usuario;
-			$consulta2 = " SELECT * FROM fomope WHERE id_movimiento =" .$noFomope;
+			$consulta2 = " SELECT * FROM fomope WHERE id_movimiento = '$noFomope'";
 
 		        if($resultado2 = mysqli_query($conexion,$consulta2)){
 	        		$row = mysqli_fetch_assoc($resultado2);
@@ -537,7 +537,7 @@
 								      </div>
 								      <div class="modal-footer">
 								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-								       	<button type="submit" class="btn btn-primary">Aceptar</button>
+								       	<input type="submit" class="btn btn-primary" value="aceptar y modificar" name="accionB">
 								       	
 								      </div>
 								    </div>
