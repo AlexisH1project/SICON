@@ -134,45 +134,57 @@
 				});
 			});
 
-			// function adjDocumentos(){
-			// 	var formulario = document.captura1;
-			// 	formulario.action= './Controller/guardarDocumento.php';
-			// 	    var a = $("#rfcL_1").val();
-			// 	    var b = $("#apellido1").val();
-			// 	    var c = $("#apellido2").val();
-			// 	    var d = $("#nombre").val();
-			// 	    var e = $("#documentoSelct").val();
+			function enviarDatos(){
+				var formulario = document.captura1;
+				formulario.action= './Controller/agregarNewRegistro.php';
+				document.getElementById("botonAccion").value = "Aceptar";
 
-			// 	      if (a=="" || b=="" || c==""|| d==""|| e=="") {
-			// 	        alert("Existen valores por acompletar");		
-			// 	        return false;
-			// 	      } else 
-			// 	      	formulario.submit();
-
-			// }
-
-
-			// function enviarDatos(){
-			// 	var formulario = document.captura1;
-			// 	formulario.action= './Controller/agregarNewRegistro.php';
-			// 	    var a = $("#unexp_1").val();
-			// 	    var b = $("#rfcL_1").val();
-			// 	    var c = $("#curp").val();
-			// 	    var d = $("#apellido1").val();
-			// 	    var e = $("#apellido2").val();
-			// 	    var f = $("#nombre").val();
-			// 	    var g = $("#fechaIngreso").val();
-			// 	    //var h = $("#TipoEntregaArchivo").val();
+				    var a = $("#unexp_1").val();
+				    var b = $("#rfcL_1").val();
+				    var c = $("#curp").val();
+				    var d = $("#apellido1").val();
+				    var e = $("#apellido2").val();
+				    var f = $("#nombre").val();
+				    var g = $("#fechaIngreso").val();
+				    //var h = $("#TipoEntregaArchivo").val();
 				    
 
-			// 	      if (a=="" || b=="" || c==""|| d==""|| e==""|| f==""|| g==""|| $('input:radio[name=TipoEntregaArchivo]:checked').val() =="Ninguno" ) {
-			// 	        alert("Existen valores por acompletar");		
-			// 	        return false;
-			// 	      } else 
-			// 	      	formulario.submit();
-				   
+				      if (a=="" || b=="" || c==""|| d==""|| e==""|| f==""|| g==""|| $('input:radio[name=TipoEntregaArchivo]:checked').val() =="Ninguno" ) {
+				        alert("Falta completar campo");		
+				        return false;
+				      } else 
+				      	formulario.submit();
+			}
 
-			// }
+			function rechazarDoc(){
+				var formulario = document.captura1;
+				formulario.action= './Controller/agregarNewRegistro.php';
+				document.getElementById("botonAccion").value = "Rechazar";
+
+				    var a = $("#unexp_1").val();
+				    var b = $("#rfcL_1").val();
+				    var c = $("#curp").val();
+				    var d = $("#apellido1").val();
+				    var e = $("#apellido2").val();
+				    var f = $("#nombre").val();
+				    var g = $("#fechaIngreso").val();
+				    var h = $("#comentarioR").val();
+				    $('#nameArchivo').removeAttr("required");
+				    
+				    //var h = $("#TipoEntregaArchivo").val();
+				    
+
+				      if (a=="" || b=="" || c==""|| d==""|| e==""|| f==""|| g=="" || h=="") {
+				        alert("Falta completar campo");		
+				        return false;
+				      } else 
+				      	formulario.submit();
+			}
+
+			function listaDeDoc(text){
+				document.getElementById("listaDoc").value = text;
+
+			}
 
 		</script>
 
@@ -182,63 +194,7 @@
 		<?php 
 			include "Controller/configuracion.php";
 			$usuarioSeguir =  $_GET['usuario_rol'];
-			$cont = 0;
-
-			// function funAdjuntar($nombre, $elRfc, $elApellido1, $elApellido2, $nombreArch){
-			// 			$dir_subida = '../documentos/';
-					
-			// 				// Arreglo con todos los nombres de los archivos
-			// 				$files = array_diff(scandir($dir_subida), array('.', '..')); 
-							
-			// 				foreach($files as $file){
-			// 				    // Divides en dos el nombre de tu archivo utilizando el . 
-			// 				    $data = explode("_",$file);
-			// 				    $data2 = explode(".",$file);
-			// 					$indice = count($data2);	
-
-			// 					$extencion = $data2[$indice-1];
-			// 				    // Nombre del archivo
-			// 				    $extractRfc = $data[0];
-			// 				    $nameAdj = $data[1];
-			// 				    // Extensión del archivo 
-
-			// 				    if($elRfc == $extractRfc AND $nombreArch == strtoupper($nameAdj)){
-			// 				      		unlink($dir_subida.$elRfc."_".strtoupper($nameAdj)."_".$elApellido1."_".$elApellido2."_".$nombre.".".$extencion);
-			// 				        	break;
-			// 				    }
-			// 				}
-
-			// 				$fichero_subido = $dir_subida . basename($_FILES['nameArchivo']['name']);
-			// 				$extencion2 = explode(".",$fichero_subido);
-			// 				$tamnio = count($extencion2);
-
-			// 				$extencion3 = $extencion2[$tamnio-1];
-
-			// 				if (move_uploaded_file($_FILES['nameArchivo']['tmp_name'], $fichero_subido)) {
-			// 					sleep(3);
-			// 					$concatenarNombreC = strtoupper($dir_subida.$elRfc."_".$nombreArch."_".$elApellido1."_".$elApellido2."_".$nombre."_.".$extencion3);
-			// 					rename ($fichero_subido,$concatenarNombreC);
-			// 				   	echo "<script> alert('Se guardo archivo correctamente');'</script>";
-			// 				} else{
-			// 				    echo "<script> alert('Existe un error al guardar el archivo');</script>";
-			// 				}
-
-
-
-			// 			echo '		<div class="col-md-4 col-md-offset-4">
-			// 					<div class="col">
-			// 						<ul class="list-group">
-			// 						  <li class="list-group-item">Cras justo odio</li>
-			// 						  <li class="list-group-item">Dapibus ac facilisis in</li>
-			// 						  <li class="list-group-item">Morbi leo risus</li>
-			// 						  <li class="list-group-item">Porta ac consectetur ac</li>
-			// 						  <li class="list-group-item">Vestibulum at eros</li>
-			// 						</ul>
-			// 					</div>
-								
-				
-			// 				</div>';
-			// 	}
+			$valor = "";
 
 			//echo $usuarioSeguir;
 		?>
@@ -251,9 +207,10 @@
 			<div class="col-md-8 col-md-offset-8">
 				<!-- <form name="captura2" action="./Controller/agregarNewRegistro.php" method="POST">  -->
 
-				<form  enctype="multipart/form-data" id="formDatos" name="captura1" action="./Controller/guardarDocumento.php" method="POST"> 
+				<form  enctype="multipart/form-data" id="formDatos" name="captura1" action="" method="POST"> 
 				 		<div class="form-row">
 							<input type="text" class="form-control" id="userName" name="userName" value="<?php echo $usuarioSeguir ?>" style="display:none">
+							<input type="text" class="form-control" id="botonAccion" name="botonAccion" value="<?php if(isset($_POST["botonAccion"])){ echo $_POST["botonAccion"];} ?>" style="display:none">
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-12" >
@@ -283,6 +240,8 @@
 						</div>
 
 				  		<div class="form-row">
+				  			
+						      <input type="text" style="display:none;" class="form-control border border-dark" id="listaDoc" name="listaDoc" placeholder="Apellido Paterno" value="<?php if(isset($_POST["listaDoc"])){ echo $_POST["listaDoc"];} ?>" >
 
 				  			<div class="col">
 						      <div class="md-form mt-0">
@@ -298,7 +257,7 @@
 
 						    <div class="col">
 						      <div class="md-form mt-0">
-						        <input type="text" class="form-control border border-dark" id="nombre" name="nombre" placeholder="Nombre" maxlength="40" value="<?php if(isset($_POST["nombre"])){ echo $_POST["nombre"];} ?>" required>
+						        <input type="text" class="form-control border border-dark" id="nombre" name="nombre" placeholder="Nombre" maxlength="40" value="<?php if(isset($_POST["nombre"])){ echo $_POST["nombre"].$valor;} ?>" required>
 						      </div>
 						    </div>
 						</div>
@@ -345,7 +304,7 @@
 						  		<div class="md-form md-0">
 								    <!-- <label  class="plantilla-label" for="archivo_1">Adjuntar un archivos</label> -->
 								    <!--  <input type="hidden" name="MAX_FILE_SIZE" value="30000" /> -->
-								    <input type="file" name="nameArchivo" >
+								    <input type="file" id="nameArchivo" name="nameArchivo" required>
 								   <!--  <p class="help-block">Ejemplo de texto de ayuda.</p> -->
 								</div>
 							</div>
@@ -391,13 +350,89 @@
 				<br>
 
 <br> <br> 
-							
-								
+						<?php 
+							if(isset($_POST['guardarAdj'])){
+								 
+									$nombre = strtoupper($_POST['nombre'] );
+									$elRfc =  strtoupper($_POST['rfcL_1']);
+									$elApellido1 = strtoupper ($_POST['apellido1']);
+									$elApellido2 = strtoupper ($_POST['apellido2']);
+									$nombreArch = $_POST['documentoSelct'];
+									$listaCompleta = $_POST['listaDoc'];
+
+									$nombreCompletoArch = $nombreArch."_".$listaCompleta;
+
+
+
+									$dir_subida = './Controller/documentos/';
+											// Arreglo con todos los nombres de los archivos
+											$files = array_diff(scandir($dir_subida), array('.', '..')); 
+											
+											foreach($files as $file){
+											    // Divides en dos el nombre de tu archivo utilizando el . 
+											    $data = explode("_",$file);
+											    $data2 = explode(".",$file);
+												$indice = count($data2);	
+
+												$extencion = $data2[$indice-1];
+											    // Nombre del archivo
+											    $extractRfc = $data[0];
+											    $nameAdj = $data[1];
+											    // Extensión del archivo 
+
+											    if($elRfc == $extractRfc AND $nombreArch == $nameAdj){
+											      		unlink($dir_subida.$elRfc."_".$nameAdj."_".$elApellido1."_".$elApellido2."_".$nombre.".".$extencion);
+											        	break;
+											    }
+											}
+
+											$fichero_subido = $dir_subida . basename($_FILES['nameArchivo']['name']);
+											$extencion2 = explode(".",$fichero_subido);
+											$tamnio = count($extencion2);
+
+											$extencion3 = $extencion2[$tamnio-1];
+
+											if (move_uploaded_file($_FILES['nameArchivo']['tmp_name'], $fichero_subido)) {
+												sleep(3);
+												$concatenarNombreC = $dir_subida.strtoupper($elRfc."_".$nombreArch."_".$elApellido1."_".$elApellido2."_".$nombre."_.".$extencion3);
+												rename ($fichero_subido,$concatenarNombreC);
+												
+													$arrayDoc = explode("_", $nombreCompletoArch);
+												 	$tamanioList = count($arrayDoc);
+												
+												 
+												echo "
+													<script>
+															listaDeDoc( '$nombreCompletoArch');
+													</script >";
+												echo '
+													<div class="col-md-6 col-md-offset-6">
+														<ul class="list-group">';
+															for($i=0; $i<=$tamanioList-1; $i++){
+																if($arrayDoc[$i] == ""){
+																	
+																}else{
+																	echo "
+																	<li class='list-group-item'>$arrayDoc[$i]</li>
+																	";	
+																}
+															}
+												echo '
+														</ul>
+													</div>		
+												';
+																									   	
+											} else{
+											    echo "<script> alert('Existe un error al guardar el archivo'); ";
+											}
+							}
+						?>		
 				  		<!-- <div class="form-group col-md-12">
 								<div class="col text-center">
 								  	<input type="submit" class="btn btn-primary" name="botonAccion" value="Agregar Informacion">
 								</div>
 						</div> -->
+							<br>
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 											 Enviar
 											</button>
@@ -471,11 +506,11 @@
 							        </button>
 							      </div>
 							      <div class="modal-body">
-							         <textarea class="form-control z-depth-1" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..."></textarea>
+							         <textarea class="form-control z-depth-1" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..." required></textarea>
 							      </div>
 							      <div class="modal-footer">
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-							        <input type="submit" class="btn btn-primary" value="Rechazar" name="botonAccion">
+							        <input type="submit" class="btn btn-primary" onclick="rechazarDoc();" value="Rechazar" name="botonAccion">
 							      </div>
 							    </div>
 							  </div>

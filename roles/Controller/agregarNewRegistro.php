@@ -43,11 +43,6 @@
 			$fechaRLaboralesAdd = "Pendiente";
 			$fechaEntregaUnidadAdd = "Pendiente";
 		}
-
-		if($motivoR == "" && $radioAdd_rechazar == "Rechazar"){
-               echo "<script> alert('Es necesario agregar el motivo del Rechazo'); window.location.href = '../blancoLulu.php?usuario_rol=$usuarioEdito'</script>";
-			
-		}else{
 			
 			if($radioAdd_rechazar == "Aceptar" AND $idRolActual[0] == 1){
 				$colorAccion = "amarillo";
@@ -68,7 +63,7 @@
 					        		$rowU = mysqli_fetch_assoc($resultado2);
 					        		$id_rol = $rowU['id_rol'];
 					        		$unidadC = 	$rowU['unidadCorrespondiente'];
-					        	}
+		}
 
 			if($id_rol == 0 && $unidadC == ''){
 				$sql = "INSERT INTO fomope (color_estado,usuario_name,unidad,rfc,curp,apellido_1,apellido_2,nombre,fechaIngreso,tipoEntrega,tipoDeAccion,justificacionRechazo,quincenaAplicada,anio,oficioUnidad,fechaOficio,fechaRecibido,codigo,n_puesto,clavePresupuestaria,codigoMovimiento,descripcionMovimiento,vigenciaDel,vigenciaAl,entidad,consecutivoMaestroPuestos,puestos,observaciones,fechaEnviadaRubricaDspo,fechaEnviadaRubricaDipsp,fechaEnviadaRubricaDgrho,fechaRecepcionSpc,fechaEnvioSpc,fechaReciboDspo,folioSpc,fechaCapturaNomina,fechaEntregaArchivo,fechaEntregaRLaborales,OfEntregaRLaborales,fomopeDigital,fechaEntregaUnidad,OfEntregaUnidad,analistaCap,fechaCaptura) VALUES ('$colorAccion','$usuarioEdito','$unidadAdd','$rfcAdd','$curpAdd','$apellido1Add','$apellido2Add','$nombreAdd','$fechaIngresoAdd','$tipoEntregaAdd','$radioAdd_rechazar','$motivoR','','','','','','','','','','','$fechaDel','$fechaAl','','','','','','','','','','','','','$fechaArchivoAdd','$fechaRLaboralesAdd','$ofEntregaRLAdd','$archivoScan','$fechaEntregaUnidadAdd','$ofEntregaUnidadAdd','$analista','$row[0] - $usuarioEdito')";
@@ -107,12 +102,16 @@
 									$sqlUser = "SELECT id_rol FROM usuarios WHERE usuario = '$usuarioEdito'";
 									if($resultU = mysqli_query($conexion,$sqlUser)){
 										$rowRol = mysqli_fetch_row($resultU);
-										if($rowRol[0] == 0){
 
-										//si-- echo "<script> alert('Fomope enviado a revision'); window.location.href = '../luluConsulta.php?usuario_rol=$usuarioEdito'</script>";
+										if($rowRol[0] == 0 && $unidadC == ''){
+
+										 echo "<script> alert('Fomope enviado a revision'); window.location.href = '../luluConsulta.php?usuario_rol=$usuarioEdito'</script>";
 
 										}else if ($rowRol[0] == 1){
-										//si-- echo "<script> alert('Fomope enviado a revision'); window.location.href = '../lulu.php?usuario_rol=$usuarioEdito'</script>";
+										 echo "<script> alert('Fomope enviado a revision'); window.location.href = '../lulu.php?usuario_rol=$usuarioEdito'</script>";
+
+										}else if ($rowRol[0] == 0 && $unidadC != ''){
+										 echo "<script> alert('Fomope enviado a revision'); window.location.href = '../unidadCaptura.php?usuario_rol=$usuarioEdito'</script>";
 
 										}
 									}
@@ -160,13 +159,13 @@
 
 										if($id_rol == 0 && $unidadC == ''){
 
-										//si-- echo "<script> alert('Fomope enviado a revision'); window.location.href = '../luluConsulta.php?usuario_rol=$usuarioEdito'</script>";
+										 echo "<script> alert('Fomope enviado a revision'); window.location.href = '../luluConsulta.php?usuario_rol=$usuarioEdito'</script>";
 
 										}else if ($id_rol == 1){
-										//si-- echo "<script> alert('Fomope enviado a revision'); window.location.href = '../lulu.php?usuario_rol=$usuarioEdito'</script>";
+										 echo "<script> alert('Fomope enviado a revision'); window.location.href = '../lulu.php?usuario_rol=$usuarioEdito'</script>";
 
 										}else if ($id_rol == 0 && $unidadC != ''){
-										//si-- echo "<script> alert('Fomope enviado a revision'); window.location.href = '../unidadCaptura.php?usuario_rol=$usuarioEdito'</script>";
+										 echo "<script> alert('Fomope enviado a revision'); window.location.href = '../unidadCaptura.php?usuario_rol=$usuarioEdito'</script>";
 
 										}
 								
@@ -177,7 +176,5 @@
 				echo '<script type="text/javascript">alert("Error en la conexion");</script>';
 				echo '<script type="text/javascript">alert("error '. mysqli_error($conexion).'");</script>';
 			}
-
-		}
 
  ?>
