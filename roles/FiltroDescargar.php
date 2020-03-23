@@ -172,7 +172,7 @@
 		
 		<nav class="navbar fixed-top navbar-expand-lg navbar-dark plantilla-input fixed-top">
 		    <div class="container">
-    		<form action="Lulu.php">
+    		<form action="lulu.php">
     			<input type="text" name="usuario_rol" value="<?php echo "$usuarioSeguir" ?>" style="display: none;">
    		 		<button type="submit" class="btnBut"><img src="./img/buzon.png" alt="x" height="30" width="30"/></button>
     		</form>
