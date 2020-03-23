@@ -37,6 +37,139 @@
 			   right: 0;
 			   width:200px;
 			}
+
+				p.one {
+			  border-style: solid;
+			  border-color: hsl(0, 100%, 50%); /* red */
+			}
+
+			p.two {
+			  border-style: solid;
+			  border-color: hsl(240, 100%, 50%); /* blue */
+			}
+
+			p.three {
+			  border-style: solid;
+			  border-color: hsl(0, 0%, 73%); /* grey */
+			}
+			
+			.formulario_fomope{
+				padding-left: 10%;
+				padding-right: 10%;
+			}
+			.bord {
+			  border-style: solid;
+			  border-color: #9f2241; /* grey */
+			}
+			.bordg {
+			  border-style: solid;
+			  border-color: #6f7271; /* grey */
+			}
+			input{
+				text-transform: uppercase;
+			}
+
+			.estilo-color{
+				font-family: Monserrat, Medium;
+				font-size: 25px;
+				color:  #9f2241 ;
+				font-weight: bold;
+			}
+			.estilo-colorr{
+				color:  #f2ebd7 ;
+				font-weight: bold;
+			}
+			.estilo-colorn{
+				color:  #000000 ;
+				font-weight: bold;
+			}
+			.estilo-colorb{
+				color:  #ffffff ;
+				font-weight: bold;
+			}
+
+			.plantilla-titulos{
+				background-color: #A9D0F5;
+				font-family: Monserrat, Medium;
+				font-size: 25px;
+				font-weight: bold;
+				padding: 12px 12px 0px 12px;
+			}
+
+			.plantilla-subtitulos{
+				font-family: Monserrat, Medium;
+				font-size: 18px;
+				font-weight: bold;
+			}
+			.plantilla-subtitulosp{
+				font-family: Monserrat, Medium;
+				font-size: 22px;
+				font-weight: bold;
+			}
+			.plantilla-subtitulospr{
+				font-family: Monserrat, Medium;
+				font-size: 25px;
+				font-weight: bold;
+			}
+
+			.plantilla-inputb{
+				text-color: #ffffff;
+				font-family: Monserrat, Medium;
+				padding: 12px;
+			}
+			.plantilla-input{
+				background-color: #9f2241;
+				font-family: Monserrat, Medium;
+				padding: 12px;
+			}
+			.plantilla-inputg{
+				background-color: #6f7271;
+				font-family: Monserrat, Medium;
+				padding: 25px;
+			}
+			.plantilla-inputv{
+				background-color: #f2ebd7;
+				font-family: Monserrat, Medium;
+				padding: 12px;
+			}
+
+			.plantilla-label{
+				font-weight: bold;
+				border-color: hsl(0, 100%, 50%); /* red */
+				font-family: Monserrat, Medium;
+				font-size: 18px;
+			}
+
+			.plantilla-lugnac{
+				background-color: #A9D0F5;
+				font-family: Monserrat, Medium;
+				font-size: 21px;
+				font-weight: bold;
+				padding: 12px 12px 2px 12px;
+			}
+
+			.plantilla-depend{
+				background-color: #A9D0F5;
+				font-family: Monserrat, Medium;
+				font-size: 22px;
+				font-weight: bold;
+				padding: 12px 12px 8px 12px;
+			}
+
+			.plantilla-inputdepend{
+				background-color: #CEE3F6;
+				font-family: Monserrat, Medium;
+				padding: 36px 12px 36px 12px;
+			}
+
+			.tamanio-button{
+				font-weight: bold;
+				font-size: 25px;
+			}
+			.tamanio-button2{
+				font-weight: bold;
+				font-size: 13px;
+			}
 		  </style>
 
 		
@@ -59,7 +192,41 @@
 			}
 			//echo $idMovSeg;
 		?>
-	
+			<?php
+				include "configuracion.php";
+				$usuarioSeguir =  $_GET['usuario_rol'];
+			?>
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark plantilla-input fixed-top">
+		    <div class="container">
+    		<form action="Lulu.php">
+    			<input type="text" name="usuario_rol" value="<?php echo "$usuarioSeguir" ?>" style="display: none;">
+   		 		<button type="submit" class="btnBut"><img src="./img/buzon.png" alt="x" height="30" width="30"/></button>
+    		</form>
+		      <div class="collapse navbar-collapse" id="navbarResponsive">
+		        <ul class="navbar-nav ml-auto">          
+		         <li class="nav-item dropdown">
+		            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		              Acciones
+		            </a>
+		            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+		              <a class="dropdown-item" href="./FiltroDescargar.php?usuario_rol=<?php echo $usuarioSeguir ?>">Descarga de documentos</a>
+		              <a class="dropdown-item" href="./generarReporte.php?usuario_rol=<?php echo $usuarioSeguir ?>">Generar reportes</a>
+		            </div>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href='LoginMenu/vista/cerrarsesion.php'>CERRAR SESIÓN</a>
+		          </li>
+		        </ul>
+
+
+		      </div>
+		    </div>
+		  </nav>
+
+
+
+		<img class="img-responsive" src="img/img-salud.jpg" height="150" width="400">
 		<center>
 				<h3>Sistema de Control de Registro de Formato de Movimiento de Personal (SICON).</h3>
 				<br>
@@ -211,7 +378,8 @@
 							      </div>
 							      <div class="modal-body">
 							        <form>
-							         <textarea class="form-control border border-dark" id="obs" rows = "4" name="comentarioR" placeholder="Observación por rechazo"><?php echo $ver[13] ?></textarea>
+							        	<input type="date" class="form-control" id="fechareci" name="fechareci" placeholder="Ingresa Fecha del ingreso" style="display: none;" value="<?php echo $ver[9] ?>" required readonly>
+							         <textarea class="form-control border border-dark" id="obs" rows = "4" name="comentarioR" placeholder="Observación por rechazo" required><?php echo $ver[13] ?> </textarea>
 							          <div class="form-row">
 										<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope?>" style="display:none">
 										</div>
@@ -224,9 +392,12 @@
 							        </form>
 							      </div>
 							      <div class="modal-footer">
-							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-
-							        <button type="submit" class="btn btn-primary">Aceptar</button>
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">REGRESAR</button>
+							        <input type="submit" name="tipButton" class="btn btn-primary" value="aceptar">
+							      </div>
+							      <div class="modal-footer">
+							        
+							        <input type="submit" name="tipButton" class="btn btn-danger" value="bandeja de entrada">
 							      </div>
 							    </div>
 							  </div>

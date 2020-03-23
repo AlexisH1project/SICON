@@ -158,16 +158,30 @@
 
 	</head>
 	<body>
+			<?php
+				include "configuracion.php";
+				$usuarioSeguir =  $_GET['usuario_rol'];
+			?>
 
 		<nav class="navbar fixed-top navbar-expand-lg navbar-dark plantilla-input fixed-top">
 		    <div class="container">
 		      <div class="collapse navbar-collapse" id="navbarResponsive">
 		        <ul class="navbar-nav ml-auto">          
-		        
+		         <li class="nav-item dropdown">
+		            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		              Acciones
+		            </a>
+		            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+		              <a class="dropdown-item" href="./FiltroDescargar.php?usuario_rol=<?php echo $usuarioSeguir ?>">Descarga de documentos</a>
+		              <a class="dropdown-item" href="./generarReporte?usuario_rol=<?php echo $usuarioSeguir ?>.php">Generar reportes</a>
+		            </div>
+		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href='../LoginMenu/vista/cerrarsesion.php'>CERRAR SESIÓN</a>
 		          </li>
 		        </ul>
+
+
 		      </div>
 		    </div>
 		  </nav>
@@ -203,72 +217,7 @@
 
 				</script>
 			
-			<?php
-				include "configuracion.php";
-				$usuarioSeguir =  $_GET['usuario_rol'];
-				//Hola ALexis como te va
-			?>
-
-			
 			<br>
-			<form method="post" action="generarReporteAnalista/generarFomope.php"> 
-				<div class="plantilla-inputv text-center">
-					<div class="form-row">
-						<div class="col">
-							<div class="form-group col-md-12">
-								<label  class="plantilla-label" for="analista">Analista: </label>
-									 
-									<select class="form-control unexp border border-dark custom-select" name="analista">
-										<?php
-										if (!$conexion->set_charset("utf8")) {//asignamos la codificación comprobando que no falle
-										       die("Error cargando el conjunto de caracteres utf8");
-										}
-
-										$consulta = "SELECT usuario FROM usuarios WHERE id_rol = 3 ";
-										$resultado = mysqli_query($conexion , $consulta);
-										$contador=0;
-
-										while($misdatos = mysqli_fetch_assoc($resultado)){ $contador++;?>
-										<option  data-subtext="<?php echo $misdatos['usuario']; ?>"><?php echo $misdatos['usuario']; ?></option>
-										<?php }?>          
-										</select>
-							</div>
-						</div>
-
-						<div class="col">
-
-							<div class="form-group col-md-12">
-								<label class="plantilla-label" for="fechaImp1">Fecha a Imprimir:</label>
-								<input type="date" class="form-control border-dark" id="fechaImp1" name="fechaImp1" required>
-							</div>
-						</div>
-
-								<input type="input" class="form-control border-dark" id="nombreUsuario" name="nombreUsuario" value="<?php echo "$usuarioSeguir" ?>" style="display:none">
-			
-						<div class="col">
-							<div class="form-group col-md-12">
-								<label class="plantilla-label" for="fechaImp2">Rango de Fecha:</label>
-								<input type="date" class="form-control border-dark" id="fechaImp2" name="fechaImp2">
-							</div>
-						</div>		
-					</div>
-			
-				<div class="col-sm-12">
-					<div class="form-row">
-
-					<div class="form-group col-md-12">
-						<div class="col text-center">
-							<input type="submit" name="impReporte" class="btn btn btn-danger tamanio-button plantilla-input text-white bord" value="Generar Reporte"><br>
-
-							<!-- <button type="submit" name="buscar" class="btn btn-outline-info tamanio-button">Buscar</button> -->
-						</div>
-					</div>
-
-					</div>
-				</div>
-		</div>
-			</form>
-
 
 			<form method="post" action=""> 
 				<div class="plantilla-inputv text-center">
