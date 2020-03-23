@@ -79,7 +79,7 @@
                                 $resR = mysqli_query($conexion,$sql);
                                 $elResultado2 = mysqli_fetch_row($resR);
 
-                            if(mysqli_num_rows($resultado) > 1){
+	                            if(mysqli_num_rows($resultado) > 0){
                             	
 	                              while($rows = $resultado->fetch_assoc()){
 	                                $objPHPExcel->getActiveSheet()->setCellValue('A'.$fila, $rows['unidad']); 
@@ -116,12 +116,13 @@
 
 		                        $writer->save('php://output');
 			                    }else{
-			                            echo "<script> alert('La informacion agregada no es correcta o no se encontro coincidencia , vuelve a intentar'); window.location.href = '../lulu.php?usuario_rol=$nombreUsuario'</script>";
+
+			                            echo "<script> alert('La informacion agregada no es correcta o no se encontro coincidencia , vuelve a intentar'); window.location.href = '../lulu.php?usuario_rol=$nombreUser'</script>";
 
 			                    }
 
                         }else{
-                            echo "<script> alert('Existe error en la busqueda'); window.location.href = '../lulu.php?usuario_rol=$nombreUsuario'</script>";
+                            echo "<script> alert('Existe error en la busqueda'); window.location.href = '../lulu.php?usuario_rol=$nombreUser'</script>";
 
                         }
       

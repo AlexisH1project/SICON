@@ -197,12 +197,19 @@
 			$valor = "";
 			$hoy = "select CURDATE()";
 			$tiempo ="select curTime()";
+			$dia= "";
 
 			 if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
 			 		$row = mysqli_fetch_row($resultHoy);
 			 		$row2 = mysqli_fetch_row($resultTime);
+			 		$fecha = $dias[date('w', strtotime($nombredia))];
 			 }
 
+			 $sqlQna = "SELECT * FROM m1ct_fechasnomina;";
+			 if($resQna = mysqli_query($conexion,$sqlQna)){
+			 	$rowQna = mysqli_fetch_array($resQna);
+
+			 }
 			//echo $usuarioSeguir;
 		?>
 		<center>
