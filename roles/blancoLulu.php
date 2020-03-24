@@ -503,25 +503,66 @@
 			include "Controller/configuracion.php";
 			$usuarioSeguir =  $_GET['usuario_rol'];
 
-
 			$valor = "";
 			$hoy = "select CURDATE()";
 			$tiempo ="select curTime()";
-			$dia= "";
+			$diaActual = "";
 
 			 if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
-			 		$row = mysqli_fetch_row($resultHoy);
-			 		$row2 = mysqli_fetch_row($resultTime);
-			 		$fecha = $dias[date('w', strtotime($nombredia))];
+			 		$rowF = mysqli_fetch_row($resultHoy);  // cambiamos formato de hora 
+			 		$fechaSistema = "04-04-2020"; // date("d-m-Y", strtotime($rowF[0])); 
+			 		$rowHora = mysqli_fetch_row($resultTime);
+
+					$diaActual=date("w", strtotime($fechaSistema));
+					
 			 }
 
+			 $sqlQna = "SELECT * FROM m1ct_fechasnomina WHERE estadoActual = 'abierta'";
 
-			 $sqlQna = "SELECT * FROM m1ct_fechasnomina;";
 			 if($resQna = mysqli_query($conexion,$sqlQna)){
-			 	$rowQna = mysqli_fetch_array($resQna);
+			 	$rowQna = mysqli_fetch_row($resQna);
+			 	//echo "OOOOOLLAA";
+			 	$fehaI = date("d-m-Y", strtotime($rowQna[2])); 
+			 	$fehaF = date("d-m-Y", strtotime($rowQna[3])); 
 
+			 }else{
+			 	echo $fehaI;
+			 	echo "error sql";
 			 }
-			//echo $usuarioSeguir;
+
+			 if($fehaF < strtotime($fechaSistema)){
+			 		if($rowQna[0] != 24){
+			 			$newQna = $rowQna[0] + 1;
+			 		}else {
+			 			$newQna = 1;
+			 		}
+			 		$sqlCerrar = "UPDATE m1ct_fechasnomina SET estadoActual = 'cerrado' WHERE id_qna = '$rowQna[0]";
+			 		$sqlAbrir = "UPDATE m1ct_fechasnomina SET estadoActual = 'abierta' WHERE id_qna = '$newQna";
+			 		
+			 		if(mysqli_query($conexion,$sqlCerrar) && mysqli_query($conexion, $sqlAbrir)){
+
+			 		}else{
+			 			echo "errrrrrrrror";
+			 		}
+
+			 }else{
+
+
+				 if($diaActual != 0 || $diaActual != 6 || ( $fechaSistema <= $fehaI && $fechaSistema >= $fehaF)){
+				 		echo $fehaF;
+				 		echo $fechaSistema . " ";
+				 		echo $diaActual . " ";
+
+
+
+				 }else{
+			 			echo "se cierra";
+
+				 		// conjelar todoooooo
+				 		//$sqlid_qna = "SELECT id_qna FROM m1ct_fechasnomina WHERE estadoActual =";
+
+				 }
+			}
 
 		?>
 		<center>
