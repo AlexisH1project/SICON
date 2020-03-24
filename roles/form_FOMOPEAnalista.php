@@ -50,7 +50,7 @@
 		  }
 		  </style>
 
-		
+			
 <style type="text/css">
 			
 			p.one {
@@ -90,8 +90,8 @@
 
 			.estilo-color{
 				font-family: Monserrat, Medium;
-				font-size: 20px;
-				color:  #9f2241 ;
+				font-size: 15px;
+				color:  #f0ce78 ;
 				
 			}
 			.estilo-colorg{
@@ -112,14 +112,14 @@
 			}
 			.estilo-colorv{
 				font-family: Monserrat, Medium;
-				font-size: 10px;
-				color:  #e8d39e ;
-				font-weight: bold;
+				font-size: 12px;
+				color:  #fffaed ;
+				
 			}
 			.estilo-colorn{
 				font-family: Monserrat, Medium;
-				font-size: 20px;
-				color:  #6f7271 ;
+				font-size: 22px;
+				color:  #9f2241 ;
 				font-weight: bold;
 			}
 			.estilo-colorb{
@@ -183,7 +183,6 @@
 		
 
 		</style>
-
 	</head>
 	<body>
 		<?php 
@@ -248,7 +247,9 @@
 
 
 		 ?>
-		<br><br>
+		 <br>
+    	<br>
+    	<br>
 
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active bordv">
@@ -261,7 +262,7 @@
         </div>
 				<div class="p-4 ">
 
-		  		<img class="img-responsive" src="img/img-salud.jpg" height="80" width="213">
+		  		<img class="img-responsive" src="img/ss1.png" height="50" width="190">
 	        <ul class="list-unstyled components mb-5">
 	        	<br>
 	        	<li class="active estilo-color">
@@ -301,20 +302,40 @@
 
 	      </div>
     	</nav>
+    	<br>
+    	<br>
+    	<br>
+
     	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bordv plantilla-inputv fixed-top">
-		    <div class="container plantilla-inputv ">
+		    <center>
+		    	<div class="container plantilla-inputv " align="center">
 		      <div class="collapse navbar-collapse" id="navbarResponsive">
+		      	
+		      		<div class="form-row " >
+		      		 
 		        <ul class="navbar-nav ml-auto">          
-		        
-		         <h3 class="estilo-color">Sistema de Control de Registro de Formato de Movimiento de Personal
+		       
+		        	
+		        	<h3  class="estilo-colorn">Sistema de Control de Registro de Formato de Movimiento de Personal
+		          </h3>
+		          <h3  class="estilo-colorv">............
 		          </h3>
 		        </ul>
-		        <ul class="navbar-nav ml-auto">          
-		        
-		       <h5 class="estilo-colorv"> Dirección General de Recursos Humanos y Organización/Dirección integral de puestos y servicios personales</h5>
+
+		         <ul class="navbar-nav ml-auto">          
+		      
+		         <h5 class=" estilo-color">Departamento Dirección General de Recursos Humanos y Organización/Dirección integral de puestos y servicios personales</h5>
 		        </ul>
+		       
+		     
+		         
 		      </div>
-		    </div>
+		      <br>
+		     
+		    </div> 
+		</center>
+		    <br>
+		    <br>
 		  </nav>
 
 
@@ -323,7 +344,7 @@
 		
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-		
+
 		<div class="formulario_fomope">
 
 		
