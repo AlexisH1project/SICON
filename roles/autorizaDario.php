@@ -9,89 +9,178 @@
 		<meta charset="utf-8">
 		<title>Autorizar FOMOPE</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-				<link rel="stylesheet" type="text/css" href="css/estilo_form.css">
+		<link rel="stylesheet" type="text/css" href="css/estilo_form.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<link href='jquery/jquery-ui.min.css' type='text/css' rel='stylesheet'>
 		<link href='jquery/jquery-ui.css' type='text/css' rel='stylesheet'>
 
+		<script type="text/javascript" src="./include/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="./include/jquery.validate.js"></script>
+
+		
+
 		  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 		<script src="js/funciones.js"></script>
+
 		<script src="jquery/jquery-3.4.1.min.js" type="text/javascript"></script>
 		<script src="jquery/jquery-ui.min.js" type="text/javascript"></script>
 		<script src="jquery/jquery-ui.js" type="text/javascript"></script>
 		<script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" ></script>	
-		
 
-		<style type="text/css">
+	<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+		<script src="js/jquery-ui.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+
+		  <style>
+		  .modal-header, h4, .close {
+		    background-color: #5cb85c;
+		    color:white !important;
+		    text-align: center;
+		    font-size: 30px;
+		  }
+		  .modal-footer {
+		    background-color: #f9f9f9;
+		  }
+		  </style>
+
+		
+<style type="text/css">
+			
+			p.one {
+			  border-style: solid;
+			  border-color: hsl(0, 100%, 50%); /* red */
+			}
+
+			p.two {
+			  border-style: solid;
+			  border-color: hsl(240, 100%, 50%); /* blue */
+			}
+
+			p.three {
+			  border-style: solid;
+			  border-color: hsl(0, 0%, 73%); /* grey */
+			}
 			
 			.formulario_fomope{
 				padding-left: 10%;
 				padding-right: 10%;
 			}
-			
+			.bord {
+			  border-style: solid;
+			  border-color: #ffffff; /* grey */
+			}
+			.bordv {
+			  border-style: solid;
+			  border-color: #f5f5f5; /* grey */
+			}
+			.bordg {
+			  border-style: solid;
+			  border-color: #6f7271; /* grey */
+			}
 			input{
 				text-transform: uppercase;
 			}
 
 			.estilo-color{
-				color: red;
+				font-family: Monserrat, Medium;
+				font-size: 20px;
+				color:  #9f2241 ;
+				
+			}
+			.estilo-colorg{
+				font-family: Monserrat, Medium;
+				font-size: 12px;
+				color:  #6f7271 ;
+				font-weight: bold;
+			}
+			.estilo-colorrr{
+				font-family: Monserrat, Medium;
+				font-size: 25px;
+				color:  #9f2241 ;
+				font-weight: bold;
+			}
+			.estilo-colorr{
+				color:  #f2ebd7 ;
+				font-weight: bold;
+			}
+			.estilo-colorv{
+				font-family: Monserrat, Medium;
+				font-size: 10px;
+				color:  #e8d39e ;
+				font-weight: bold;
+			}
+			.estilo-colorn{
+				font-family: Monserrat, Medium;
+				font-size: 20px;
+				color:  #6f7271 ;
+				font-weight: bold;
+			}
+			.estilo-colorb{
+				color:  #ffffff ;
 				font-weight: bold;
 			}
 
 			.plantilla-titulos{
-				background-color: #f2dfa5;
-				font-family: Verdana, Geneva, sans-serif;
-				font-size: 22px;
+				background-color: #A9D0F5;
+				font-family: Monserrat, Medium;
+				font-size: 25px;
 				font-weight: bold;
 				padding: 12px 12px 0px 12px;
 			}
 
 			.plantilla-subtitulos{
-				font-family: Verdana, Geneva, sans-serif;
+				font-family: Monserrat, Medium;
 				font-size: 18px;
 				font-weight: bold;
 			}
+			.plantilla-subtitulosp{
+				font-family: Monserrat, Medium;
+				font-size: 15px;
+				font-weight: bold;
+			}
+			.plantilla-subtitulospr{
+				font-family: Monserrat, Medium;
+				font-size: 25px;
+				font-weight: bold;
+			}
 
+			.plantilla-inputb{
+				text-color: #ffffff;
+				font-family: Monserrat, Medium;
+				padding: 12px;
+			}
 			.plantilla-input{
-				background-color: #fff4d1;
-				font-family: Verdana, Geneva, sans-serif;
+				background-color: #9f2241;
+				font-family: Monserrat, Medium;
+				padding: 12px;
+			}
+			.plantilla-inputg{
+				background-color: #6f7271;
+				font-family: Monserrat, Medium;
+				padding: 25px;
+			}
+			.plantilla-inputv{
+				background-color: #fffaed;
+				font-family: Monserrat, Medium;
+				padding: 15px;
+			}
+			.plantilla-inputve{
+				background-color: #f2ebd7;
+				font-family: Monserrat, Medium;
 				padding: 12px;
 			}
 
-			.plantilla-label{
 
-				font-weight: bold;
-			}
+		
 
-			.plantilla-lugnac{
-				background-color: #f2dfa5;
-				font-family: Verdana, Geneva, sans-serif;
-				font-size: 21px;
-				font-weight: bold;
-				padding: 12px 12px 2px 12px;
-			}
-
-			.plantilla-depend{
-				background-color: #f2dfa5;
-				font-family: Verdana, Geneva, sans-serif;
-				font-size: 22px;
-				font-weight: bold;
-				padding: 12px 12px 8px 12px;
-			}
-
-			.plantilla-inputdepend{
-				background-color: #CEE3F6;
-				font-family: Verdana, Geneva, sans-serif;
-				padding: 36px 12px 36px 12px;
-			}
-
-			.tamanio-button{
-				font-weight: bold;
-				font-size: 25px;
-			}
+		
 
 		</style>
 
@@ -159,10 +248,84 @@
 
 
 		 ?>
-		 <img class="img-responsive" src="img/img-salud.jpg" height="150" width="354">
-		<center>
-				<h3>Sistema de Control de Registro de Formato de Movimiento de Personal.</h3>
-		</center>
+		 <br><br>
+
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active bordv">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
+	          <i class="fa fa-bars"></i>
+	          <br>
+	          <span class="sr-only">Menú</span>
+	        </button>
+        </div>
+				<div class="p-4 ">
+
+		  		<img class="img-responsive" src="img/img-salud.jpg" height="80" width="213">
+	        <ul class="list-unstyled components mb-5">
+	        	<br>
+	        	<li class="active estilo-color">
+	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/> Kevin Solano</span></a>
+	          </li>
+	          <li class="active estilo-color">
+	            <a href="#"><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
+	          </li>
+	          <li class="active estilo-color">
+	              <a href="#"><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
+	          </li>
+	          <li class="active estilo-color">
+              <a href="#"><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
+	          </li>
+	          </li>
+	          <li class="active estilo-color">
+             
+	          </li>
+
+	        </ul>
+
+	       <!-- <div class="mb-5">
+						<h3 class="h6 mb-3">Subscribe for newsletter</h3>
+						<form action="#" class="subscribe-form">
+	            <div class="form-group d-flex">
+	            	<div class="icon"><span class="icon-paper-plane"></span></div>
+	              <input type="text" class="form-control" placeholder="Enter Email Address">
+	            </div>
+	          </form>
+					</div>-->
+
+	        <!--<div class="footer">
+	        	<p>Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p>
+	        </div>-->
+
+	      </div>
+    	</nav>
+    	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bordv plantilla-inputv fixed-top">
+		    <div class="container plantilla-inputv ">
+		      <div class="collapse navbar-collapse" id="navbarResponsive">
+		        <ul class="navbar-nav ml-auto">          
+		        
+		         <h3 class="estilo-color">Sistema de Control de Registro de Formato de Movimiento de Personal
+		          </h3>
+		        </ul>
+		        <ul class="navbar-nav ml-auto">          
+		        
+		       <h5 class="estilo-colorv"> Dirección General de Recursos Humanos y Organización/Dirección integral de puestos y servicios personales</h5>
+		        </ul>
+		      </div>
+		    </div>
+		  </nav>
+
+
+
+		
+		
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+
+		
+		
 		
 		<div class="formulario_fomope">
 
@@ -170,14 +333,14 @@
 			<br><br>
 
 			 <form name="captura1" action="aceptar.php" method="POST"> 
-						<div class="rounded border border-dark plantilla-input text-center">
+						<div class="rounded border border-dark plantilla-inputb text-center">
 						<div class="col text-center">
 						
 			</div>
 
 			<div class="form-row">
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="unidad1">Unidad:</label>
+						<label class="plantilla-label estilo-colorg" for="unidad1">Unidad:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark id="unidad1" name="unidad1" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $unidad; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 				</div>
@@ -195,23 +358,23 @@
 						</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="rfc_fomo">RFC:</label>
+						<label class="plantilla-label estilo-colorg" for="rfc_fomo">RFC:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="rfc_fomo" name="rfc_fomo" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $rfc_fom; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="curp1">Curp:</label>
+						<label class="plantilla-label estilo-colorg" for="curp1">Curp:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="curp1" name="curp1" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $curp_fom; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 				</div>
 					<div class="form-row">
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="apPater">Apellido Paterno:</label>
+						<label class="plantilla-label estilo-colorg" for="apPater">Apellido Paterno:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="apPater" name="apPater" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $apellido_1; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 				<div class="form-row">
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="apmater">*Apellido Materno:</label>
+						<label class="plantilla-label estilo-colorg" for="apmater">*Apellido Materno:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="apmater" name="apmater" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $apellido_2; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 
@@ -223,52 +386,52 @@
 
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="fechIngr">*Fecha ingreso:</label>
+						<label class="plantilla-label estilo-colorg" for="fechIngr">*Fecha ingreso:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="fechIngr" name="fechIngr" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $fecha_ingreso; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="ofentre">*Oficio entrega:</label>
+						<label class="plantilla-label estilo-colorg" for="ofentre">*Oficio entrega:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="ofentre" name="ofentre" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $oficio_entrega; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="tipoentre">Tipo de entrega:</label>
+						<label class="plantilla-label estilo-colorg" for="tipoentre">Tipo de entrega:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="tipoentre" name="tipoentre" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $tipo_entrega; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="tipoacc">Tipo de acción:</label>
+						<label class="plantilla-label estilo-colorg" for="tipoacc">Tipo de acción:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="tipoacc" name="tipoacc" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $tipo_de_accion; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 				</div>
 
 					<div class="form-group col-md-10">
-						<label class="plantilla-label" for="justirech">Justificación rechazo:</label>
+						<label class="plantilla-label estilo-colorg" for="justirech">Justificación rechazo:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="justirech" name="justirech" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $justificacio_fom; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-4">
-						<label class="plantilla-label" for="quinapli">Quincena aplicada:</label>
+						<label class="plantilla-label estilo-colorg" for="quinapli">Quincena aplicada:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="quinapli" name="quinapli" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $quincena_apli; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 
 
 					<div class="form-group col-md-4">
-						<label class="plantilla-label" for="aniofo">Año:</label>
+						<label class="plantilla-label estilo-colorg" for="aniofo">Año:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="aniofo" name="aniofo" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $anio_fo; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 				
 				</div>
 					<div class="form-group col-md-4">
-						<label class="plantilla-label" for="ofunid">*Oficio Unidad:</label>
+						<label class="plantilla-label estilo-colorg" for="ofunid">*Oficio Unidad:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="ofunid" name="ofunid" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $of_unidad; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 
 				</div>
 			</div>
 				<div class="form-row">
 					<div class="form-group col-md-8">
-						<label class="plantilla-label" for="fechaofi">*Fecha de oficio:</label>
+						<label class="plantilla-label estilo-colorg" for="fechaofi">*Fecha de oficio:</label>
 						<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechaofi" name="fechaofi" placeholder="Fecha Oficio" value="<?php echo $fecha_oficio; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
@@ -276,7 +439,7 @@
 				
 				<div class="form-row">
 					<div class="form-group col-md-13">
-						<label class="plantilla-label" for="fechareci">*Fecha de recibido:</label>
+						<label class="plantilla-label estilo-colorg" for="fechareci">*Fecha de recibido:</label>
 						<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechareci" name="fechareci" placeholder="Fecha de recibido" value="<?php echo $fecha_recibido; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
@@ -284,28 +447,28 @@
 				</div>
 					<div class="form-row">
 					<div class="form-group col-md-4">
-						<label class="plantilla-label" for="codigo">*Código:</label>
+						<label class="plantilla-label estilo-colorg" for="codigo">*Código:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="codigo" name="codigo" placeholder="Ej. 165" value="<?php echo $codigo; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 					
 					<div class="form-group col-md-4">
-						<label class="plantilla-label" for="NO">No. de puesto:</label>
+						<label class="plantilla-label estilo-colorg" for="NO">No. de puesto:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="num_pues" name="num_pues" placeholder="Ej. 0001" value="<?php echo $no_puesto; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 				</div>
 				<div class="form-group col-md-4">
-						<label class="plantilla-label" for="NO">Clave presupuestaria:</label>
+						<label class="plantilla-label estilo-colorg" for="NO">Clave presupuestaria:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="clavepres" name="clavepres" placeholder="Ej. 0001" value="<?php echo $clave_presupuestaria; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 					<br>				
 				</div>
 					<div class="form-group col-md-12">
-						<label class="plantilla-label" for="codmov">*Código de movimiento:</label>
+						<label class="plantilla-label estilo-colorg" for="codmov">*Código de movimiento:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control cod2 border border-dark" id="cod2_1" name="cod2_1" placeholder="Ej. 4550" value="<?php echo $clave_concepto; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
 							<div class="text-center">
-								<label class="plantilla-label" for="del2">*Del:</label>
+								<label class="plantilla-label estilo-colorg" for="del2">*Del:</label>
 							</div>
 							<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="del2" name="del2" placeholder="Del" value="<?php echo $del_1; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 							<small name= "alertVigencia" id= "alertVigencia" class="text-danger">
@@ -313,33 +476,33 @@
 						</div>
 						<div class="form-group col-md-6">
 							<div class="text-center">
-								<label class="plantilla-label" for="al3">al:</label>
+								<label class="plantilla-label estilo-colorg" for="al3">al:</label>
 							</div>
 							<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="al3" name="al3" placeholder="al" value="<?php echo $al_1; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly> <!---->
 						</div>
 					</div>			
 						<div class="form-group col-md-6">
-						<label class="plantilla-label" for="estad">*Estado:</label>
+						<label class="plantilla-label estilo-colorg" for="estad">*Estado:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="estad" name="estad" placeholder="Ej. Ciudad de México" maxlength="13" value="<?php echo $estado_en; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 					<div class="form-group col-md-">
-						<label class="plantilla-label" for="consema">*Consecutivo maestro de puestos:</label>
+						<label class="plantilla-label estilo-colorg" for="consema">*Consecutivo maestro de puestos:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="consema" name="consema" placeholder="Ej. 170" value="<?php echo $consecutivo_maestro_impuestos; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="plaza1">*Plaza:</label>
+						<label class="plantilla-label estilo-colorg" for="plaza1">*Plaza:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="plaza1" name="plaza1" placeholder="Ej. 1" value="<?php echo $plaza; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 				</div>
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="observ">*Observaciones:</label>
+						<label class="plantilla-label estilo-colorg" for="observ">*Observaciones:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="observ" name="observ" placeholder="Ej. 11-01-19 LA DIRECTORA GENERAL INDICA QUE SE REQUIERE OFICIO DE AUTORIZACION CON JUSTIFICACION PARA OCUPACION." value="<?php echo $observaciones; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 					
-					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="fechaendipsp">*Fecha de envio DIPSP:</label>
+					<div class="form-group col-md-6"> 
+						<label class="plantilla-label estilo-colorg" for="fechaendipsp">*Fecha de envio DIPSP:</label>
 						<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechaendipsp" name="fechaendipsp" placeholder="Fecha de envio a firma DGRH" value="<?php echo $fecha_envio_dipsp; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
@@ -347,20 +510,20 @@
 
 
 					 <div class="form-group col-md-6">
-						<label class="plantilla-label" for="fechaendgrh">*Fecha de envio a firma DGRH:</label>
+						<label class="plantilla-label estilo-colorg" for="fechaendgrh">*Fecha de envio a firma DGRH:</label>
 						<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechaendgrh" name="fechaendgrh" placeholder="Fecha de envio a firma DGRH" value="<?php echo $fecha_envio_dgrh; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
 					</div>
 
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="fecharecspc">*Fecha de recibido en SPC:</label>
+						<label class="plantilla-label estilo-colorg" for="fecharecspc">*Fecha de recibido en SPC:</label>
 						<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fecharecspc" name="fecharecspc" placeholder="Fecha de recibido en SPC" value="<?php echo $fecha_recibido_spc; ?>"  onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
 					</div>
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="fechenvvb">*Fecha de envio a VoBo SPC:</label>
+						<label class="plantilla-label estilo-colorg" for="fechenvvb">*Fecha de envio a VoBo SPC:</label>
 						<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechenvvb" name="fechenvvb" placeholder="Fecha de envio a VoBo SPC" value="<?php echo $fecha_envio_spc; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
@@ -368,18 +531,18 @@
 
 					
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="foliospc">*Folio SPC:</label>
+						<label class="plantilla-label estilo-colorg" for="foliospc">*Folio SPC:</label>
 						<input onkeypress="return pulsar(event)"  type="text" class="form-control colon border border-dark" id="foliospc" name="foliospc" placeholder="Ej. 2020" value="<?php echo $folio_spc; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 					<div class="form-group col-md-6">
 							<div class="text-center">
-								<label class="plantilla-label" for="fechanom">Fecha captura nomina:</label>
+								<label class="plantilla-label estilo-colorg" for="fechanom">Fecha captura nomina:</label>
 							</div>
 							<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechanom" name="fechanom" placeholder="Ej" value="<?php echo $fecha_capt_nomin; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly> <!--required-->
 						</div>
 					 <div class="form-group col-md-6">
 							<div class="text-center">
-								<label class="plantilla-label" for="al3">Fecha entregada del trabajador para archivo gral.- Lourdes Arredondo Cortes:</label>
+								<label class="plantilla-label estilo-colorg" for="al3">Fecha entregada del trabajador para archivo gral.- Lourdes Arredondo Cortes:</label>
 							</div>
 							<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechaenlo" name="fechaenlo" placeholder="fechaenlo" value="<?php echo $fecha_entrega_archivo_gral; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly> <!--required-->
 						</div>
@@ -456,7 +619,8 @@
 							  </div>
 							</div>
 					</form>
-
+<script src="js/bootstrap.min.js"></script>
+   	<script src="js/main.js"></script>
 			
 
 	</body>
