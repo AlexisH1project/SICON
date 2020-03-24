@@ -246,6 +246,18 @@
 <?php 
 			include "Controller/configuracion.php";
 			$usuarioSeguir =  $_GET['usuario_rol'];
+<<<<<<< HEAD
+=======
+			$valor = "";
+			$hoy = "select CURDATE()";
+			$tiempo ="select curTime()";
+
+			 if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
+			 		$row = mysqli_fetch_row($resultHoy);
+			 		$row2 = mysqli_fetch_row($resultTime);
+			 }
+
+>>>>>>> origin/master
 			//echo $usuarioSeguir;
 		?>
 		<center>
