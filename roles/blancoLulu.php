@@ -510,7 +510,7 @@
 
 			 if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
 			 		$rowF = mysqli_fetch_row($resultHoy);  // cambiamos formato de hora 
-			 		$fechaSistema = "04-04-2020"; // date("d-m-Y", strtotime($rowF[0])); 
+			 		$fechaSistema = date("d-m-Y", strtotime($rowF[0])); //"05-04-2020";;
 			 		$rowHora = mysqli_fetch_row($resultTime);
 
 					$diaActual=date("w", strtotime($fechaSistema));
@@ -526,20 +526,20 @@
 			 	$fehaF = date("d-m-Y", strtotime($rowQna[3])); 
 
 			 }else{
-			 	echo $fehaI;
+			 
 			 	echo "error sql";
 			 }
 
-			 if($fehaF < strtotime($fechaSistema)){
+			 if( strtotime($fehaF) < strtotime($fechaSistema)){
 			 		if($rowQna[0] != 24){
 			 			$newQna = $rowQna[0] + 1;
 			 		}else {
 			 			$newQna = 1;
 			 		}
-			 		$sqlCerrar = "UPDATE m1ct_fechasnomina SET estadoActual = 'cerrado' WHERE id_qna = '$rowQna[0]";
-			 		$sqlAbrir = "UPDATE m1ct_fechasnomina SET estadoActual = 'abierta' WHERE id_qna = '$newQna";
+			 		$sqlCerrar = "UPDATE m1ct_fechasnomina SET estadoActual = 'cerrada' WHERE id_qna = '$rowQna[0]'";
+			 		$sqlAbrir = "UPDATE m1ct_fechasnomina SET estadoActual = 'abierta' WHERE id_qna = '$newQna'";
 			 		
-			 		if(mysqli_query($conexion,$sqlCerrar) && mysqli_query($conexion, $sqlAbrir)){
+			 		if($resC = mysqli_query($conexion,$sqlCerrar) && $resA = mysqli_query($conexion, $sqlAbrir) ){
 
 			 		}else{
 			 			echo "errrrrrrrror";
@@ -548,23 +548,18 @@
 			 }else{
 
 
-				 if($diaActual != 0 || $diaActual != 6 || ( $fechaSistema <= $fehaI && $fechaSistema >= $fehaF)){
-				 		echo $fehaF;
-				 		echo $fechaSistema . " ";
-				 		echo $diaActual . " ";
+				 if($diaActual != 0 && $diaActual != 6 && (  strtotime($fechaSistema) >=  strtotime($fehaI) &&  strtotime($fechaSistema) <=  strtotime($fehaF))){
+
+				 		// echo $fehaF;
+				 		// echo $fechaSistema . " ";
+				 		// echo $diaActual . " ";
+				 		//$qnaEnviar = $rowQna[0];
+
+?>
 
 
 
-				 }else{
-			 			echo "se cierra";
-
-				 		// conjelar todoooooo
-				 		//$sqlid_qna = "SELECT id_qna FROM m1ct_fechasnomina WHERE estadoActual =";
-
-				 }
-			}
-
-		?>
+				
 		<center>
 			<h3>Sistema de Control de Registro de Formato de Movimiento de Personal (SICON).</h3>
 				<br>
@@ -586,7 +581,7 @@
 						<div class="form-row">
 							<div class="form-group col-md-12" >
 								<label class="plantilla-label" for="unexp_1">Unidad:</label>
-								<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="unexp_1" name="unexp_1" placeholder="" value="<?php if(isset($_POST["unexp_1"])){ echo $_POST["unexp_1"];} ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+								<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="unexp_1" name="unexp_1" placeholder="Ej. 513" value="<?php if(isset($_POST["unexp_1"])){ echo $_POST["unexp_1"];} ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
 							</div>
 						</div>
 
@@ -890,6 +885,21 @@
 			
 				</div>
 			</form>
+<?php
+	 }else{
+			 			echo('
+											<br>
+											<br>
+											<div class="col-sm-12 ">
+											<div class="plantilla-inputv text-dark ">
+											    <div class="card-body"><h2 align="center">Por el momento no esta disponible la captura.</h2></div>
+										</div>
+										</div>');
+
+				 }
+			}
+
+		?>
 	<script src="js/bootstrap.min.js"></script>
    	<script src="js/main.js"></script>
 
