@@ -137,7 +137,7 @@ a {
   text-decoration: none;
   background-color: transparent; }
   a:hover {
-    color: #f2ebd7;
+    color: #fff;
     text-decoration: underline; }
 
 a:not([href]):not([tabindex]) {
@@ -8129,7 +8129,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #f2ebd7; }
+  color: #fff; }
   a:hover, a:focus {
     text-decoration: none !important;
     outline: none !important;
@@ -8179,14 +8179,14 @@ h1, h2, h3, h4, h5,
 #sidebar {
   min-width: 270px;
   max-width: 270px;
-  background: #f2ebd7;
-  color: #f2ebd7;
+  background: #fff;
+  color: #fff;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
   position: relative; }
   #sidebar .h6 {
-    color: #f2ebd7; }
+    color: #fff; }
   #sidebar.active {
     margin-left: -270px; }
   #sidebar h1 {
@@ -8260,7 +8260,7 @@ h1, h2, h3, h4, h5,
           -webkit-transform: rotate(45deg);
           -ms-transform: rotate(45deg);
           transform: rotate(45deg);
-          background: #f2ebd7;
+          background: #6f7271;
           border-radius: 10px; }
         #sidebar .custom-menu .btn.btn-primary:hover, #sidebar .custom-menu .btn.btn-primary:focus {
           background: #6f7271 !important;
@@ -8291,11 +8291,11 @@ a[data-toggle="collapse"] {
   transition: all 0.3s; }
 
 .btn.btn-primary {
-  background: #f2ebd7;
-  border-color: #f2ebd7; }
+  background: #6f7271;
+  border-color: #6f7271; }
   .btn.btn-primary:hover, .btn.btn-primary:focus {
-    background: #f2ebd7 !important;
-    border-color: #f2ebd7 !important; }
+    background: #6f7271 !important;
+    border-color: #6f7271 !important; }
 
 .footer p {
   color: rgba(255, 255, 255, 0.5); }
