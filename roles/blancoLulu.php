@@ -52,7 +52,7 @@
 			}
 			.bordv {
 			  border-style: solid;
-			  border-color: #fff9e6; /* grey */
+			  border-color: #f5f5f5; /* grey */
 			}
 			.bordg {
 			  border-style: solid;
@@ -172,6 +172,114 @@
 			}
 
 		</style>
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+				$(document).on('keydown', '.unexp', function(){
+					var id = this.id;
+					var splitid = id.split('_');
+					var indice = splitid[1];
+					$('#'+id).autocomplete({
+						source: function(request, response){
+							$.ajax({
+								url: "resultados_ur.php",
+								type: 'post',
+								dataType: "json",
+								data: {
+									busqueda: request.term,request:1
+								},
+								success: function(data){
+									response(data);
+								}
+							});
+						},
+						select: function (event, ui){
+							$(this).val(ui.item.label);
+							var buscarid = ui.item.value;
+							$.ajax({
+								url: 'resultados_ur.php',
+								type: 'post',
+								data: {
+									buscarid:buscarid,request:2
+								},
+								dataType: 'json',
+								success:function(response){
+									var len = response.length;
+									if(len > 0){
+										var idx2 = response[0]['idx2'];
+										var unexp = response[0]['unexp'];
+										document.getElementById('unexp_'+indice).value = unexp;
+									}
+								}
+							});
+							return false;
+						}
+					});
+				});
+			});
+
+			$(document).ready(function(){
+				$(document).on('keydown', '.rfcL', function(){
+					var id = this.id;
+					var splitid = id.split('_');
+					var indice = splitid[1];
+					$('#'+id).autocomplete({
+						source: function(request, response){
+							$.ajax({
+								url: "resultados_rfc.php",
+								type: 'post',
+								dataType: "json",
+								data: {
+									busqueda: request.term,request:1
+
+								},
+								success: function(data){
+									response(data);
+									
+								}
+							});
+						},
+						select: function (event, ui){
+							$(this).val(ui.item.label);
+							var buscarid = ui.item.value;
+							console.log(buscarid);
+							//alert(buscarid);
+							$.ajax({
+								url: 'resultados_rfc.php',
+								type: 'post',
+								data: {
+									buscarid:buscarid,request:2
+
+								},
+								success: function(data){
+									console.log(data);
+									var infEmpleado = eval(data);
+									//document.getElementById("rfc").value = infEmpleado[1] ;
+									document.getElementById("curp").value = infEmpleado[2] ;
+									document.getElementById("apellido1").value = infEmpleado[3] ;
+									document.getElementById("apellido2").value = infEmpleado[4] ;
+									document.getElementById("nombre").value = infEmpleado[5] ;
+
+
+								}
+							});
+							return false;
+						}
+					});
+				});
+			});
+
+
+
+/*		$(document).ready(function(){
+
+			$("input[name=rfc]").change(function(){
+				//alert($('input[name=rfc]').val());
+				document.getElementById("nombre_php").value = $('input[name=rfc]').val();
+
+			});
+		});*/
+		</script>
   </head>
 
   <body>
@@ -229,6 +337,7 @@
 		        <ul class="navbar-nav ml-auto">          
 		        
 		         <h3 class="estilo-color">Sistema de Control de Registro de Formato de Movimiento de Personal</h3>
+		       
 		        </ul>
 		      </div>
 		    </div>
@@ -246,8 +355,7 @@
 <?php 
 			include "Controller/configuracion.php";
 			$usuarioSeguir =  $_GET['usuario_rol'];
-<<<<<<< HEAD
-=======
+
 			$valor = "";
 			$hoy = "select CURDATE()";
 			$tiempo ="select curTime()";
@@ -257,13 +365,12 @@
 			 		$row2 = mysqli_fetch_row($resultTime);
 			 }
 
->>>>>>> origin/master
-			//echo $usuarioSeguir;
+
 		?>
 		<center>
 			
 				<br>
-				<h5 class="estilo-colorn"> DEPARTAMENTO DE DICTAMINACIÓN SALARIAL Y CONTRATOS POR HONORARIOS - DDSCH</h5>
+				<h5 class="estilo-colorv"> DEPARTAMENTO DE DICTAMINACIÓN SALARIAL Y CONTRATOS POR HONORARIOS - DDSCH</h5>
 				<br>
 
 			<div class="col-md-8 col-md-offset-8">
@@ -276,7 +383,7 @@
 						<div class="form-row">
 							<div class="form-group col-md-12" >
 								<label class="plantilla-label" for="unexp_1">Unidad:</label>
-								<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="unexp_1" name="unexp_1" placeholder="Ej. 111" value="<?php if(isset($_POST["unexp_1"])){ echo $_POST["unexp_1"];} ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+								<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="unexp_1" name="unexp_1" placeholder="" value="<?php if(isset($_POST["unexp_1"])){ echo $_POST["unexp_1"];} ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
 							</div>
 						</div>
 
