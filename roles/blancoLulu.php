@@ -1,216 +1,265 @@
-<html>
-	
-	<head>
-		<meta charset="utf-8">
-		<title>SS-FOMOPE Iniciar Sesión</title>
-				<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Menú</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="utf-8">
+		<title>FOMOPE Autorizar</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/estilo_form.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<link href='jquery/jquery-ui.min.css' type='text/css' rel='stylesheet'>
-		<link href='jquery/jquery-ui.css' type='text/css' rel='stylesheet'>
 
-		<script type="text/javascript" src="./include/jquery-1.7.1.min.js"></script>
-		<script type="text/javascript" src="./include/jquery.validate.js"></script>
+		<link href='css/jquery-ui.min.css' type='text/css' rel='stylesheet'>
+		<link href='css/jquery-ui.css' type='text/css' rel='stylesheet'>
 
-		  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 		<script src="js/funciones.js"></script>
-		<script src="jquery/jquery-3.4.1.min.js" type="text/javascript"></script>
-		<script src="jquery/jquery-ui.min.js" type="text/javascript"></script>
-		<script src="jquery/jquery-ui.js" type="text/javascript"></script>
-		<script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" ></script>	
+		<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+		<script src="js/jquery-ui.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+<style type="text/css">
+			
+			p.one {
+			  border-style: solid;
+			  border-color: hsl(0, 100%, 50%); /* red */
+			}
 
+			p.two {
+			  border-style: solid;
+			  border-color: hsl(240, 100%, 50%); /* blue */
+			}
 
-		  <style>
-		  .modal-header, h4, .close {
-		    background-color: #5cb85c;
-		    color:white !important;
-		    text-align: center;
-		    font-size: 30px;
-		  }
-		  .modal-footer {
-		    background-color: #f9f9f9;
-		  }
-		  </style>
+			p.three {
+			  border-style: solid;
+			  border-color: hsl(0, 0%, 73%); /* grey */
+			}
+			
+			.formulario_fomope{
+				padding-left: 10%;
+				padding-right: 10%;
+			}
+			.bord {
+			  border-style: solid;
+			  border-color: #ffffff; /* grey */
+			}
+			.bordv {
+			  border-style: solid;
+			  border-color: #fff9e6; /* grey */
+			}
+			.bordg {
+			  border-style: solid;
+			  border-color: #6f7271; /* grey */
+			}
+			input{
+				text-transform: uppercase;
+			}
+
+			.estilo-color{
+				font-family: Monserrat, Medium;
+				font-size: 35px;
+				color:  #9f2241 ;
+				font-weight: bold;
+			}
+			.estilo-colorr{
+				color:  #f2ebd7 ;
+				font-weight: bold;
+			}
+			.estilo-colorn{
+				font-family: Monserrat, Medium;
+				font-size: 20px;
+				color:  #6f7271 ;
+				font-weight: bold;
+			}
+			.estilo-colorb{
+				color:  #ffffff ;
+				font-weight: bold;
+			}
+
+			.plantilla-titulos{
+				background-color: #A9D0F5;
+				font-family: Monserrat, Medium;
+				font-size: 25px;
+				font-weight: bold;
+				padding: 12px 12px 0px 12px;
+			}
+
+			.plantilla-subtitulos{
+				font-family: Monserrat, Medium;
+				font-size: 18px;
+				font-weight: bold;
+			}
+			.plantilla-subtitulosp{
+				font-family: Monserrat, Medium;
+				font-size: 15px;
+				font-weight: bold;
+			}
+			.plantilla-subtitulospr{
+				font-family: Monserrat, Medium;
+				font-size: 25px;
+				font-weight: bold;
+			}
+
+			.plantilla-inputb{
+				text-color: #ffffff;
+				font-family: Monserrat, Medium;
+				padding: 12px;
+			}
+			.plantilla-input{
+				background-color: #9f2241;
+				font-family: Monserrat, Medium;
+				padding: 12px;
+			}
+			.plantilla-inputg{
+				background-color: #6f7271;
+				font-family: Monserrat, Medium;
+				padding: 25px;
+			}
+			.plantilla-inputv{
+				background-color: #f2ebd7;
+				font-family: Monserrat, Medium;
+				padding: 15px;
+			}
+			.plantilla-inputve{
+				background-color: #f2ebd7;
+				font-family: Monserrat, Medium;
+				padding: 12px;
+			}
+
+			.plantilla-label{
+				font-weight: bold;
+				border-color: hsl(0, 100%, 50%); /* red */
+				font-family: Monserrat, Medium;
+				font-size: 14px;
+			}
+
+			.plantilla-lugnac{
+				background-color: #A9D0F5;
+				font-family: Monserrat, Medium;
+				font-size: 21px;
+				font-weight: bold;
+				padding: 12px 12px 2px 12px;
+			}
+
+			.plantilla-depend{
+				background-color: #A9D0F5;
+				font-family: Monserrat, Medium;
+				font-size: 22px;
+				font-weight: bold;
+				padding: 12px 12px 8px 12px;
+			}
+
+			.plantilla-inputdepend{
+				background-color: #CEE3F6;
+				font-family: Monserrat, Medium;
+				padding: 36px 12px 36px 12px;
+			}
+
+			.tamanio-button{
+				font-weight: bold;
+				font-size: 15px;
+			}
+			.tamanio-button2{
+				font-weight: bold;
+				font-size: 50px;
+			}
+
+		</style>
+  </head>
+
+  <body>
+<br><br>
+
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active bordv">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
+	          <i class="fa fa-bars"></i>
+	          <br>
+	          <span class="sr-only">Menú</span>
+	        </button>
+        </div>
+				<div class="p-4 ">
+
+		  		<h1><a href="index.html" class="logo">SICON </a></h1>
+	        <ul class="list-unstyled components mb-5">
+	        	<li class="active estilo-color">
+	            <a ><span class="estilo-color">Kevin Solano</span></a>
+	          </li>
+	          <li class="active estilo-color">
+	            <a href="#"><img src="./img/buzon.png" alt="x" height="30" width="30"/>Bandeja</a>
+	          </li>
+	          <li class="active estilo-color">
+	              <a href="#"><span class="fa fa-user mr-3"></span>Consulta</a>
+	          </li>
+	          <li class="active estilo-color">
+              <a href="#"><span class="fa fa-briefcase mr-3"></span>Reporte</a>
+	          </li>
+
+	        </ul>
+
+	       <!-- <div class="mb-5">
+						<h3 class="h6 mb-3">Subscribe for newsletter</h3>
+						<form action="#" class="subscribe-form">
+	            <div class="form-group d-flex">
+	            	<div class="icon"><span class="icon-paper-plane"></span></div>
+	              <input type="text" class="form-control" placeholder="Enter Email Address">
+	            </div>
+	          </form>
+					</div>-->
+
+	        <!--<div class="footer">
+	        	<p>Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p>
+	        </div>-->
+
+	      </div>
+    	</nav>
+    	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bordv plantilla-inputv fixed-top">
+		    <div class="container plantilla-inputv ">
+		      <div class="collapse navbar-collapse" id="navbarResponsive">
+		        <ul class="navbar-nav ml-auto">          
+		        
+		         <h3 class="estilo-color">Sistema de Control de Registro de Formato de Movimiento de Personal</h3>
+		        </ul>
+		      </div>
+		    </div>
+		  </nav>
+
 
 		
-
-		<script type="text/javascript">
-
-			$(document).ready(function(){
-				$(document).on('keydown', '.unexp', function(){
-					var id = this.id;
-					var splitid = id.split('_');
-					var indice = splitid[1];
-					$('#'+id).autocomplete({
-						source: function(request, response){
-							$.ajax({
-								url: "resultados_ur.php",
-								type: 'post',
-								dataType: "json",
-								data: {
-									busqueda: request.term,request:1
-								},
-								success: function(data){
-									response(data);
-								}
-							});
-						},
-						select: function (event, ui){
-							$(this).val(ui.item.label);
-							var buscarid = ui.item.value;
-							$.ajax({
-								url: 'resultados_ur.php',
-								type: 'post',
-								data: {
-									buscarid:buscarid,request:2
-								},
-								dataType: 'json',
-								success:function(response){
-									var len = response.length;
-									if(len > 0){
-										var idx2 = response[0]['idx2'];
-										var unexp = response[0]['unexp'];
-										document.getElementById('unexp_'+indice).value = unexp;
-									}
-								}
-							});
-							return false;
-						}
-					});
-				});
-			});
-
-			$(document).ready(function(){
-				$(document).on('keydown', '.rfcL', function(){
-					var id = this.id;
-					var splitid = id.split('_');
-					var indice = splitid[1];
-					$('#'+id).autocomplete({
-						source: function(request, response){
-							$.ajax({
-								url: "resultados_rfc.php",
-								type: 'post',
-								dataType: "json",
-								data: {
-									busqueda: request.term,request:1
-
-								},
-								success: function(data){
-									response(data);
-									
-								}
-							});
-						},
-						select: function (event, ui){
-							$(this).val(ui.item.label);
-							var buscarid = ui.item.value;
-							console.log(buscarid);
-							//alert(buscarid);
-							$.ajax({
-								url: 'resultados_rfc.php',
-								type: 'post',
-								data: {
-									buscarid:buscarid,request:2
-
-								},
-								success: function(data){
-									console.log(data);
-									var infEmpleado = eval(data);
-									//document.getElementById("rfc").value = infEmpleado[1] ;
-									document.getElementById("curp").value = infEmpleado[2] ;
-									document.getElementById("apellido1").value = infEmpleado[3] ;
-									document.getElementById("apellido2").value = infEmpleado[4] ;
-									document.getElementById("nombre").value = infEmpleado[5] ;
+		
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
 
 
-								}
-							});
-							return false;
-						}
-					});
-				});
-			});
-
-			function enviarDatos(){
-				var formulario = document.captura1;
-				formulario.action= './Controller/agregarNewRegistro.php';
-				document.getElementById("botonAccion").value = "Aceptar";
-
-				    var a = $("#unexp_1").val();
-				    var b = $("#rfcL_1").val();
-				    var c = $("#curp").val();
-				    var d = $("#apellido1").val();
-				    var e = $("#apellido2").val();
-				    var f = $("#nombre").val();
-				    var g = $("#fechaIngreso").val();
-				    //var h = $("#TipoEntregaArchivo").val();
-				    
-
-				      if (a=="" || b=="" || c==""|| d==""|| e==""|| f==""|| g==""|| $('input:radio[name=TipoEntregaArchivo]:checked').val() =="Ninguno" ) {
-				        alert("Falta completar campo");		
-				        return false;
-				      } else 
-				      	formulario.submit();
-			}
-
-			function rechazarDoc(){
-				var formulario = document.captura1;
-				formulario.action= './Controller/agregarNewRegistro.php';
-				document.getElementById("botonAccion").value = "Rechazar";
-
-				    var a = $("#unexp_1").val();
-				    var b = $("#rfcL_1").val();
-				    var c = $("#curp").val();
-				    var d = $("#apellido1").val();
-				    var e = $("#apellido2").val();
-				    var f = $("#nombre").val();
-				    var g = $("#fechaIngreso").val();
-				    var h = $("#comentarioR").val();
-				    $('#nameArchivo').removeAttr("required");
-				    
-				    //var h = $("#TipoEntregaArchivo").val();
-				    
-
-				      if (a=="" || b=="" || c==""|| d==""|| e==""|| f==""|| g=="" || h=="") {
-				        alert("Falta completar campo");		
-				        return false;
-				      } else 
-				      	formulario.submit();
-			}
-
-			function listaDeDoc(text){
-				document.getElementById("listaDoc").value = text;
-
-			}
-
-		</script>
 
 
-	</head>
-	<body>
-		<?php 
+<?php 
 			include "Controller/configuracion.php";
 			$usuarioSeguir =  $_GET['usuario_rol'];
-			$valor = "";
-
 			//echo $usuarioSeguir;
 		?>
 		<center>
-			<h3>Sistema de Control de Registro de Formato de Movimiento de Personal (SICON).</h3>
+			
 				<br>
-				<h5> DEPARTAMENTO DE DICTAMINACIÓN SALARIAL Y CONTRATOS POR HONORARIOS - DDSCH</h5>
+				<h5 class="estilo-colorn"> DEPARTAMENTO DE DICTAMINACIÓN SALARIAL Y CONTRATOS POR HONORARIOS - DDSCH</h5>
 				<br>
 
 			<div class="col-md-8 col-md-offset-8">
 				<!-- <form name="captura2" action="./Controller/agregarNewRegistro.php" method="POST">  -->
 
-				<form  enctype="multipart/form-data" id="formDatos" name="captura1" action="" method="POST"> 
+				<form  id="formDatos" name="captura1" action="" enctype="multipart/form-data" method="POST"> 
 				 		<div class="form-row">
 							<input type="text" class="form-control" id="userName" name="userName" value="<?php echo $usuarioSeguir ?>" style="display:none">
-							<input type="text" class="form-control" id="botonAccion" name="botonAccion" value="<?php if(isset($_POST["botonAccion"])){ echo $_POST["botonAccion"];} ?>" style="display:none">
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-12" >
@@ -240,8 +289,6 @@
 						</div>
 
 				  		<div class="form-row">
-				  			
-						      <input type="text" style="display:none;" class="form-control border border-dark" id="listaDoc" name="listaDoc" placeholder="Apellido Paterno" value="<?php if(isset($_POST["listaDoc"])){ echo $_POST["listaDoc"];} ?>" >
 
 				  			<div class="col">
 						      <div class="md-form mt-0">
@@ -257,7 +304,7 @@
 
 						    <div class="col">
 						      <div class="md-form mt-0">
-						        <input type="text" class="form-control border border-dark" id="nombre" name="nombre" placeholder="Nombre" maxlength="40" value="<?php if(isset($_POST["nombre"])){ echo $_POST["nombre"].$valor;} ?>" required>
+						        <input type="text" class="form-control border border-dark" id="nombre" name="nombre" placeholder="Nombre" maxlength="40" value="<?php if(isset($_POST["nombre"])){ echo $_POST["nombre"];} ?>" required>
 						      </div>
 						    </div>
 						</div>
@@ -304,7 +351,7 @@
 						  		<div class="md-form md-0">
 								    <!-- <label  class="plantilla-label" for="archivo_1">Adjuntar un archivos</label> -->
 								    <!--  <input type="hidden" name="MAX_FILE_SIZE" value="30000" /> -->
-								    <input type="file" id="nameArchivo" name="nameArchivo" required>
+								    <input type="file" name="nameArchivo" >
 								   <!--  <p class="help-block">Ejemplo de texto de ayuda.</p> -->
 								</div>
 							</div>
@@ -340,7 +387,7 @@
 						<div class="col">
 						  	<div class="md-form md-0">
 							
-									<input type="submit" name="guardarAdj" class="btn btn-outline-info tamanio-button" value="Adjuntar"><br>
+									<input type="submit" name="guardarAdj" onclick="'<?php $_GET['usuario_rol']; ?>'" class="btn btn-outline-info tamanio-button" value="Adjuntar"><br>
 							</div>	
 						</div>	
 
@@ -348,92 +395,35 @@
 								
 				</div>	
 				<br>
+			<?php 
+				if(isset($_POST['guardarAdj'])){
+
+						echo '		<div class="col-md-4 col-md-offset-4">
+								<div class="col">
+									<ul class="list-group">
+									  <li class="list-group-item">Cras justo odio</li>
+									  <li class="list-group-item">Dapibus ac facilisis in</li>
+									  <li class="list-group-item">Morbi leo risus</li>
+									  <li class="list-group-item">Porta ac consectetur ac</li>
+									  <li class="list-group-item">Vestibulum at eros</li>
+									</ul>
+								</div>
+								
+				
+							</div>';
+				}
+
+			?>
 
 <br> <br> 
-						<?php 
-							if(isset($_POST['guardarAdj'])){
-								 
-									$nombre = strtoupper($_POST['nombre'] );
-									$elRfc =  strtoupper($_POST['rfcL_1']);
-									$elApellido1 = strtoupper ($_POST['apellido1']);
-									$elApellido2 = strtoupper ($_POST['apellido2']);
-									$nombreArch = $_POST['documentoSelct'];
-									$listaCompleta = $_POST['listaDoc'];
-
-									$nombreCompletoArch = $nombreArch."_".$listaCompleta;
-
-
-
-									$dir_subida = './Controller/documentos/';
-											// Arreglo con todos los nombres de los archivos
-											$files = array_diff(scandir($dir_subida), array('.', '..')); 
-											
-											foreach($files as $file){
-											    // Divides en dos el nombre de tu archivo utilizando el . 
-											    $data = explode("_",$file);
-											    $data2 = explode(".",$file);
-												$indice = count($data2);	
-
-												$extencion = $data2[$indice-1];
-											    // Nombre del archivo
-											    $extractRfc = $data[0];
-											    $nameAdj = $data[1];
-											    // Extensión del archivo 
-
-											    if($elRfc == $extractRfc AND $nombreArch == $nameAdj){
-											      		unlink($dir_subida.$elRfc."_".$nameAdj."_".$elApellido1."_".$elApellido2."_".$nombre.".".$extencion);
-											        	break;
-											    }
-											}
-
-											$fichero_subido = $dir_subida . basename($_FILES['nameArchivo']['name']);
-											$extencion2 = explode(".",$fichero_subido);
-											$tamnio = count($extencion2);
-
-											$extencion3 = $extencion2[$tamnio-1];
-
-											if (move_uploaded_file($_FILES['nameArchivo']['tmp_name'], $fichero_subido)) {
-												sleep(3);
-												$concatenarNombreC = $dir_subida.strtoupper($elRfc."_".$nombreArch."_".$elApellido1."_".$elApellido2."_".$nombre."_.".$extencion3);
-												rename ($fichero_subido,$concatenarNombreC);
-												
-													$arrayDoc = explode("_", $nombreCompletoArch);
-												 	$tamanioList = count($arrayDoc);
-												
-												 
-												echo "
-													<script>
-															listaDeDoc( '$nombreCompletoArch');
-													</script >";
-												echo '
-													<div class="col-md-6 col-md-offset-6">
-														<ul class="list-group">';
-															for($i=0; $i<=$tamanioList-1; $i++){
-																if($arrayDoc[$i] == ""){
-																	
-																}else{
-																	echo "
-																	<li class='list-group-item'>$arrayDoc[$i]</li>
-																	";	
-																}
-															}
-												echo '
-														</ul>
-													</div>		
-												';
-																									   	
-											} else{
-											    echo "<script> alert('Existe un error al guardar el archivo'); ";
-											}
-							}
-						?>		
+							
+								
 				  		<!-- <div class="form-group col-md-12">
 								<div class="col text-center">
 								  	<input type="submit" class="btn btn-primary" name="botonAccion" value="Agregar Informacion">
 								</div>
 						</div> -->
-							<br>
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
 											 Enviar
 											</button>
 							  			<br>
@@ -506,11 +496,11 @@
 							        </button>
 							      </div>
 							      <div class="modal-body">
-							         <textarea class="form-control z-depth-1" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..." required></textarea>
+							         <textarea class="form-control z-depth-1" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..."></textarea>
 							      </div>
 							      <div class="modal-footer">
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-							        <input type="submit" class="btn btn-primary" onclick="rechazarDoc();" value="Rechazar" name="botonAccion">
+							        <input type="submit" class="btn btn-primary" value="Rechazar" name="botonAccion">
 							      </div>
 							    </div>
 							  </div>
@@ -519,10 +509,13 @@
 			
 				</div>
 			</form>
+        
+      </div>
+		</div>
 
-
-	</body>
-
-		
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
-

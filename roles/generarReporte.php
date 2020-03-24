@@ -189,7 +189,7 @@
 		            </div>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link" href='LoginMenu/vista/cerrarsesion.php'>CERRAR SESIÓN</a>
+		            <a class="nav-link" href='../LoginMenu/vista/cerrarsesion.php'>CERRAR SESIÓN</a>
 		          </li>
 		        </ul>
 

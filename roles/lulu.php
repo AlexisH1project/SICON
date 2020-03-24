@@ -173,7 +173,7 @@
 		            </a>
 		            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
 		              <a class="dropdown-item" href="./FiltroDescargar.php?usuario_rol=<?php echo $usuarioSeguir ?>">Descarga de documentos</a>
-		              <a class="dropdown-item" href="./generarReporte?usuario_rol=<?php echo $usuarioSeguir ?>.php">Generar reportes</a>
+		              <a class="dropdown-item" href="./generarReporte.php?usuario_rol=<?php echo $usuarioSeguir ?>">Generar reportes</a>
 		            </div>
 		          </li>
 		          <li class="nav-item">
