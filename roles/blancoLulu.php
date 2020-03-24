@@ -895,7 +895,7 @@
 											    <div class="card-body"><h2 align="center">Por el momento no esta disponible la captura.</h2></div>
 										</div>
 										</div>');
-
+ // cambiar 
 				 }
 			}
 
