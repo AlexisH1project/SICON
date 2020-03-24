@@ -89,19 +89,19 @@
 			}
 
 			.estilo-color{
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				font-size: 15px;
 				color:  #f0ce78 ;
 				
 			}
 			.estilo-colorg{
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				font-size: 12px;
 				color:  #6f7271 ;
 				font-weight: bold;
 			}
 			.estilo-colorrr{
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				font-size: 25px;
 				color:  #9f2241 ;
 				font-weight: bold;
@@ -111,13 +111,13 @@
 				font-weight: bold;
 			}
 			.estilo-colorv{
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				font-size: 12px;
 				color:  #fffaed ;
 				
 			}
 			.estilo-colorn{
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				font-size: 22px;
 				color:  #9f2241 ;
 				font-weight: bold;
@@ -129,51 +129,51 @@
 
 			.plantilla-titulos{
 				background-color: #A9D0F5;
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				font-size: 25px;
 				font-weight: bold;
 				padding: 12px 12px 0px 12px;
 			}
 
 			.plantilla-subtitulos{
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				font-size: 18px;
 				font-weight: bold;
 			}
 			.plantilla-subtitulosp{
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				font-size: 15px;
 				font-weight: bold;
 			}
 			.plantilla-subtitulospr{
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				font-size: 25px;
 				font-weight: bold;
 			}
 
 			.plantilla-inputb{
 				text-color: #ffffff;
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				padding: 12px;
 			}
 			.plantilla-input{
 				background-color: #9f2241;
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				padding: 12px;
 			}
 			.plantilla-inputg{
 				background-color: #6f7271;
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				padding: 25px;
 			}
 			.plantilla-inputv{
 				background-color: #fffaed;
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				padding: 15px;
 			}
 			.plantilla-inputve{
 				background-color: #f2ebd7;
-				font-family: Monserrat, Medium;
+				font-family: Montserrat, Medium;
 				padding: 12px;
 			}
 
