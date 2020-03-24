@@ -279,11 +279,16 @@
 				        return false;
 				      } else 
 				      	formulario.submit();
+			}	
+
+			function eliminarRequier(){
+					 $('#comentarioR').removeAttr("required");
+
 			}
 
 			function rechazarDoc(){
 				var formulario = document.captura1;
-				formulario.action= './Controller/agregarNewRegistro.php';
+				
 				document.getElementById("botonAccion").value = "Rechazar";
 
 				    var a = $("#unexp_1").val();
@@ -295,15 +300,16 @@
 				    var g = $("#fechaIngreso").val();
 				    var h = $("#comentarioR").val();
 				    $('#nameArchivo').removeAttr("required");
-				    
+
 				    //var h = $("#TipoEntregaArchivo").val();
 				    
 
 				      if (a=="" || b=="" || c==""|| d==""|| e==""|| f==""|| g=="" || h=="") {
-				        alert("Falta completar campo");		
-				        return false;
-				      } else 
-				      	formulario.submit();
+				      		formulario.action= './Controller/agregarNewRegistro.php';
+					        alert("Falta completar campo");		
+					        return false;
+				      } else{
+				      	formulario.submit();}
 			}
 
 			function listaDeDoc(text){
@@ -542,7 +548,7 @@
 			 		if($resC = mysqli_query($conexion,$sqlCerrar) && $resA = mysqli_query($conexion, $sqlAbrir) ){
 
 			 		}else{
-			 			echo "errrrrrrrror";
+			 			echo "error con la conexion a la BD";
 			 		}
 
 			 }else{
@@ -577,7 +583,8 @@
 				 		<div class="form-row">
 							<input type="text" class="form-control" id="userName" name="userName" value="<?php echo $usuarioSeguir ?>" style="display:none">
 							<input type="text" class="form-control" id="botonAccion" name="botonAccion" value="<?php if(isset($_POST["botonAccion"])){ echo $_POST["botonAccion"];} ?>" style="display:none">
-						</div>
+							<input type="text" class="form-control" id="qnaActual" name="qnaActual" value="<?php  echo  $rowQna[0]?>" style="display:none">
+						</div> 
 						<div class="form-row">
 							<div class="form-group col-md-12" >
 								<label class="plantilla-label" for="unexp_1">Unidad:</label>
@@ -705,20 +712,11 @@
 						</div>	
 						<div class="col">
 						  	<div class="md-form md-0">
-							
-									<input type="submit" name="guardarAdj" class="btn btn-outline-info tamanio-button" value="Adjuntar"><br>
+								<input type="submit" name="guardarAdj" onclick="eliminarRequier()" class="btn btn-outline-info tamanio-button" value="Adjuntar"><br>
 							</div>	
 						</div>	
-
-					</div>	
-								
-				</div>	
-				<br>
-
-<br> <br> 
-						<?php 
+								<?php 
 							if(isset($_POST['guardarAdj'])){
-								 
 									$nombre = strtoupper($_POST['nombre'] );
 									$elRfc =  strtoupper($_POST['rfcL_1']);
 									$elApellido1 = strtoupper ($_POST['apellido1']);
@@ -772,7 +770,9 @@
 															listaDeDoc( '$nombreCompletoArch');
 													</script >";
 												echo '
-													<div class="col-md-6 col-md-offset-6">
+													<br>	<br>		<br>
+													<center>
+													<div class="col-md-8 col-md-offset-8">
 														<ul class="list-group">';
 															for($i=0; $i<=$tamanioList-1; $i++){
 																if($arrayDoc[$i] == ""){
@@ -785,14 +785,24 @@
 															}
 												echo '
 														</ul>
-													</div>		
+													</div>	
+													</center>
+
 												';
 																									   	
 											} else{
 											    echo "<script> alert('Existe un error al guardar el archivo'); ";
 											}
 							}
-						?>		
+						?>	
+
+					</div>	
+								
+				</div>	
+				<br>
+
+<br> <br> 
+					
 				  		<!-- <div class="form-group col-md-12">
 								<div class="col text-center">
 								  	<input type="submit" class="btn btn-primary" name="botonAccion" value="Agregar Informacion">
@@ -872,7 +882,7 @@
 							        </button>
 							      </div>
 							      <div class="modal-body">
-							         <textarea class="form-control z-depth-1" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..." required></textarea>
+							          <textarea class="form-control z-depth-1" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..." required ></textarea> 
 							      </div>
 							      <div class="modal-footer">
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
@@ -888,14 +898,13 @@
 <?php
 	 }else{
 			 			echo('
-											<br>
-											<br>
+												<br>
+												<br>
 											<div class="col-sm-12 ">
 											<div class="plantilla-inputv text-dark ">
 											    <div class="card-body"><h2 align="center">Por el momento no esta disponible la captura.</h2></div>
 										</div>
 										</div>');
- // cambiar 
 				 }
 			}
 
