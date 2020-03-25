@@ -517,6 +517,7 @@
 				 		//$qnaEnviar = $rowQna[0];
 
 ?>
+		
  <br>
     	<br>
     	<br>
@@ -615,7 +616,6 @@
 		
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-		
 
 			<div class="col-md-8 col-md-offset-8">
 				<!-- <form name="captura2" action="./Controller/agregarNewRegistro.php" method="POST">  -->
