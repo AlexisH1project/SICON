@@ -526,32 +526,36 @@
 			<nav id="sidebar" class="active bordv">
 				<div class="custom-menu">
 					<button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
-	          <i class="fa fa-bars"></i>
-	          <br>
-	          <span class="sr-only">Menú</span>
-	        </button>
-        </div>
+				          <i class="fa fa-bars"></i>
+				          <br>
+				          <span class="sr-only">Menú</span>
+				        </button>
+      			 </div>
 				<div class="p-4 ">
 
 		  		<img class="img-responsive" src="img/ss1.png" height="50" width="190">
 	        <ul class="list-unstyled components mb-5">
-	        	<br>
-	        	<li class="active estilo-color">
-	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/> Kevin Solano</span></a>
-	          </li>
-	          <li class="active estilo-color">
-	            <a href="#"><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
-	          </li>
-	          <li class="active estilo-color">
-	              <a href="#"><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
-	          </li>
-	          <li class="active estilo-color">
-              <a href="#"><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
-	          </li>
-	          </li>
-	          <li class="active estilo-color">
-             
-	          </li>
+			        	<br>
+			        <li class="active estilo-color">
+			            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/> Kevin Solano</span></a>
+			          </li>
+			          <li class="active estilo-color">
+			            <a href="#"><img src="./img/icbuzon.png" alt="x" height="17" width="20"/> Bandeja</a>
+			          </li>
+			          <li class="active estilo-color">
+			              <a href="#"><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
+			          </li>
+			          <li class="active estilo-color">
+		              <a href="#"><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
+			          </li>
+			        <br><br><br>
+			          <li class="active estilo-color">
+		             		<H3> <FONT COLOR=#9f2241> <?php  echo $rowQna[1];?> </FONT> </H3>	
+			          </li>
+
+			            <li class="active estilo-color">
+		             		<FONT SIZE=4 COLOR=9f2241> <I><?php  echo $rowQna[2];?></I> -- <I><?php  echo $rowQna[3];?></I>  </FONT>
+			          </li>
 
 	        </ul>
 
@@ -850,11 +854,12 @@
 								</div>
 						</div> -->
 							<br>
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							<div class="form-group col-md-6">
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 											 Enviar
 											</button>
-							  			<br>
-
+							</div>
+							  		
 											<!-- Modal -->
 											<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 											  <div class="modal-dialog" role="document">
@@ -938,7 +943,47 @@
 			</form>
 <?php
 	 }else{
+
 			 			echo('
+			 		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active bordv">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
+				          <i class="fa fa-bars"></i>
+				          <br>
+				          <span class="sr-only">Menú</span>
+				        </button>
+      			 </div>
+				<div class="p-4 ">
+
+		  		<img class="img-responsive" src="img/ss1.png" height="50" width="190">
+	        <ul class="list-unstyled components mb-5">
+			        	<br>
+			        <li class="active estilo-color">
+			            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/> Kevin Solano</span></a>
+			          </li>
+			          <li class="active estilo-color">
+			            <a href="#"><img src="./img/icbuzon.png" alt="x" height="17" width="20"/> Bandeja</a>
+			          </li>
+			          <li class="active estilo-color">
+			              <a href="#"><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
+			          </li>
+			          <li class="active estilo-color">
+		              <a href="#"><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
+			          </li>
+			        <br><br><br>
+			          <li class="active estilo-color">
+		             		<H3> <FONT COLOR=#9f2241> <?php  echo $rowQna[1];?> </FONT> </H3>	
+			          </li>
+
+			            <li class="active estilo-color">
+		             		<FONT SIZE=4 COLOR=9f2241> <I><?php  echo $rowQna[2];?></I> -- <I><?php  echo $rowQna[3];?></I>  </FONT>
+			          </li>
+
+	        </ul>
+	      </div>
+    	</nav>
+
 												<br>
 												<br>
 											<div class="col-sm-12 ">
