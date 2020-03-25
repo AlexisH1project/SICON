@@ -32,6 +32,7 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/estilossicon.css">
 
 		  <style>
 		  .modal-header, h4, .close {
@@ -45,139 +46,7 @@
 		  }
 		  </style>
 
-				
-<style type="text/css">
-			
-			p.one {
-			  border-style: solid;
-			  border-color: hsl(0, 100%, 50%); /* red */
-			}
-
-			p.two {
-			  border-style: solid;
-			  border-color: hsl(240, 100%, 50%); /* blue */
-			}
-
-			p.three {
-			  border-style: solid;
-			  border-color: hsl(0, 0%, 73%); /* grey */
-			}
-			
-			.formulario_fomope{
-				padding-left: 10%;
-				padding-right: 10%;
-			}
-			.bord {
-			  border-style: solid;
-			  border-color: #ffffff; /* grey */
-			}
-			.bordv {
-			  border-style: solid;
-			  border-color: #f5f5f5; /* grey */
-			}
-			.bordg {
-			  border-style: solid;
-			  border-color: #6f7271; /* grey */
-			}
-			input{
-				text-transform: uppercase;
-			}
-
-			.estilo-color{
-				font-family: Monserrat, Medium;
-				font-size: 15px;
-				color:  #f0ce78 ;
-				
-			}
-			.estilo-colorg{
-				font-family: Monserrat, Medium;
-				font-size: 12px;
-				color:  #6f7271 ;
-				font-weight: bold;
-			}
-			.estilo-colorrr{
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				color:  #9f2241 ;
-				font-weight: bold;
-			}
-			.estilo-colorr{
-				color:  #f2ebd7 ;
-				font-weight: bold;
-			}
-			.estilo-colorv{
-				font-family: Monserrat, Medium;
-				font-size: 12px;
-				color:  #fffaed ;
-				
-			}
-			.estilo-colorn{
-				font-family: Monserrat, Medium;
-				font-size: 22px;
-				color:  #9f2241 ;
-				font-weight: bold;
-			}
-			.estilo-colorb{
-				color:  #ffffff ;
-				font-weight: bold;
-			}
-
-			.plantilla-titulos{
-				background-color: #A9D0F5;
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				font-weight: bold;
-				padding: 12px 12px 0px 12px;
-			}
-
-			.plantilla-subtitulos{
-				font-family: Monserrat, Medium;
-				font-size: 18px;
-				font-weight: bold;
-			}
-			.plantilla-subtitulosp{
-				font-family: Monserrat, Medium;
-				font-size: 15px;
-				font-weight: bold;
-			}
-			.plantilla-subtitulospr{
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				font-weight: bold;
-			}
-
-			.plantilla-inputb{
-				text-color: #ffffff;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-			.plantilla-input{
-				background-color: #9f2241;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-			.plantilla-inputg{
-				background-color: #6f7271;
-				font-family: Monserrat, Medium;
-				padding: 25px;
-			}
-			.plantilla-inputv{
-				background-color: #fffaed;
-				font-family: Monserrat, Medium;
-				padding: 15px;
-			}
-			.plantilla-inputve{
-				background-color: #f2ebd7;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-
-
-		
-
-		
-
-		</style>
+	
 
 	</head>
 	<body>
@@ -285,7 +154,9 @@
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
 
-				<div class="col-md-8 col-md-offset-8">
+      	<center>
+      		
+<div class="col-md-8 col-md-offset-8">
 					 <form name="captura1" enctype="multipart/form-data" action="./Controller/guardarVerde.php" method="POST"> 
 				 		<div class="form-row">
 							<input type="text" class="form-control" id="userName" name="userName" value="<?php echo $usuarioSeguir ?>" style="display:none">
@@ -298,16 +169,16 @@
 							<div class="form-row">
 						    <div class="col">
 						      <div class="form-group col-md-12">
-					  			<label for="fAlaborar">FECHAS ENTREGA DE EXPEDIENTE A RELACIONES LABORALES: </label>
-						        <input type="date" class="form-control bordg" id="fechaRLaborales" name="fechaRLaborales">
+					  			<label class="plantilla-label estilo-colorg" for="fAlaborar">FECHAS ENTREGA DE EXPEDIENTE A RELACIONES LABORALES: </label>
+						        <input type="date" class="form-control unexp border border-dark" id="fechaRLaborales" name="fechaRLaborales">
 						      </div>
 						    </div>	
 						    <div class="col">
 
 							    <div class="form-group col-md-12" >
-						  		 <label for="ofEntregaL">OFICIO ENTREGA EXPEDIENTE A RELACIONES LABORALES:</label> 
+						  		 <label class="plantilla-label estilo-colorg" for="ofEntregaL">OFICIO ENTREGA EXPEDIENTE A RELACIONES LABORALES:</label> 
 						  		
-							    <input type="text" class="form-control bordg" id="ofEntregaRL" name="ofEntregaRL" placeholder="OFICIO ENTREGA EXPEDIENTE RELACIONES LABORALES" maxlength="65">
+							    <input type="text" class="form-control unexp border border-dark" id="ofEntregaRL" name="ofEntregaRL" placeholder="OFICIO ENTREGA EXPEDIENTE RELACIONES LABORALES" maxlength="65">
 							 </div>
 				  			</div>		
 						    
@@ -327,15 +198,15 @@
 						<div class="form-row">
 						    <div class="col">
 						      <div class="form-group col-md-12" >
-						  		<label for="fechaUnidad">FECHA ENTREGA EXPEDIENTE UNIDAD: </label>
-							    <input type="date" class="form-control bordg" id="fechaEntregaUnidad" name="fechaEntregaUnidad" >
+						  		<label class="plantilla-label estilo-colorg" for="fechaUnidad">FECHA ENTREGA EXPEDIENTE UNIDAD: </label>
+							    <input type="date" class="form-control unexp border border-dark" id="fechaEntregaUnidad" name="fechaEntregaUnidad" >
 					  		</div>
 						    </div>	
 						    <div class="col">
 
 							   <div class="form-group col-md-12" >
-							  		 <label  for="ofUnidad">OFICIO ENTREGA EXPEDIENTE UNIDAD: </label> 
-								    <input type="text" class="form-control bordg" id="ofEntregaUnidad" name="ofEntregaUnidad" placeholder="OFICIO ENTREGA EXPEDIENTE UNIDAD" maxlength="49">	
+							  		 <label  class="plantilla-label estilo-colorg" for="ofUnidad">OFICIO ENTREGA EXPEDIENTE UNIDAD: </label> 
+								    <input type="text" class="form-control unexp border border-dark" id="ofEntregaUnidad" name="ofEntregaUnidad" placeholder="OFICIO ENTREGA EXPEDIENTE UNIDAD" maxlength="49">	
 						  		</div>		
 
 				  			</div>		
@@ -344,8 +215,8 @@
 
 						
 				  		<div class="form-group col-md-12" >
-					  		<label for="oficio">OFICIO ENTREGA SEGUROS: </label>
-						    <input type="text" class="form-control bordg" id="ofEntrega" name="ofEntrega" placeholder="Ingresa el oficio de entrega" maxlength="25"required>
+					  		<label class="plantilla-label estilo-colorg" for="oficio">OFICIO ENTREGA SEGUROS: </label>
+						    <input type="text" class="form-control unexp border border-dark" id="ofEntrega" name="ofEntrega" placeholder="Ingresa el oficio de entrega" maxlength="25"required>
 				  		</div>
 
 				  		<!-- <div class="form-group col-md-12">
@@ -380,6 +251,10 @@
 								</div>
 
 					</form>  
+
+      	</center>
+
+				
 
 					<script src="js/bootstrap.min.js"></script>
    	<script src="js/main.js"></script>

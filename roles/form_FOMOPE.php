@@ -33,6 +33,7 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/estilossicon.css">
 
 		  <style>
 		  .modal-header, h4, .close {
@@ -46,138 +47,6 @@
 		  }
 		  </style>
 
-	<style type="text/css">
-			
-			p.one {
-			  border-style: solid;
-			  border-color: hsl(0, 100%, 50%); /* red */
-			}
-
-			p.two {
-			  border-style: solid;
-			  border-color: hsl(240, 100%, 50%); /* blue */
-			}
-
-			p.three {
-			  border-style: solid;
-			  border-color: hsl(0, 0%, 73%); /* grey */
-			}
-			
-			.formulario_fomope{
-				padding-left: 10%;
-				padding-right: 10%;
-			}
-			.bord {
-			  border-style: solid;
-			  border-color: #ffffff; /* grey */
-			}
-			.bordv {
-			  border-style: solid;
-			  border-color: #f5f5f5; /* grey */
-			}
-			.bordg {
-			  border-style: solid;
-			  border-color: #6f7271; /* grey */
-			}
-			input{
-				text-transform: uppercase;
-			}
-
-			.estilo-color{
-				font-family: Monserrat, Medium;
-				font-size: 15px;
-				color:  #f0ce78 ;
-				
-			}
-			.estilo-colorg{
-				font-family: Monserrat, Medium;
-				font-size: 12px;
-				color:  #6f7271 ;
-				font-weight: bold;
-			}
-			.estilo-colorrr{
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				color:  #9f2241 ;
-				font-weight: bold;
-			}
-			.estilo-colorr{
-				color:  #f2ebd7 ;
-				font-weight: bold;
-			}
-			.estilo-colorv{
-				font-family: Monserrat, Medium;
-				font-size: 12px;
-				color:  #fffaed ;
-				
-			}
-			.estilo-colorn{
-				font-family: Monserrat, Medium;
-				font-size: 22px;
-				color:  #9f2241 ;
-				font-weight: bold;
-			}
-			.estilo-colorb{
-				color:  #ffffff ;
-				font-weight: bold;
-			}
-
-			.plantilla-titulos{
-				background-color: #A9D0F5;
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				font-weight: bold;
-				padding: 12px 12px 0px 12px;
-			}
-
-			.plantilla-subtitulos{
-				font-family: Monserrat, Medium;
-				font-size: 18px;
-				font-weight: bold;
-			}
-			.plantilla-subtitulosp{
-				font-family: Monserrat, Medium;
-				font-size: 15px;
-				font-weight: bold;
-			}
-			.plantilla-subtitulospr{
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				font-weight: bold;
-			}
-
-			.plantilla-inputb{
-				text-color: #ffffff;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-			.plantilla-input{
-				background-color: #9f2241;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-			.plantilla-inputg{
-				background-color: #6f7271;
-				font-family: Monserrat, Medium;
-				padding: 25px;
-			}
-			.plantilla-inputv{
-				background-color: #fffaed;
-				font-family: Monserrat, Medium;
-				padding: 15px;
-			}
-			.plantilla-inputve{
-				background-color: #f2ebd7;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-
-
-		
-
-		
-
-		</style>
 
 				
 		<script type="text/javascript">
@@ -558,7 +427,7 @@ $(document).ready(function(){
 							</div>
 							
 								<div class="form-group col-md-2">
-								<label  class="plantilla-label" for="laQna">*QNA: </label>
+								<label  class="plantilla-label estilo-colorg" for="laQna">*QNA: </label>
 									 
 									<select class="form-control unexp border border-dark custom-select" name="qnaOption">
 										<option  value="<?php echo $qnaActual; ?>"><?php echo $qnaActual; ?></option>
@@ -569,7 +438,7 @@ $(document).ready(function(){
 							</div>
 
 							<div class="form-group col-md-2">
-								<label  class="plantilla-label" for="elAnio">AÑO: </label>
+								<label  class="plantilla-label estilo-colorg" for="elAnio">AÑO: </label>
 									 <input type="text" class="form-control" id="anio" name="anio" value="<?php echo $elDia[0]?>" readonly >
 							<div class="form-row">
 							<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope?>" style="display:none">
@@ -590,11 +459,11 @@ $(document).ready(function(){
 							
 					<div class="form-row">
 						<div class="form-group col-md-5">
-								<label class="plantilla-label" for="ofunid">*Oficio unidad:</label>
+								<label class="plantilla-label estilo-colorg" for="ofunid">*Oficio unidad:</label>
 								<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="ofunid" name="ofunid" placeholder="Ej. OAG-CA-3735-2020" value="" maxlength="80" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
 							</div>
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="fechaofi">*Fecha de oficio:</label>
+						<label class="plantilla-label estilo-colorg" for="fechaofi">*Fecha de oficio:</label>
 						<input type="date" class="form-control border border-dark" id="fechaofi" name="fechaofi" placeholder="Fecha Oficio" required>
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
@@ -602,30 +471,30 @@ $(document).ready(function(){
 				</div>
 					<div class="form-row">
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="fechareci">*Fecha de recibido:</label>
+						<label class="plantilla-label estilo-colorg" for="fechareci">*Fecha de recibido:</label>
 						<input type="date" class="form-control border border-dark" id="fechareci" name="fechareci" placeholder="Fecha de recibido" required>
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
 					</div>
 					<div class="form-group col-md-4">
-						<label class="plantilla-label" for="codigo">*Código:</label><div class="container">
+						<label class="plantilla-label estilo-colorg" for="codigo">*Código:</label><div class="container">
 							 <input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="codigo" name="codigo" placeholder="Ej. 123" value="" maxlength="9" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
 							</div>
 					</div>
 					<div class="form-group col-md-2">
-						<label class="plantilla-label" for="NO">No. de puesto:</label>
+						<label class="plantilla-label estilo-colorg" for="NO">No. de puesto:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="num_pues" name="num_pues" placeholder="Ej. 0001" value="" maxlength="5" onkeyup="javascript:this.value=this.value.toUpperCase();">
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-4">
-						<label class="plantilla-label" for="NO">Clave presupuestaria:</label>
+						<label class="plantilla-label estilo-colorg" for="NO">Clave presupuestaria:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="clavepres" name="clavepres" placeholder="Ej. 0001" value="" maxlength="35" onkeyup="javascript:this.value=this.value.toUpperCase();">
 					</div>
 					<div class="form-group col-md-8">
-						<label class="plantilla-label" for="codmov">*Código de movimiento:</label>
+						<label class="plantilla-label estilo-colorg" for="codmov">*Código de movimiento:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control cod2 border border-dark" id="cod2_1" name="cod2_1" placeholder="Ej. 4550" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
 					</div>
 						
@@ -633,7 +502,7 @@ $(document).ready(function(){
 				<div class="form-row">
 					<div class="form-group col-md-5">
 							<div class="text-center">
-								<label class="plantilla-label" for="del2">*Del:</label>
+								<label class="plantilla-label estilo-colorg" for="del2">*Del:</label>
 							</div>
 							<input type="date" class="form-control border border-dark" id="del2" name="del2" placeholder="Del"required>
 							<small name= "alertVigencia" id= "alertVigencia" class="text-danger">
@@ -641,7 +510,7 @@ $(document).ready(function(){
 						</div>
 						<div class="form-group col-md-5">
 							<div class="text-center">
-								<label class="plantilla-label" for="al3">al:</label>
+								<label cclass="plantilla-label estilo-colorg" for="al3">al:</label>
 							</div>
 						<input  type="date" class="form-control border border-dark" id="al3" name="al3" placeholder="al"> <!--required-->
 						</div>
@@ -650,26 +519,26 @@ $(document).ready(function(){
 					
 					<div class="form-row">
 						<div class="form-group col-mt-8">
-						<label class="plantilla-label" for="estad">*Estado:</label>
+						<label class="plantilla-label estilo-colorg" for="estad">*Estado:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control cod3 border border-dark" id="cod3_1" name="cod3_1" placeholder="Ej. Ciudad de México" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
 					</div>
 
 					<div class="form-group col-mt-8">
-						<label class="plantilla-label" for="consema">*Consecutivo maestro de puestos:</label>
+						<label class="plantilla-label estilo-colorg" for="consema">*Consecutivo maestro de puestos:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="consema" name="consema" placeholder="Ej. 170" value="" maxlength="5" onkeyup="javascript:this.value=this.value.toUpperCase();" >
 					</div>
 					<div class="col-md-4">
 					</div>
 				</div>
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="observ">*Observaciones:</label>
+						<label class="plantilla-label estilo-colorg" for="observ">*Observaciones:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="observ" name="observ" placeholder="Ej. 11-01-19 LA DIRECTORA GENERAL INDICA QUE SE REQUIERE OFICIO DE AUTORIZACION CON JUSTIFICACION PARA OCUPACION." value="" maxlength="150" onkeyup="javascript:this.value=this.value.toUpperCase();" >
 					</div>
 					<div class="form-row">
 					
 
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="fecharecspc">*Fecha de recibido en SPC:</label>
+						<label class="plantilla-label estilo-colorg" for="fecharecspc">*Fecha de recibido en SPC:</label>
 						<input  type="date" class="form-control border border-dark" id="fecharecspc" name="fecharecspc" placeholder="Fecha de recibido en SPC"  >
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
@@ -677,20 +546,20 @@ $(document).ready(function(){
 					</div>
 
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="fechenvvb">*Fecha de envio a VoBo SPC:</label>
+						<label class="plantilla-label estilo-colorg" for="fechenvvb">*Fecha de envio a VoBo SPC:</label>
 						<input type="date" class="form-control border border-dark" id="fechenvvb" name="fechenvvb" placeholder="Fecha de envio a VoBo SPC"  >
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
 					</div>
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="fecharecdspo">*Fecha de recibo DSPO:</label>
+						<label class="plantilla-label estilo-colorg" for="fecharecdspo">*Fecha de recibo DSPO:</label>
 						<input  type="date" class="form-control border border-dark" id="fecharecdspo" name="fecharecdspo" placeholder="Fecha de envio a VoBo SPC" >
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
 					</div>
 					
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="foliospc">*Folio SPC:</label>
+						<label class="plantilla-label estilo-colorg" for="foliospc">*Folio SPC:</label>
 						<input  type="text" class="form-control colon border border-dark" id="foliospc" name="foliospc" placeholder="Ej. 2020" value="" maxlength="5"  >
 					</div>
 						<div class="form-group col-md-12">

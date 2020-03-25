@@ -32,6 +32,7 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/estilossicon.css">
 
 		  <style>
 		  .modal-header, h4, .close {
@@ -44,139 +45,6 @@
 		    background-color: #f9f9f9;
 		  }
 		  </style>
-
-	<style type="text/css">
-			
-			p.one {
-			  border-style: solid;
-			  border-color: hsl(0, 100%, 50%); /* red */
-			}
-
-			p.two {
-			  border-style: solid;
-			  border-color: hsl(240, 100%, 50%); /* blue */
-			}
-
-			p.three {
-			  border-style: solid;
-			  border-color: hsl(0, 0%, 73%); /* grey */
-			}
-			
-			.formulario_fomope{
-				padding-left: 10%;
-				padding-right: 10%;
-			}
-			.bord {
-			  border-style: solid;
-			  border-color: #ffffff; /* grey */
-			}
-			.bordv {
-			  border-style: solid;
-			  border-color: #f5f5f5; /* grey */
-			}
-			.bordg {
-			  border-style: solid;
-			  border-color: #6f7271; /* grey */
-			}
-			input{
-				text-transform: uppercase;
-			}
-
-			.estilo-color{
-				font-family: Monserrat, Medium;
-				font-size: 15px;
-				color:  #f0ce78 ;
-				
-			}
-			.estilo-colorg{
-				font-family: Monserrat, Medium;
-				font-size: 12px;
-				color:  #6f7271 ;
-				font-weight: bold;
-			}
-			.estilo-colorrr{
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				color:  #9f2241 ;
-				font-weight: bold;
-			}
-			.estilo-colorr{
-				color:  #f2ebd7 ;
-				font-weight: bold;
-			}
-			.estilo-colorv{
-				font-family: Monserrat, Medium;
-				font-size: 12px;
-				color:  #fffaed ;
-				
-			}
-			.estilo-colorn{
-				font-family: Monserrat, Medium;
-				font-size: 22px;
-				color:  #9f2241 ;
-				font-weight: bold;
-			}
-			.estilo-colorb{
-				color:  #ffffff ;
-				font-weight: bold;
-			}
-
-			.plantilla-titulos{
-				background-color: #A9D0F5;
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				font-weight: bold;
-				padding: 12px 12px 0px 12px;
-			}
-
-			.plantilla-subtitulos{
-				font-family: Monserrat, Medium;
-				font-size: 18px;
-				font-weight: bold;
-			}
-			.plantilla-subtitulosp{
-				font-family: Monserrat, Medium;
-				font-size: 15px;
-				font-weight: bold;
-			}
-			.plantilla-subtitulospr{
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				font-weight: bold;
-			}
-
-			.plantilla-inputb{
-				text-color: #ffffff;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-			.plantilla-input{
-				background-color: #9f2241;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-			.plantilla-inputg{
-				background-color: #6f7271;
-				font-family: Monserrat, Medium;
-				padding: 25px;
-			}
-			.plantilla-inputv{
-				background-color: #fffaed;
-				font-family: Monserrat, Medium;
-				padding: 15px;
-			}
-			.plantilla-inputve{
-				background-color: #f2ebd7;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-
-
-		
-
-		
-
-		</style>
 
 		
 
@@ -298,20 +166,20 @@
       <div id="content" class="p-4 p-md-5 pt-5">
 
 
-
-				<div class="col-md-8 col-md-offset-8">
+<center>
+	<div class="col-md-8 col-md-offset-8">
 					 <form name="captura1" action="./Controller/autorizarVerde2.php" method="POST"> 
 				 		<div class="form-row">
-							<input readonly type="text" class="form-control" id="userName" name="userName" value="<?php echo $usuarioSeguir ?>" style="display:none">
+							<input readonly type="text" class="form-control unexp border border-dark" id="userName" name="userName" value="<?php echo $usuarioSeguir ?>" style="display:none">
 						</div>
 						<div class="form-row">
-							<input readonly type="text" class="form-control" id="idFom" name="idFom" value="<?php echo $idMovSeg ?>" style="display:none">
+							<input readonly type="text" class="form-control unexp border border-dark" id="idFom" name="idFom" value="<?php echo $idMovSeg ?>" style="display:none">
 						</div>
 						<div class="form-row">
 						    <div class="col">
 						      <div class="form-group col-md-12">
 					  			<label class="plantilla-label estilo-colorg" for="fAlaborar">FECHAS ENTREGA DE EXPEDIENTE A RELACIONES LABORALES: </label>
-						        <input readonly type="date" class="form-control" id="fechaRLaborales" value="<?php echo $ver[39] ?>" name="fechaRLaborales">
+						        <input readonly type="date" class="form-control unexp border border-dark" id="fechaRLaborales" value="<?php echo $ver[39] ?>" name="fechaRLaborales">
 						      </div>
 						    </div>	
 						    <div class="col">
@@ -319,7 +187,7 @@
 							    <div class="form-group col-md-12" >
 						  		 <label class="plantilla-label estilo-colorg" for="ofEntregaL">OFICIO ENTREGA EXPEDIENTE A RELACIONES LABORALES:</label> 
 						  		
-							    <input readonly type="text" class="form-control" id="ofEntregaRL" value="<?php echo $ver[40] ?>" name="ofEntregaRL" placeholder="OFICIO ENTREGA EXPEDIENTE RELACIONES LABORALES" maxlength="65">
+							    <input readonly type="text" class="form-control unexp border border-dark" id="ofEntregaRL" value="<?php echo $ver[40] ?>" name="ofEntregaRL" placeholder="OFICIO ENTREGA EXPEDIENTE RELACIONES LABORALES" maxlength="65">
 							 </div>
 				  			</div>		
 						    
@@ -329,7 +197,7 @@
 
 				  		  <div class="form-group col-md-4" >
 						    <label class="plantilla-label estilo-colorg" for="ejemplo_archivo_1">Archivo adjunto: </label>
-						    <input readonly type="text"class="form-control" value="<?php echo $ver[41] ?>" id="ejemplo_archivo_1" name="ejemplo_archivo_1">
+						    <input readonly type="text"class="form-control unexp border border-dark" value="<?php echo $ver[41] ?>" id="ejemplo_archivo_1" name="ejemplo_archivo_1">
 						   <!--  <p class="help-block">Ejemplo de texto de ayuda.</p> -->
 						  </div>
 						<br>
@@ -339,14 +207,14 @@
 						    <div class="col">
 						      <div class="form-group col-md-12" >
 						  		<label class="plantilla-label estilo-colorg" for="fechaUnidad">FECHA ENTREGA EXPEDIENTE UNIDAD: </label>
-							    <input readonly type="date" class="form-control" value="<?php echo $ver[42] ?>" id="fechaEntregaUnidad" name="fechaEntregaUnidad" >
+							    <input readonly type="date" class="form-control unexp border border-dark" value="<?php echo $ver[42] ?>" id="fechaEntregaUnidad" name="fechaEntregaUnidad" >
 					  		</div>
 						    </div>	
 						    <div class="col">
 
 							   <div class="form-group col-md-12" >
 							  		 <label class="plantilla-label estilo-colorg" for="ofUnidad">OFICIO ENTREGA EXPEDIENTE UNIDAD: </label> 
-								    <input readonly type="text" class="form-control" id="ofEntregaUnidad" value="<?php echo $ver[43] ?>" name="ofEntregaUnidad" placeholder="OFICIO ENTREGA EXPEDIENTE UNIDAD" maxlength="49">	
+								    <input readonly type="text" class="form-control unexp border border-dark" id="ofEntregaUnidad" value="<?php echo $ver[43] ?>" name="ofEntregaUnidad" placeholder="OFICIO ENTREGA EXPEDIENTE UNIDAD" maxlength="49">	
 						  		</div>		
 
 				  			</div>		
@@ -355,7 +223,7 @@
 
 							<div class="form-group col-md-12" >
 					  		<label class="plantilla-label estilo-colorg" for="oficio">OFICIO ENTREGA SEGUROS: </label>
-						    <input type="text" class="form-control" id="ofEntrega" name="ofEntrega" value="<?php echo $ver[10] ?>" placeholder="Ingresa el oficio de entrega" maxlength="25"required>
+						    <input type="text" class="form-control unexp border border-dark" id="ofEntrega" name="ofEntrega" value="<?php echo $ver[10] ?>" placeholder="Ingresa el oficio de entrega" maxlength="25"required>
 				  		</div>
 
 				
@@ -396,14 +264,14 @@
 							<input readonly type="text" class="form-control" id="userName" name="userName" value="<?php echo $usuarioSeguir ?>" style="display:none">
 						</div>
 						<div class="form-row">
-							<input readonly type="text" class="form-control" id="idFom" name="idFom" value="<?php echo $idMovSeg ?>" style="display:none">
+							<input readonly type="text" class="form-control unexp border border-dark" id="idFom" name="idFom" value="<?php echo $idMovSeg ?>" style="display:none">
 						</div>
 						
 						<p class="plantilla-label estilo-colorg">Justificación o Motivos de Rechazo</p>
 					
 							<div class="form-group shadow-textarea">
 							  <label class="plantilla-label estilo-colorg" for="exampleFormControlTextarea6">*Agregar la justificacion</label>
-							  <textarea class="form-control z-depth-1" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..."><?php echo $ver[13] ?></textarea>
+							  <textarea class="form-control unexp border border-dark" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..."><?php echo $ver[13] ?></textarea>
 							</div>
 
 							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2">
@@ -434,6 +302,9 @@
 
 
 					</form>
+
+</center>
+				
 					<script src="js/bootstrap.min.js"></script>
    	<script src="js/main.js"></script>
 				</div>
