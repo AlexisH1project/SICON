@@ -37,6 +37,7 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/estilossicon.css">
 
 		  <style>
 		  .modal-header, h4, .close {
@@ -50,139 +51,7 @@
 		  }
 		  </style>
 
-		
-<style type="text/css">
-			
-			p.one {
-			  border-style: solid;
-			  border-color: hsl(0, 100%, 50%); /* red */
-			}
 
-			p.two {
-			  border-style: solid;
-			  border-color: hsl(240, 100%, 50%); /* blue */
-			}
-
-			p.three {
-			  border-style: solid;
-			  border-color: hsl(0, 0%, 73%); /* grey */
-			}
-			
-			.formulario_fomope{
-				padding-left: 10%;
-				padding-right: 10%;
-			}
-			.bord {
-			  border-style: solid;
-			  border-color: #ffffff; /* grey */
-			}
-			.bordv {
-			  border-style: solid;
-			  border-color: #f5f5f5; /* grey */
-			}
-			.bordg {
-			  border-style: solid;
-			  border-color: #6f7271; /* grey */
-			}
-			input{
-				text-transform: uppercase;
-			}
-
-			.estilo-color{
-				font-family: Montserrat, Medium;
-				font-size: 15px;
-				color:  #f0ce78 ;
-				
-			}
-			.estilo-colorg{
-				font-family: Montserrat, Medium;
-				font-size: 12px;
-				color:  #6f7271 ;
-				font-weight: bold;
-			}
-			.estilo-colorrr{
-				font-family: Montserrat, Medium;
-				font-size: 25px;
-				color:  #9f2241 ;
-				font-weight: bold;
-			}
-			.estilo-colorr{
-				color:  #f2ebd7 ;
-				font-weight: bold;
-			}
-			.estilo-colorv{
-				font-family: Montserrat, Medium;
-				font-size: 12px;
-				color:  #fffaed ;
-				
-			}
-			.estilo-colorn{
-				font-family: Montserrat, Medium;
-				font-size: 22px;
-				color:  #9f2241 ;
-				font-weight: bold;
-			}
-			.estilo-colorb{
-				color:  #ffffff ;
-				font-weight: bold;
-			}
-
-			.plantilla-titulos{
-				background-color: #A9D0F5;
-				font-family: Montserrat, Medium;
-				font-size: 25px;
-				font-weight: bold;
-				padding: 12px 12px 0px 12px;
-			}
-
-			.plantilla-subtitulos{
-				font-family: Montserrat, Medium;
-				font-size: 18px;
-				font-weight: bold;
-			}
-			.plantilla-subtitulosp{
-				font-family: Montserrat, Medium;
-				font-size: 15px;
-				font-weight: bold;
-			}
-			.plantilla-subtitulospr{
-				font-family: Montserrat, Medium;
-				font-size: 25px;
-				font-weight: bold;
-			}
-
-			.plantilla-inputb{
-				text-color: #ffffff;
-				font-family: Montserrat, Medium;
-				padding: 12px;
-			}
-			.plantilla-input{
-				background-color: #9f2241;
-				font-family: Montserrat, Medium;
-				padding: 12px;
-			}
-			.plantilla-inputg{
-				background-color: #6f7271;
-				font-family: Montserrat, Medium;
-				padding: 25px;
-			}
-			.plantilla-inputv{
-				background-color: #fffaed;
-				font-family: Montserrat, Medium;
-				padding: 15px;
-			}
-			.plantilla-inputve{
-				background-color: #f2ebd7;
-				font-family: Montserrat, Medium;
-				padding: 12px;
-			}
-
-
-		
-
-		
-
-		</style>
 
 	</head>
 	<body>
@@ -353,9 +222,9 @@
 
 		
 			<br><br>
-
-			 <form name="captura1" action="aceptar.php" method="POST"> 
-						<div class="rounded border border-dark plantilla-inputb text-center">
+			<center>
+				 <form name="captura1" action="aceptar.php" method="POST"> 
+						<div class="plantilla-inputb text-center">
 						<div class="col text-center">
 						
 			</div>
@@ -401,7 +270,7 @@
 					</div>
 
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="nombres">Nombre(s):</label>
+						<label class="plantilla-label estilo-colorg" for="nombres">Nombre(s):</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="nombres" name="nombres" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $nombre_s; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 				</div>
@@ -641,6 +510,9 @@
 							  </div>
 							</div>
 					</form>
+
+			</center>
+			
 <script src="js/bootstrap.min.js"></script>
    	<script src="js/main.js"></script>
 			

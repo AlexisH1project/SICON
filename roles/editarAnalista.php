@@ -36,6 +36,7 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/estilossicon.css">
 
 		  <style>
 		  .modal-header, h4, .close {
@@ -49,139 +50,7 @@
 		  }
 		  </style>
 
-		
-<style type="text/css">
-			
-			p.one {
-			  border-style: solid;
-			  border-color: hsl(0, 100%, 50%); /* red */
-			}
 
-			p.two {
-			  border-style: solid;
-			  border-color: hsl(240, 100%, 50%); /* blue */
-			}
-
-			p.three {
-			  border-style: solid;
-			  border-color: hsl(0, 0%, 73%); /* grey */
-			}
-			
-			.formulario_fomope{
-				padding-left: 10%;
-				padding-right: 10%;
-			}
-			.bord {
-			  border-style: solid;
-			  border-color: #ffffff; /* grey */
-			}
-			.bordv {
-			  border-style: solid;
-			  border-color: #f5f5f5; /* grey */
-			}
-			.bordg {
-			  border-style: solid;
-			  border-color: #6f7271; /* grey */
-			}
-			input{
-				text-transform: uppercase;
-			}
-
-			.estilo-color{
-				font-family: Monserrat, Medium;
-				font-size: 15px;
-				color:  #f0ce78 ;
-				
-			}
-			.estilo-colorg{
-				font-family: Monserrat, Medium;
-				font-size: 12px;
-				color:  #6f7271 ;
-				font-weight: bold;
-			}
-			.estilo-colorrr{
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				color:  #9f2241 ;
-				font-weight: bold;
-			}
-			.estilo-colorr{
-				color:  #f2ebd7 ;
-				font-weight: bold;
-			}
-			.estilo-colorv{
-				font-family: Monserrat, Medium;
-				font-size: 12px;
-				color:  #fffaed ;
-				
-			}
-			.estilo-colorn{
-				font-family: Monserrat, Medium;
-				font-size: 22px;
-				color:  #9f2241 ;
-				font-weight: bold;
-			}
-			.estilo-colorb{
-				color:  #ffffff ;
-				font-weight: bold;
-			}
-
-			.plantilla-titulos{
-				background-color: #A9D0F5;
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				font-weight: bold;
-				padding: 12px 12px 0px 12px;
-			}
-
-			.plantilla-subtitulos{
-				font-family: Monserrat, Medium;
-				font-size: 18px;
-				font-weight: bold;
-			}
-			.plantilla-subtitulosp{
-				font-family: Monserrat, Medium;
-				font-size: 15px;
-				font-weight: bold;
-			}
-			.plantilla-subtitulospr{
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				font-weight: bold;
-			}
-
-			.plantilla-inputb{
-				text-color: #ffffff;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-			.plantilla-input{
-				background-color: #9f2241;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-			.plantilla-inputg{
-				background-color: #6f7271;
-				font-family: Monserrat, Medium;
-				padding: 25px;
-			}
-			.plantilla-inputv{
-				background-color: #fffaed;
-				font-family: Monserrat, Medium;
-				padding: 15px;
-			}
-			.plantilla-inputve{
-				background-color: #f2ebd7;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-
-
-		
-
-		
-
-		</style>
 
 
 		<script type="text/javascript">
@@ -472,8 +341,9 @@
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
 
-		
-		<div class="formulario_fomope">
+		<center>
+			
+<div class="formulario_fomope">
 
 		<div class="formulario_fomope">
 
@@ -482,17 +352,17 @@
 
 			 <form name="captura2" action="agregar_FOMOPE.php" method="POST"> 
 
-				<div class="rounded border border-dark plantilla-inputb text-center">
+				<div class=" plantilla-inputb text-center">
 						<div class="col text-center">
 						<div class="form-row">
 						<div class="form-group col-md-12">
-						<label class="plantilla-label" for="justirech" style="color:red;">Justificación rechazo:</label>
+						<label class="plantilla-label estilo-colorg" for="justirech" style="color:red;">Justificación rechazo:</label>
 						 <textarea class="form-control z-depth-1" onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="justirech" name="justirech" readonly ><?php echo $justificacio_fom; ?></textarea>
 						</div>
 				</div>
 				<div class="form-row">
 				<div class="form-group col-md-6">
-						<label class="plantilla-label" for="unidad1">Unidad:</label>
+						<label class="plantilla-label estilo-colorg" for="unidad1">Unidad:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="unidad1" name="unidad1" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $unidad; ?>"   required readonly>
 					</div>
 				</div>
@@ -508,50 +378,50 @@
 						</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="rfc_fomo">RFC:</label>
+						<label class="plantilla-label estilo-colorg" for="rfc_fomo">RFC:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="rfc_fomo" name="rfc_fomo" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $rfc_fom; ?>"  required readonly>
 					</div>
 
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="curp1">Curp:</label>
+						<label class="plantilla-label estilo-colorg" for="curp1">Curp:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="curp1" name="curp1" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $curp_fom; ?>"  required readonly>
 					</div>
 				</div>
 					<div class="form-row">
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="apPater">Apellido Paterno:</label>
+						<label class="plantilla-label estilo-colorg" for="apPater">Apellido Paterno:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="apPater" name="apPater" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $apellido_1; ?>"  required readonly>
 					</div>
 				<div class="form-row">
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="apmater">*Apellido Materno:</label>
+						<label class="plantilla-label estilo-colorg" for="apmater">*Apellido Materno:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="apmater" name="apmater" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $apellido_2; ?>"  required readonly>
 					</div>
 
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="nombres">Nombre(s):</label>
+						<label class="plantilla-label estilo-colorg" for="nombres">Nombre(s):</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="nombres" name="nombres" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $nombre_s; ?>"  required readonly>
 					</div>
 				</div>
 
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="fechIngr">*Fecha ingreso:</label>
+						<label class="plantilla-label estilo-colorg" for="fechIngr">*Fecha ingreso:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="fechIngr" name="fechIngr" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $fecha_ingreso; ?>"  required readonly>
 					</div>
 
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="ofentre">*Oficio entrega:</label>
+						<label class="plantilla-label estilo-colorg" for="ofentre">*Oficio entrega:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="ofentre" name="ofentre" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $oficio_entrega; ?>"  required readonly>
 					</div>
 
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="tipoentre">Tipo de entrega:</label>
+						<label class="plantilla-label estilo-colorg" for="tipoentre">Tipo de entrega:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="tipoentre" name="tipoentre" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $tipo_entrega; ?>"  required readonly>
 					</div>
 
 					<div class="form-group col-md-6">
-						<label class="plantilla-label" for="tipoacc">Tipo de acción:</label>
+						<label class="plantilla-label estilo-colorg" for="tipoacc">Tipo de acción:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="tipoacc" name="tipoacc" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $tipo_de_accion; ?>"  required readonly>
 					</div>
 				</div>
@@ -559,7 +429,7 @@
 					
 				
 									 <div class="form-group col-md-3">
-								<label  class="plantilla-label" for="laQna">*QNA: </label>
+								<label  class="plantilla-label estilo-colorg" for="laQna">*QNA: </label>
 									 
 									<select class="form-control unexp border border-dark custom-select" name="qnaOption">
 										<option  value="<?php echo $qnaActual; ?>"><?php echo $qnaActual; ?></option>
@@ -572,7 +442,7 @@
 				
 
 							<div class="form-group col-md-3">
-								<label  class="plantilla-label" for="elAnio">AÑO: </label>
+								<label  class="plantilla-label estilo-colorg" for="elAnio">AÑO: </label>
 									 
 									<select class="form-control unexp border border-dark custom-select" name="anio">
 										<option value="<?php echo $anio_Add;?>"><?php echo $anio_Add; ?></option>
@@ -581,14 +451,14 @@
 									</select>
 							</div>
 					<div class="form-group col-md-4">
-						<label class="plantilla-label" for="ofunid">*Oficio Unidad:</label>
+						<label class="plantilla-label estilo-colorg" for="ofunid">*Oficio Unidad:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="ofunid" name="ofunid" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $of_unidad; ?>" maxlength="80"  required >
 
 				</div>
 			</div>
 				<div class="form-row">
 					<div class="form-group col-mt-8">
-						<label class="plantilla-label" for="fechaofi">*Fecha de oficio:</label>
+						<label class="plantilla-label estilo-colorg" for="fechaofi">*Fecha de oficio:</label>
 						<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechaofi" name="fechaofi" placeholder="Fecha Oficio" value="<?php echo $fecha_oficio; ?>"  required >
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
@@ -596,7 +466,7 @@
 				
 			
 					<div class="form-group col-mt-8">
-						<label class="plantilla-label" for="fechareci">*Fecha de recibido:</label>
+						<label class="plantilla-label estilo-colorg" for="fechareci">*Fecha de recibido:</label>
 						<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechareci" name="fechareci" placeholder="Fecha de recibido" value="<?php echo $fecha_recibido; ?>"  required >
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
@@ -605,25 +475,25 @@
 				
 			
 					<div class="form-group col-mt-8">
-						<label class="plantilla-label" for="codigo">*Código:</label>
+						<label class="plantilla-label estilo-colorg" for="codigo">*Código:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="codigo" name="codigo" placeholder="Ej. 165" value="<?php echo $codigo; ?>" maxlength="9"  required >
 					</div>
 				
 
 				<div class="form-group col-mt-8">
-						<label class="plantilla-label" for="NO">No. de puesto:</label>
+						<label class="plantilla-label estilo-colorg" for="NO">No. de puesto:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="num_pues" name="num_pues" placeholder="Ej. 0001" value="<?php echo $no_puesto; ?>" maxlength="4"  required >
 
 				</div>
 					<div class="form-group col-md-8">
-						<label class="plantilla-label" for="clavepres">Clave presupuestaria:</label>
+						<label class="plantilla-label estilo-colorg" for="clavepres">Clave presupuestaria:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="clavepres" name="clavepres" placeholder="Ej. 0001" value="<?php echo $clave_presupuestaria; ?>" maxlength="35"  required >
 					</div>
 			</div>
 				
 					<div class="form-row">
 					<div class="form-group col-md-12">
-						<label class="plantilla-label" for="codmov">*Código de movimiento:</label>
+						<label class="plantilla-label estilo-colorg" for="codmov">*Código de movimiento:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control cod2 border border-dark" id="cod2_1" name="cod2_1" placeholder="Ej. 4550" value="<?php echo $clave_concepto; ?>" maxlength="5"  required>
 					</div>
 
@@ -632,7 +502,7 @@
 				<div class="form-row">
 					<div class="form-group col-md-4">
 							<div class="text-center">
-								<label class="plantilla-label" for="del2">*Del:</label>
+								<label class="plantilla-label estilo-colorg" for="del2">*Del:</label>
 							</div>
 							<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="del2" name="del2" placeholder="Del" value="<?php echo $del_1; ?>"  required >
 							<small name= "alertVigencia" id= "alertVigencia" class="text-danger">
@@ -640,7 +510,7 @@
 						</div>
 						<div class="form-group col-md-4">
 							<div class="text-center">
-								<label class="plantilla-label" for="al3">al:</label>
+								<label class="plantilla-label estilo-colorg" for="al3">al:</label>
 							</div>
 							<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="al3" name="al3" placeholder="al" value="<?php echo $al_1; ?>"  > <!---->
 						</div>
@@ -648,20 +518,20 @@
 				<div class="form-row">
 
 						<div class="form-group col-mt-4">
-						<label class="plantilla-label" for="estad">*Estado:</label>
+						<label class="plantilla-label estilo-colorg" for="estad">*Estado:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control cod3 border border-dark" id="cod3_1" name="cod3_1" placeholder="Ej. Ciudad de México" value="<?php echo $estado_en; ?>" maxlength="30"  required>
 					</div>
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="consema">*Consecutivo maestro de puestos:</label>
+						<label class="plantilla-label estilo-colorg" for="consema">*Consecutivo maestro de puestos:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="consema" name="consema" placeholder="Ej. 170" value="<?php echo $consecutivo_maestro_impuestos; ?>" maxlength="5"  required >
 					</div>
 				
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="observ">Observaciones:</label>
+						<label class="plantilla-label estilo-colorg" for="observ">Observaciones:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="observ" name="observ" placeholder="Ej. 11-01-19 LA DIRECTORA GENERAL INDICA QUE SE REQUIERE OFICIO DE AUTORIZACION CON JUSTIFICACION PARA OCUPACION." value="<?php echo $observaciones; ?>" maxlength="150" >
 					</div>
 					<div class="form-group col-mt-4">
-						<label class="plantilla-label" for="fecharecspc">Fecha de recibido en SPC:</label>
+						<label class="plantilla-label estilo-colorg" for="fecharecspc">Fecha de recibido en SPC:</label>
 						<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fecharecspc" name="fecharecspc" placeholder="Fecha de recibido en SPC" value="<?php echo $fecha_recibido_spc; ?>" >
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
@@ -671,7 +541,7 @@
 				<div class="form-row">
 
 					<div class="form-group col-mt-5">
-						<label class="plantilla-label" for="fechenvvb">Fecha de envio a VoBo SPC:</label>
+						<label class="plantilla-label estilo-colorg" for="fechenvvb">Fecha de envio a VoBo SPC:</label>
 						<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechenvvb" name="fechenvvb" placeholder="Fecha de envio a VoBo SPC" value="<?php echo $fecha_envio_spc; ?>"   >
 						<small name= "alertFechaIngreso" id= "alertFechaIngreso" class="text-danger">
 				        </small>  
@@ -679,7 +549,7 @@
 
 					
 					<div class="form-group col-md-5">
-						<label class="plantilla-label" for="foliospc">Folio SPC:</label>
+						<label class="plantilla-label estilo-colorg" for="foliospc">Folio SPC:</label>
 						<input onkeypress="return pulsar(event)"  type="text" class="form-control colon border border-dark" id="foliospc" name="foliospc" placeholder="Ej. 2020" value="<?php echo $folio_spc; ?>" maxlength="5"   >
 					</div>
 
@@ -735,6 +605,9 @@
 
 				</div>
 			</form>
+
+		</center>
+		
 
 			</form>
 			<script src="js/bootstrap.min.js"></script>

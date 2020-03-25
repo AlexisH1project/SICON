@@ -32,6 +32,7 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/estilossicon.css">
 
 		  <style>
 		  .modal-header, h4, .close {
@@ -45,140 +46,7 @@
 		  }
 		  </style>
 
-		
-		
-<style type="text/css">
-			
-			p.one {
-			  border-style: solid;
-			  border-color: hsl(0, 100%, 50%); /* red */
-			}
 
-			p.two {
-			  border-style: solid;
-			  border-color: hsl(240, 100%, 50%); /* blue */
-			}
-
-			p.three {
-			  border-style: solid;
-			  border-color: hsl(0, 0%, 73%); /* grey */
-			}
-			
-			.formulario_fomope{
-				padding-left: 10%;
-				padding-right: 10%;
-			}
-			.bord {
-			  border-style: solid;
-			  border-color: #ffffff; /* grey */
-			}
-			.bordv {
-			  border-style: solid;
-			  border-color: #f5f5f5; /* grey */
-			}
-			.bordg {
-			  border-style: solid;
-			  border-color: #6f7271; /* grey */
-			}
-			input{
-				text-transform: uppercase;
-			}
-
-			.estilo-color{
-				font-family: Monserrat, Medium;
-				font-size: 15px;
-				color:  #f0ce78 ;
-				
-			}
-			.estilo-colorg{
-				font-family: Monserrat, Medium;
-				font-size: 12px;
-				color:  #6f7271 ;
-				font-weight: bold;
-			}
-			.estilo-colorrr{
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				color:  #9f2241 ;
-				font-weight: bold;
-			}
-			.estilo-colorr{
-				color:  #f2ebd7 ;
-				font-weight: bold;
-			}
-			.estilo-colorv{
-				font-family: Monserrat, Medium;
-				font-size: 12px;
-				color:  #fffaed ;
-				
-			}
-			.estilo-colorn{
-				font-family: Monserrat, Medium;
-				font-size: 22px;
-				color:  #9f2241 ;
-				font-weight: bold;
-			}
-			.estilo-colorb{
-				color:  #ffffff ;
-				font-weight: bold;
-			}
-
-			.plantilla-titulos{
-				background-color: #A9D0F5;
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				font-weight: bold;
-				padding: 12px 12px 0px 12px;
-			}
-
-			.plantilla-subtitulos{
-				font-family: Monserrat, Medium;
-				font-size: 18px;
-				font-weight: bold;
-			}
-			.plantilla-subtitulosp{
-				font-family: Monserrat, Medium;
-				font-size: 15px;
-				font-weight: bold;
-			}
-			.plantilla-subtitulospr{
-				font-family: Monserrat, Medium;
-				font-size: 25px;
-				font-weight: bold;
-			}
-
-			.plantilla-inputb{
-				text-color: #ffffff;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-			.plantilla-input{
-				background-color: #9f2241;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-			.plantilla-inputg{
-				background-color: #6f7271;
-				font-family: Monserrat, Medium;
-				padding: 25px;
-			}
-			.plantilla-inputv{
-				background-color: #fffaed;
-				font-family: Monserrat, Medium;
-				padding: 15px;
-			}
-			.plantilla-inputve{
-				background-color: #f2ebd7;
-				font-family: Monserrat, Medium;
-				padding: 12px;
-			}
-
-
-		
-
-		
-
-		</style>
 
 		<script type="text/javascript">
 
@@ -397,8 +265,9 @@
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
 
-
-				<div class="col-md-8 col-md-offset-8">
+      	<center>
+      		
+      			<div class="col-md-8 col-md-offset-8">
 					 <form name="captura1" action="./Controller/updateNegro.php" method="POST"> 
 				 		<div class="form-row">
 							<input type="text" class="form-control" id="userName" name="userName" value="<?php echo $usuarioSeguir ?>" style="display:none">
@@ -408,7 +277,7 @@
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-12" >
-								<label class="plantilla-label" for="unexp_1">Unidad:</label>
+								<label class="plantilla-label estilo-colorg" for="unexp_1">Unidad:</label>
 								<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="unexp_1" name="unexp_1" placeholder="Ej. 111" value="<?php echo $ver[3] ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
 							</div>
 						</div>
@@ -417,21 +286,21 @@
 							
 							<div class="col">
 						      <div class="md-form mt-0">
-						       <label class="plantilla-label" for="rfcL_1" >RFC: </label>
+						       <label class="plantilla-label estilo-colorg" for="rfcL_1" >RFC: </label>
 						    	<input type="text"  type="text" class="form-control rfcL border border-dark" id="rfcL_1" name="rfcL_1" placeholder="RFC" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingresa rfc" maxlength="13" value="<?php echo $ver[4] ?>" required>
 						      </div>
 						    </div>
 							
 						    <div class="col">
 						      <div class="md-form mt-0">
-						        <label for="CURP">CURP: </label>
+						        <label class="plantilla-label estilo-colorg" for="CURP">CURP: </label>
 						   		 <input type="text" class="form-control border border-dark" id="curp" name="curp" placeholder="Ingresa CURP" maxlength="18" value="<?php echo $ver[5] ?>" >
 						      </div>
 						    </div>
 						</div>
 						<br>
 				  		<div class="form-group col-md-12" >	
-				  			<label for="nombreT">NOMBRE COMPLETO: </label>
+				  			<label class="plantilla-label estilo-colorg" for="nombreT">NOMBRE COMPLETO: </label>
 						</div>
 
 				  		<div class="form-row">
@@ -458,14 +327,14 @@
 				<div class="col-md-4 col-md-offset-4">
 
 				  		<div class="form-group col-md-12" >
-					  		<label for="fechaIngreso"> FECHA DE RECIBIDO: </label>
+					  		<label class="plantilla-label estilo-colorg" for="fechaIngreso"> FECHA DE RECIBIDO: </label>
 						    <input type="date" class="form-control border border-dark" id="fechaIngreso" name="fechaIngreso" placeholder="Ingresa Fecha del ingreso" value="<?php echo $ver[9] ?>" required>
 						    
 				  		</div>
 				  <div class="form-row">
 					<div class="form-group col-md-6">
 							<div class="text-center">
-								<label class="plantilla-label" for="del">*Del:</label>
+								<label  class="plantilla-label estilo-colorg" for="del">*Del:</label>
 							</div>
 							<input type="date" class="form-control border border-dark" id="del" value="<?php echo $ver[24] ?>" name="del" placeholder="Del">
 							<small name= "alertVigencia" id= "alertVigencia" class="text-danger">
@@ -473,7 +342,7 @@
 						</div>
 						<div class="form-group col-md-6">
 							<div class="text-center">
-								<label class="plantilla-label" for="al">al:</label>
+								<label class="plantilla-label estilo-colorg" for="al">al:</label>
 							</div>
 						<input  type="date" class="form-control border border-dark" value="<?php echo $ver[25] ?>" id="al" name="al" placeholder="al"> <!--required-->
 						</div>
@@ -490,7 +359,7 @@
 
 
 							<div class="form-group shadow-textarea">
-							  <label for="exampleFormControlTextarea6">*Motivo de rechazo</label>
+							  <label class="plantilla-label estilo-colorg" for="exampleFormControlTextarea6">*Motivo de rechazo</label>
 							  <textarea class="form-control z-depth-1 border border-dark" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..."><?php echo $ver[13] ?></textarea>
 							</div>
 
@@ -542,7 +411,7 @@
 						      <div class="form-group col-md-8">
 									<div class="box" >
 
-										<label  class="plantilla-label" for="laQna">¿A quien será turnado?</label>
+										<label  class="plantilla-label estilo-colorg" for="laQna">¿A quien será turnado?</label>
 												 
 												<select class="form-control border border-dark custom-select" name="usuar">
 													
@@ -574,6 +443,11 @@
 											</div>
 
 					</form>  
+
+      	</center>
+
+
+				
 
 					<script src="js/bootstrap.min.js"></script>
    	<script src="js/main.js"></script>
