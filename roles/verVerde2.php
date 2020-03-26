@@ -64,6 +64,15 @@
 					echo '<script type="text/javascript">alert("error '. mysqli_error($conexion).'");</script>';
 								
 			}
+
+			$consultaR = " SELECT * FROM usuarios WHERE usuario = '$usuarioSeguir'";
+
+		        if($resultado3 = mysqli_query($conexion,$consultaR)){
+	        		$row = mysqli_fetch_assoc($resultado3);
+					$id_rol1 = $row['id_rol'];
+
+					
+			}
 			//echo $idMovSeg;
 		?>
 	
@@ -72,7 +81,7 @@
     	<br>
 
 		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar" class="active bordv">
+			<nav id="sidebar" class=" bordv">
 				<div class="custom-menu">
 					<button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
 	          <i class="fa fa-bars"></i>
@@ -85,20 +94,20 @@
 		  		<img class="img-responsive" src="img/ss1.png" height="50" width="190">
 	        <ul class="list-unstyled components mb-5">
 	        	<br>
-	        	<li class="active estilo-color">
+	        	<li class=" estilo-color">
 	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/> Kevin Solano</span></a>
 	          </li>
-	          <li class="active estilo-color">
-	            <a href="#"><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
+	          <li class=" estilo-color">
+	            <a href= <?php echo ("'./lulu.php?usuario_rol=$usuarioSeguir'"); ?>  ><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
 	          </li>
-	          <li class="active estilo-color">
-	              <a href="#"><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
+	          <li class=" estilo-color">
+	              <a ><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
 	          </li>
-	          <li class="active estilo-color">
-              <a href="#"><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
+	          <li class=" estilo-color">
+              <a ><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
 	          </li>
 	          </li>
-	          <li class="active estilo-color">
+	          <li class=" estilo-color">
              
 	          </li>
 

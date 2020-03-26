@@ -303,7 +303,7 @@ $(document).ready(function(){
 	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/> Kevin Solano</span></a>
 	          </li>
 	          <li class="active estilo-color">
-	            <a href="#"><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
+	            <a href="123"><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
 	          </li>
 	          <li class="active estilo-color">
 	              <a href="#"><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
@@ -318,7 +318,7 @@ $(document).ready(function(){
 			          </li>
 
 			            <li class="active estilo-color">
-		             		<FONT SIZE=4 COLOR=9f2241> <I><?php  echo $rowQna[2];?></I> -- <I><?php  echo $rowQna[3];?></I>  </FONT>
+		             		<FONT SIZE=4 COLOR=9f2241> <I><?php  echo $rowQna[2];?></I> -- <I><?php  echo $rowQna[3];?></I> </FONT>
 			          </li>
 
 	        </ul>

@@ -208,6 +208,14 @@
 					$fecha_entrega_archivo_gral = $row['fechaEntregaArchivo'];
 	        		$clave_concepto = "$codigo_movimiento"."_"."$concepto";
 			}
+						$consultaR = " SELECT * FROM usuarios WHERE usuario = '$usuario'";
+
+		        if($resultado3 = mysqli_query($conexion,$consultaR)){
+	        		$row = mysqli_fetch_assoc($resultado3);
+					$id_rol1 = $row['id_rol'];
+
+					
+			}
 	
 			$v = "-";
 	        	
@@ -248,7 +256,7 @@
 		 <br>
 
 		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar" class="active bordv">
+			<nav id="sidebar" class=" bordv">
 				<div class="custom-menu">
 					<button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
 	          <i class="fa fa-bars"></i>
@@ -261,20 +269,22 @@
 		  		<img class="img-responsive" src="img/ss1.png" height="50" width="190">
 	        <ul class="list-unstyled components mb-5">
 	        	<br>
-	        	<li class="active estilo-color">
+	        	<li class=" estilo-color">
 	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/> Kevin Solano</span></a>
 	          </li>
-	          <li class="active estilo-color">
-	            <a href="#"><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
+	         <li class=' estilo-color'>
+	            <a href=  <?php if($id_rol1 == 3){echo ("'./CapturistaTostado.php?usuario_rol=$usuario'"); } elseif ($id_rol1 == 2) {
+	            	
+	            echo ("'./analista.php?usuario_rol=$usuario'"); }?>  > <img src='./img/icbuzon.png' alt='x' height='17' width='20'/>      Bandeja</a>
+			</li>
+	          <li class=" estilo-color">
+	              <a href=""><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
 	          </li>
-	          <li class="active estilo-color">
-	              <a href="#"><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
-	          </li>
-	          <li class="active estilo-color">
+	          <li class=" estilo-color">
               <a href="#"><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
 	          </li>
 	          </li>
-	          <li class="active estilo-color">
+	          <li class=" estilo-color">
              
 	          </li>
 
@@ -357,8 +367,9 @@
 						<div class="form-row">
 						<div class="form-group col-md-12">
 						<label class="plantilla-label estilo-colorg" for="justirech" style="color:red;">Justificación rechazo:</label>
-						 <textarea class="form-control z-depth-1" onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="justirech" name="justirech" readonly ><?php echo $justificacio_fom; ?></textarea>
+						 <textarea class="form-control z-depth-1" onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="justirech" name="justirech" readonly ><?php  echo $justificacio_fom; ?></textarea>
 						</div>
+
 				</div>
 				<div class="form-row">
 				<div class="form-group col-md-6">
