@@ -220,30 +220,54 @@
 			$v = "-";
 	        	
 			$hoy = "select CURDATE()";
-		   	$tiempo ="select curTime()";
+			$tiempo ="select curTime()";
+			$diaActual = "";
 
 			 if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
-			 		$dia = mysqli_fetch_row($resultHoy);
-			 		$hora = mysqli_fetch_row($resultTime);
+			 		$rowF = mysqli_fetch_row($resultHoy);  // cambiamos formato de hora 
+			 		$fechaSistema = date("d-m-Y", strtotime($rowF[0])); //"05-04-2020";;
+			 		$rowHora = mysqli_fetch_row($resultTime);
+
+					$diaActual=date("w", strtotime($fechaSistema));
+					
 			 }
 
-			 $elDia = explode("-", $dia[0]);
-			 $qnaMax = $elDia[1] * (2);
-			 if($qnaMax == 24){
-			 	$qnaActual = 1;
-			 	$rango1 = 24;
-			 	$qnaMax = 2;  //7
+			 $sqlQna = "SELECT * FROM m1ct_fechasnomina WHERE estadoActual = 'abierta'";
+
+			 if($resQna = mysqli_query($conexion,$sqlQna)){
+			 	$rowQna = mysqli_fetch_row($resQna);
+			 	//echo "OOOOOLLAA";
+			 	$fehaI = date("d-m-Y", strtotime($rowQna[4])); 
+			 	$fehaF = date("d-m-Y", strtotime($rowQna[5])); 
 
 			 }else{
-			 	$qnaActual = $qnaMax; //6
-			 	$rango1 = $qnaMax -1 ; //5
-			 	$qnaMax = $qnaMax + 1;  //7
-			 	if($elDia[2] <= 15){
-			 		$rango1 = $qnaMax - 2; //5
-				}else{
-
-				}
+			 
+			 	echo "error sql";
 			 }
+
+			 if( strtotime($fehaF) < strtotime($fechaSistema)){
+			 		if($rowQna[0] != 24){
+			 			$newQna = $rowQna[0] + 1;
+			 		}else {
+			 			$newQna = 1;
+			 		}
+			 		$sqlCerrar = "UPDATE m1ct_fechasnomina SET estadoActual = 'cerrada' WHERE id_qna = '$rowQna[0]'";
+			 		$sqlAbrir = "UPDATE m1ct_fechasnomina SET estadoActual = 'abierta' WHERE id_qna = '$newQna'";
+			 		
+			 		if($resC = mysqli_query($conexion,$sqlCerrar) && $resA = mysqli_query($conexion, $sqlAbrir) ){
+
+			 		}else{
+			 			echo "error con la conexion a la BD";
+			 		}
+
+			 }else{
+
+				 if($diaActual != 0 && $diaActual != 6 && (strtotime($fechaSistema) >=  strtotime($fehaI) &&  strtotime($fechaSistema) <=  strtotime($fehaF))){
+
+				 		// echo $fehaF;
+				 		// echo $fechaSistema . " ";
+				 		// echo $diaActual . " ";
+				 		//$qnaEnviar = $rowQna[0];
 			 
 			
 
@@ -283,10 +307,21 @@
 	          <li class=" estilo-color">
               <a href="#"><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
 	          </li>
+<<<<<<< HEAD
 	          </li>
 	          <li class=" estilo-color">
              
 	          </li>
+=======
+	            <br><br><br>
+			          <li class="active estilo-color">
+		             		<H3> <FONT COLOR=#9f2241> <?php  echo $rowQna[1];?> </FONT> </H3>	
+			          </li>
+
+			            <li class="active estilo-color">
+		             		<FONT SIZE=4 COLOR=9f2241> <I><?php  echo $rowQna[4];?></I> -- <I><?php  echo $rowQna[5];?></I>  </FONT>
+			          </li>
+>>>>>>> 2340dfbe3caf5172fb5e1f813b01aeba4910b676
 
 	        </ul>
 
@@ -621,6 +656,66 @@
 		
 
 			</form>
+
+			<?php
+	 }else{	
+	 
+
+			 			echo("
+    	<nav class='navbar fixed-top navbar-expand-lg navbar-dark bordv plantilla-inputv fixed-top'>
+
+			 		<div class='wrapper d-flex align-items-stretch'>
+			<nav id='sidebar' class='active bordv'>
+				<div class='custom-menu'>
+					<button type='button' id='sidebarCollapse' class='btn btn-outline-secondary'>
+				          <i class='fa fa-bars'></i>
+				          <br>
+				          <span class='sr-only'>Menú</span>
+				        </button>
+      			 </div>
+				<div class='p-4'>
+
+		  		<img class='img-responsive' src='img/ss1.png' height='50' width='190'>
+	        <ul class='list-unstyled components mb-5'>
+			        	<br>
+			        <li class='active estilo-color'>
+			            <a ><img src='./img/iclogin.png' alt='x' height='17' width='17'/> Kevin Solano</span></a>
+			          </li>
+			          <li class='active estilo-color'>
+			            <a href='#'><img src='./img/icbuzon.png' alt='x' height='17' width='20'/> Bandeja</a>
+			          </li>
+			          <li class='active estilo-color'>
+			              <a href='#'><img src='./img/ic-consulta.png' alt='x' height='17' width='17'/> Consulta</a>
+			          </li>
+			          <li class='active estilo-color'>
+		              <a href='#'><img src='./img/icreport.png' alt='x' height='17' width='17'/> Reporte</a>
+			          </li>
+			        <br><br><br>
+			        <center>
+			          <li class='active estilo-color'>
+		             		<H3> <FONT COLOR=#9f2241 class= 'estilo-colorn'> $rowQna[1] </FONT> </H3>	
+			          </li>
+
+			            <li class='active estilo-color'>
+		             		<FONT SIZE=4 COLOR=9f2241 class= 'estilo-colorg'> <I> $rowQna[4]</I> -- <I>$rowQna[5] </I>  </FONT>
+			          </li>
+			          </center>
+
+	        </ul>
+	      </div>
+    	</nav>
+
+												<br>
+												<br>
+											<div class='col-sm-12'>
+											<div class='plantilla-inputv text-dark ''>
+											    <div class='card-body'><h2 align='center'>Por el momento no esta disponible la captura.</h2></div>
+										</div>
+										</div>");
+				 }
+			}
+
+		?>
 			<script src="js/bootstrap.min.js"></script>
    	<script src="js/main.js"></script>
 		</div>
