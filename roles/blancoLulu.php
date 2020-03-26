@@ -209,126 +209,11 @@
 	
 		</script>
 
-		<script type="text/javascript">
-
-
-
-
-
-			$(document).ready(function(){
-				$(document).on('keydown', '.unexp', function(){
-					var id = this.id;
-					var splitid = id.split('_');
-					var indice = splitid[1];
-					$('#'+id).autocomplete({
-						source: function(request, response){
-							$.ajax({
-								url: "resultados_ur.php",
-								type: 'post',
-								dataType: "json",
-								data: {
-									busqueda: request.term,request:1
-								},
-								success: function(data){
-									response(data);
-								}
-							});
-						},
-						select: function (event, ui){
-							$(this).val(ui.item.label);
-							var buscarid = ui.item.value;
-							$.ajax({
-								url: 'resultados_ur.php',
-								type: 'post',
-								data: {
-									buscarid:buscarid,request:2
-								},
-								dataType: 'json',
-								success:function(response){
-									var len = response.length;
-									if(len > 0){
-										var idx2 = response[0]['idx2'];
-										var unexp = response[0]['unexp'];
-										document.getElementById('unexp_'+indice).value = unexp;
-									}
-								}
-							});
-							return false;
-						}
-					});
-				});
-			});
-
-			$(document).ready(function(){
-				$(document).on('keydown', '.rfcL', function(){
-					var id = this.id;
-					var splitid = id.split('_');
-					var indice = splitid[1];
-					$('#'+id).autocomplete({
-						source: function(request, response){
-							$.ajax({
-								url: "resultados_rfc.php",
-								type: 'post',
-								dataType: "json",
-								data: {
-									busqueda: request.term,request:1
-
-								},
-								success: function(data){
-									response(data);
-									
-								}
-							});
-						},
-						select: function (event, ui){
-							$(this).val(ui.item.label);
-							var buscarid = ui.item.value;
-							console.log(buscarid);
-							//alert(buscarid);
-							$.ajax({
-								url: 'resultados_rfc.php',
-								type: 'post',
-								data: {
-									buscarid:buscarid,request:2
-
-								},
-								success: function(data){
-									console.log(data);
-									var infEmpleado = eval(data);
-									//document.getElementById("rfc").value = infEmpleado[1] ;
-									document.getElementById("curp").value = infEmpleado[2] ;
-									document.getElementById("apellido1").value = infEmpleado[3] ;
-									document.getElementById("apellido2").value = infEmpleado[4] ;
-									document.getElementById("nombre").value = infEmpleado[5] ;
-
-
-								}
-							});
-							return false;
-						}
-					});
-				});
-			});
-
-
-
-/*		$(document).ready(function(){
-
-			$("input[name=rfc]").change(function(){
-				//alert($('input[name=rfc]').val());
-				document.getElementById("nombre_php").value = $('input[name=rfc]').val();
-
-			});
-		});*/
-		</script>
   </head>
 
-  <body><br>
+  <body>
+  	<br>
     	
-
-
-
-
 		<?php 
 			include "Controller/configuracion.php";
 			$usuarioSeguir =  $_GET['usuario_rol'];
@@ -417,12 +302,19 @@
 	          <li class="active estilo-color">
               <a href="#"><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
 	          </li>
-	          </li>
-	          <li class="active estilo-color">
-             
-	          </li>
+	            <br><br><br>
+	            <center>
+			          <li class="active estilo-color">
+		             		<H3> <FONT COLOR=#9f2241 class= 'estilo-colorn'> <?php  echo $rowQna[1];?> </FONT> </H3>	
+			          </li>
 
+			           <li class="active estilo-color">
+		             	<FONT SIZE=4 COLOR=9f2241 class= 'estilo-colorg'> <I><?php  echo $rowQna[2];?></I> -- <I><?php  echo $rowQna[3];?></I>  </FONT>
+			          </li>
+				</center>
+	     
 	        </ul>
+
 
 	       <!-- <div class="mb-5">
 						<h3 class="h6 mb-3">Subscribe for newsletter</h3>
@@ -806,19 +698,61 @@
 
 		</center>
         <!-- Page Content  -->
-     
+ <?php
+	 }else{	
+	 
 
-			
-<?php
-	 }else{
-			 			echo('
+			 			echo("
+    	<nav class='navbar fixed-top navbar-expand-lg navbar-dark bordv plantilla-inputv fixed-top'>
+
+			 		<div class='wrapper d-flex align-items-stretch'>
+			<nav id='sidebar' class='active bordv'>
+				<div class='custom-menu'>
+					<button type='button' id='sidebarCollapse' class='btn btn-outline-secondary'>
+				          <i class='fa fa-bars'></i>
+				          <br>
+				          <span class='sr-only'>Menú</span>
+				        </button>
+      			 </div>
+				<div class='p-4'>
+
+		  		<img class='img-responsive' src='img/ss1.png' height='50' width='190'>
+	        <ul class='list-unstyled components mb-5'>
+			        	<br>
+			        <li class='active estilo-color'>
+			            <a ><img src='./img/iclogin.png' alt='x' height='17' width='17'/> Kevin Solano</span></a>
+			          </li>
+			          <li class='active estilo-color'>
+			            <a href='#'><img src='./img/icbuzon.png' alt='x' height='17' width='20'/> Bandeja</a>
+			          </li>
+			          <li class='active estilo-color'>
+			              <a href='#'><img src='./img/ic-consulta.png' alt='x' height='17' width='17'/> Consulta</a>
+			          </li>
+			          <li class='active estilo-color'>
+		              <a href='#'><img src='./img/icreport.png' alt='x' height='17' width='17'/> Reporte</a>
+			          </li>
+			        <br><br><br>
+			        <center>
+			          <li class='active estilo-color'>
+		             		<H3> <FONT COLOR=#9f2241 class= 'estilo-colorn'> $rowQna[1] </FONT> </H3>	
+			          </li>
+
+			            <li class='active estilo-color'>
+		             		<FONT SIZE=4 COLOR=9f2241 class= 'estilo-colorg'> <I> $rowQna[2]</I> -- <I>$rowQna[3] </I>  </FONT>
+			          </li>
+			          </center>
+
+	        </ul>
+	      </div>
+    	</nav>
+
 												<br>
 												<br>
-											<div class="col-sm-12 ">
-											<div class="plantilla-inputv text-dark ">
-											    <div class="card-body"><h2 align="center">Por el momento no esta disponible la captura.</h2></div>
+											<div class='col-sm-12'>
+											<div class='plantilla-inputv text-dark ''>
+											    <div class='card-body'><h2 align='center'>Por el momento no esta disponible la captura.</h2></div>
 										</div>
-										</div>');
+										</div>");
 				 }
 			}
 

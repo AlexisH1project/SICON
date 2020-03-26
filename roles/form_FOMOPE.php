@@ -234,7 +234,8 @@ $(document).ready(function(){
 
 			 if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
 			 		$rowF = mysqli_fetch_row($resultHoy);  // cambiamos formato de hora 
-			 		$fechaSistema = date("d-m-Y", strtotime($rowF[0])); //"05-04-2020";;
+			 		$fechaSistema = date("d-m-Y", strtotime($rowF[0])); //"05-04-2020";
+			 		$elDia = explode("-", $fechaSistema);
 			 		$rowHora = mysqli_fetch_row($resultTime);
 
 					$diaActual=date("w", strtotime($fechaSistema));
@@ -311,15 +312,17 @@ $(document).ready(function(){
 	          <li class="active estilo-color">
               <a href="#"><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
 	          </li>
-	          </li>
-	          <br><br><br>
+	        
+	            <br><br><br>
+			        <center>
 			          <li class="active estilo-color">
-		             		<H3> <FONT COLOR=#9f2241> <?php  echo $rowQna[1];?> </FONT> </H3>	
+		             		<H3> <FONT COLOR=#9f2241 class= 'estilo-colorn'> <?php  echo $rowQna[1];?> </FONT> </H3>	
 			          </li>
 
-			            <li class="active estilo-color">
-		             		<FONT SIZE=4 COLOR=9f2241> <I><?php  echo $rowQna[2];?></I> -- <I><?php  echo $rowQna[3];?></I>  </FONT>
+			           <li class="active estilo-color">
+		             	<FONT SIZE=4 COLOR=9f2241 class= 'estilo-colorg'> <I><?php  echo $rowQna[4];?></I> -- <I><?php  echo $rowQna[5];?></I>  </FONT>
 			          </li>
+				</center>
 
 	        </ul>
 
@@ -466,7 +469,7 @@ $(document).ready(function(){
 
 							<div class="form-group col-md-2">
 								<label  class="plantilla-label" for="elAnio">AÑO: </label>
-									 <input type="text" class="form-control" id="anio" name="anio" value="<?php echo $elDia[0]?>" readonly >
+									 <input type="text" class="form-control" id="anio" name="anio" value="<?php echo $elDia[2]?>" readonly >
 							<div class="form-row">
 							<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope?>" style="display:none">
 						</div>
@@ -692,18 +695,7 @@ $(document).ready(function(){
 
 	<?php
 	 }else{	
-	 	 $sqlQna = "SELECT * FROM m1ct_fechasnomina WHERE estadoActual = 'abierta'";
-
-			 if($resQna = mysqli_query($conexion,$sqlQna)){
-			 	$rowQna = mysqli_fetch_row($resQna);
-			 	//echo "OOOOOLLAA";
-			 	$fehaI = date("d-m-Y", strtotime($rowQna[4])); 
-			 	$fehaF = date("d-m-Y", strtotime($rowQna[5])); 
-
-			 }else{
-			 
-			 	echo "error sql";
-			 }
+	 
 
 			 			echo("
     	<nav class='navbar fixed-top navbar-expand-lg navbar-dark bordv plantilla-inputv fixed-top'>
