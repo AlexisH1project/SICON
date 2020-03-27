@@ -195,6 +195,8 @@
 			include "Controller/configuracion.php";
 			$usuarioSeguir =  $_GET['usuario_rol'];
 			$idMovSeg = $_GET['id_mov'];
+
+			
 			$sql = "SELECT * FROM fomope WHERE id_movimiento = '$idMovSeg'";
 
 			if($result = mysqli_query($conexion,$sql)){
@@ -293,12 +295,10 @@
 	          <li class=" estilo-color">
               <a ><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
 	          </li>
-<<<<<<< HEAD
 	          </li>
 	          <li class=" estilo-color">
              
 	          </li>
-=======
 	         <br><br><br>
 	            <center>
 			          <li class="active estilo-color">
@@ -309,7 +309,7 @@
 		             	<FONT SIZE=4 COLOR=9f2241 class= 'estilo-colorg'> <I><?php  echo $rowQna[2];?></I> -- <I><?php  echo $rowQna[3];?></I>  </FONT>
 			          </li>
 				</center>
->>>>>>> 2340dfbe3caf5172fb5e1f813b01aeba4910b676
+
 
 	        </ul>
 
