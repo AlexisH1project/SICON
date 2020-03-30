@@ -2,7 +2,7 @@
 	
 	<head>
 		<meta charset="utf-8">
-		<title>SS-FOMOPE Iniciar Sesión</title>
+		<title>Actualización DSCH</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/estilo_form.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -46,7 +46,11 @@
 		  }
 		  </style>
 
-
+<?php 
+			include "Controller/configuracion.php";
+			$usuarioSeguir =  $_GET['usuario_rol'];
+			$idMovSeg = $_GET['id_mov'];
+			?>
 
 		<script type="text/javascript">
 
@@ -167,6 +171,14 @@
 				      	formulario.action= './Controller/updateNegro.php';
 				      //	formulario.submit();
 				      }
+			}	
+
+			function elimiarDatos(){
+				<?php 
+
+					$sqlEliminar = "UPDATE fomope SET colorEstado = 'rojo WHERE id_movimiento = '$idMovSeg'";
+
+				?>
 			}	
 
 			function listaDeDoc(text){
@@ -663,7 +675,50 @@
 											</div>
 
 					</form>  
+					<br>
+					<br>
+					<form name="elimin" enctype="multipart/form-data" action="./Controller/eliminarFomope.php" method="POST"> 
+						
+					<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1">
+											Eliminar Fomope 
+											</button>
+							  			<br>
 
+							  				<div class="form-row">
+							<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $idMovSeg?>" style="display:none">
+						</div>
+						<div class="form-row">
+							<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $idMovSeg?>" style="display:none">
+						</div>
+						<div class="form-row">
+							<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuarioSeguir?>" style="display:none">
+						</div>
+											<!-- Modal -->
+											<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											  <div class="modal-dialog" role="document">
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <h5 class="modal-title" id="exampleModalLabel">Eliminar Información</h5>
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											          <span aria-hidden="true">&times;</span>
+											        </button>
+											      </div>
+											      <div class="modal-body">
+											        ¿Estás seguro de eliminar la información del fomope?
+											      </div>
+									<center>
+						     
+										</center>
+											      <div class="modal-footer">
+
+											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+							        				<input type="submit" class="btn btn-danger" value="Eliminar" name="accionB">
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+												</form>  
       	</center>
 
 <?php

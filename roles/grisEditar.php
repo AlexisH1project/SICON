@@ -315,7 +315,7 @@
 								        </button>
 								      </div>
 								      <div class="modal-body">
-								        ¿Estas seguro que la infirmacion a actualizar es la correcta?
+								        ¿Estas seguro que la informacion a actualizar es la correcta?
 								      </div>
 								      <div class="modal-footer">
 								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
@@ -327,6 +327,50 @@
 								  </div>
 								</div>
 					</form>  
+					<br>
+					<br>
+					<form name="elimin" enctype="multipart/form-data" action="./Controller/eliminarFomope.php" method="POST"> 
+						
+					<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1">
+											Eliminar Fomope 
+											</button>
+							  			<br>
+
+							  				<div class="form-row">
+							<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $idMovSeg?>" style="display:none">
+						</div>
+						<div class="form-row">
+							<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $idMovSeg?>" style="display:none">
+						</div>
+						<div class="form-row">
+							<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuarioSeguir?>" style="display:none">
+						</div>
+											<!-- Modal -->
+											<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											  <div class="modal-dialog" role="document">
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <h5 class="modal-title" id="exampleModalLabel">Eliminar Información</h5>
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											          <span aria-hidden="true">&times;</span>
+											        </button>
+											      </div>
+											      <div class="modal-body">
+											        ¿Estás seguro de eliminar la información del fomope?
+											      </div>
+									<center>
+						     
+										</center>
+											      <div class="modal-footer">
+
+											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+							        				<input type="submit" class="btn btn-danger" value="Eliminar" name="accionB">
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+												</form>  
 
 				</div>
 
