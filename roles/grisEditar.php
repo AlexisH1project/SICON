@@ -120,6 +120,10 @@
 
 					
 			}
+
+			$sqlNombre = "SELECT nombrePersonal FROM usuarios WHERE usuario = '$usuarioSeguir'";
+			$result = mysqli_query($conexion,$sqlNombre);
+			$nombreU = mysqli_fetch_row($result);
 			//echo $idMovSeg;
 		?>
 	
@@ -141,9 +145,12 @@
 		  		<img class="img-responsive" src="img/ss1.png" height="50" width="190">
 	        <ul class="list-unstyled components mb-5">
 	        	<br>
-	        	<li class=" estilo-color">
-	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/> Kevin Solano</span></a>
+	        	<center>
+	        		<li class=" estilo-color">
+	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/><?php echo (" $nombreU[0]"); ?></a>
 	          </li>
+	        	</center>
+	        	
 	          <li class=" estilo-color">
 	            <a href= <?php if($id_rol1 == 0){echo ("'./luluConsulta.php?usuario_rol=$usuarioSeguir'"); } elseif ($id_rol1 == 1) {
 	            	
@@ -154,6 +161,15 @@
 	          </li>
 	          <li class=" estilo-color">
               <a ><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
+	          </li>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <li class=" estilo-color">
+	              <a class="nav-link" href=  "../LoginMenu/vista/cerrarsesion.php" ><img src="./img/iclogout.png" alt="x" height="17" width="17"/> Cerrar Sesión</a>
 	          </li>
 	          </li>
 	          <li class=" estilo-color">
@@ -235,6 +251,11 @@
 							<input type="text" class="form-control" id="idFom" name="idFom" value="<?php echo $idMovSeg ?>" style="display:none">
 						</div>
 
+
+							<div class="form-group col-md-12 shadow-textarea">
+							  <label for="exampleFormControlTextarea6">Motivo de rechazo</label>
+							  <textarea class="form-control border border-dark z-depth-1" required readonly id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..."><?php echo $ver[13] ?></textarea>
+							</div>
 						
 							<div class="form-row">
 						    <div class="col">
@@ -246,7 +267,7 @@
 						    <div class="col">
 
 							    <div class="form-group col-md-12" >
-						  		 <label for="ofEntregaL">OFICIO ENTREGA EXPEDIENTE A RELACIONES LABORALES:</label> 
+						  		 <label class="plantilla-label estilo-colorg" for="ofEntregaL">OFICIO ENTREGA EXPEDIENTE A RELACIONES LABORALES:</label> 
 						  		
 							    <input type="text" class="form-control border border-dark" id="ofEntregaRL" name="ofEntregaRL" value="<?php echo $ver[40] ?>" placeholder="OFICIO ENTREGA EXPEDIENTE RELACIONES LABORALES" maxlength="65">
 							 </div>
@@ -258,7 +279,7 @@
 
 				  		  
 				  		  <div class="form-group">
-						    <label for="archivo_1">Adjuntar un archivo (.zip)</label>
+						    <label class="plantilla-label estilo-colorg" for="archivo_1">Adjuntar un archivo (.zip)</label>
 						    <!--  <input type="hidden" name="MAX_FILE_SIZE" value="30000" /> -->
 						    <input type="file" name="nameArchivo" required>
 						   <!--  <p class="help-block">Ejemplo de texto de ayuda.</p> -->
@@ -269,14 +290,14 @@
 						<div class="form-row">
 						    <div class="col">
 						      <div class="form-group col-md-12" >
-						  		<label for="fechaUnidad">FECHA ENTREGA EXPEDIENTE UNIDAD: </label>
+						  		<label class="plantilla-label estilo-colorg" for="fechaUnidad">FECHA ENTREGA EXPEDIENTE UNIDAD: </label>
 							    <input type="date"class="form-control border border-dark" id="fechaEntregaUnidad" name="fechaEntregaUnidad" value="<?php echo $ver[42] ?>" >
 					  		</div>
 						    </div>	
 						    <div class="col">
 
 							   <div class="form-group col-md-12" >
-							  		 <label for="ofUnidad">OFICIO ENTREGA EXPEDIENTE UNIDAD: </label> 
+							  		 <label class="plantilla-label estilo-colorg" for="ofUnidad">OFICIO ENTREGA EXPEDIENTE UNIDAD: </label> 
 								    <input type="text" class="form-control border border-dark" id="ofEntregaUnidad" value="<?php echo $ver[43] ?>" name="ofEntregaUnidad" placeholder="OFICIO ENTREGA EXPEDIENTE UNIDAD" maxlength="49">	
 						  		</div>		
 
@@ -285,15 +306,12 @@
 						</div>
 
 						<div class="form-group col-md-8" >
-					  		<label for="oficio">OFICIO ENTREGA SEGUROS: </label>
+					  		<label class="plantilla-label estilo-colorg" for="oficio">OFICIO ENTREGA SEGUROS: </label>
 						    <input type="text" class="form-control border border-dark" id="ofEntrega" name="ofEntrega" value="<?php echo $ver[10] ?>" placeholder="Ingresa el oficio de entrega" maxlength="25"required>
 				  		</div>
 
 
-						<div class="form-group col-md-8 shadow-textarea">
-							  <label for="exampleFormControlTextarea6">*Motivo de rechazo</label>
-							  <textarea class="form-control border border-dark z-depth-1" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..."><?php echo $ver[13] ?></textarea>
-							</div>
+						
 				  		<!-- <div class="form-group col-md-12">
 								<div class="col text-center">
 								  	<button type="submit" class="btn btn-primary">Agregar Informacion</button>
@@ -326,6 +344,7 @@
 								    </div>
 								  </div>
 								</div>
+
 					</form>  
 					<br>
 					<br>

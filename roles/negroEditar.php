@@ -275,6 +275,10 @@
 
 					
 			}
+
+			$sqlNombre = "SELECT nombrePersonal FROM usuarios WHERE usuario = '$usuarioSeguir'";
+			$result = mysqli_query($conexion,$sqlNombre);
+			$nombreU = mysqli_fetch_row($result);
 		?>
 	
 				 <br>
@@ -295,9 +299,14 @@
 		  		<img class="img-responsive" src="img/ss1.png" height="50" width="190">
 	        <ul class="list-unstyled components mb-5">
 	        	<br>
+	        	<center>
+	        	
 	        	<li class=" estilo-color">
-	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/> Kevin Solano</span></a>
-	          </li>
+	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/><?php echo (" $nombreU[0]"); ?></a>
+	          </li>	
+
+	        	</center>
+	        	
 	          <li class=" estilo-color">
 	            <a href= <?php echo ("'./unidadCaptura.php?usuario_rol=$usuarioSeguir'"); ?>  ><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
 	          </li>
@@ -306,6 +315,15 @@
 	          </li>
 	          <li class=" estilo-color">
               <a ><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
+	          </li>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <li class=" estilo-color">
+	              <a class="nav-link" href=  "../LoginMenu/vista/cerrarsesion.php" ><img src="./img/iclogout.png" alt="x" height="17" width="17"/> Cerrar Sesión</a>
 	          </li>
 	          </li>
 	          <li class=" estilo-color">

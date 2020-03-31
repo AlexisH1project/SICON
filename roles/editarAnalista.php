@@ -163,6 +163,11 @@
 				$id_rol = $_GET['id_rol'];
 			//echo $id_rol;
 			$usuario = $_GET['usuario'];
+
+
+			$sqlNombre = "SELECT nombrePersonal FROM usuarios WHERE usuario = '$usuario'";
+			$result = mysqli_query($conexion,$sqlNombre);
+			$nombreU = mysqli_fetch_row($result);
 			//echo $usuario;
 			$consulta2 = " SELECT * FROM fomope WHERE id_movimiento = '$noFomope'";
 
@@ -285,9 +290,12 @@
 		  		<img class="img-responsive" src="img/ss1.png" height="50" width="190">
 	        <ul class="list-unstyled components mb-5">
 	        	<br>
-	        	<li class=" estilo-color">
-	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/> Kevin Solano</span></a>
+	        	<center>
+	        		<li class=" estilo-color">
+	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/><?php echo (" $nombreU[0]"); ?></a>
 	          </li>
+	        	</center>
+	        	
 	         <li class=' estilo-color'>
 	            <a href=  <?php if($id_rol1 == 3){echo ("'./CapturistaTostado.php?usuario_rol=$usuario'"); } elseif ($id_rol1 == 2) {
 	            	
@@ -298,6 +306,15 @@
 	          </li>
 	          <li class=" estilo-color">
               <a href="#"><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
+	          </li>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <li class=" estilo-color">
+	              <a class="nav-link" href=  "../LoginMenu/vista/cerrarsesion.php" ><img src="./img/iclogout.png" alt="x" height="17" width="17"/> Cerrar Sesión</a>
 	          </li>
 	          </li>
 	          <li class=" estilo-color">
