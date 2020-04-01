@@ -255,6 +255,36 @@
 								<input  class="form-control unexp border border-dark" id="TipoEntregaArchivo" type="text" name="TipoEntregaArchivo" value="<?php echo $ver[11] ?>" required readonly >
 				  		</div>
 
+				  		<div class="form-group col-md-12" >	
+					  		<label class="plantilla-label estilo-colorg" for="listaArchivos">LISTA DE ARCHIVOS: </label>
+						</div>
+
+				  	</div>	
+  						<?php
+							      echo '
+													<center>
+													<div class="col-md-8 col-md-offset-8">
+														<ul class="list-group">';
+															for($i=47; $i<=117; $i++){
+																if($ver[$i] == ""){
+																	
+																}else{
+																	$sqlNombreDoc = "SELECT nombre_documento FROM m1ct_documentos WHERE documentos = '$ver[$i]'";
+																	$resNombreDoc = mysqli_query($conexion,$sqlNombreDoc);
+																	$rowNombreDoc = mysqli_fetch_row($resNombreDoc);
+																	echo "
+																	<li class='list-group-item'>$rowNombreDoc[0]</li>
+																	";	
+																}
+															}
+												echo '
+														</ul>
+													</div>	
+													</center>
+
+												';
+										?>		
+						<br>	
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 											 Autorizar
 											</button>
@@ -324,6 +354,8 @@
 										</div>
 							        </form>
 							      </div>
+							    
+
 							      <div class="modal-footer">
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">REGRESAR</button>
 							        <input type="submit" name="tipButton" class="btn btn-primary" value="aceptar">
@@ -345,7 +377,6 @@
 					<script src="js/bootstrap.min.js"></script>
    	<script src="js/main.js"></script>
 			
-				</div>
 		
 	</body>
 

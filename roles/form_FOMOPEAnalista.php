@@ -1,8 +1,4 @@
 
-<?php
-  $mysqli = new mysqli('localhost', 'root', '', 'p_fomopes');
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -50,6 +46,12 @@
 		    background-color: #f9f9f9;
 		  }
 		  </style>
+
+		  <script type="text/javascript">
+		  		function verDoc(nombre){
+					window.location.href = 'Controller/controllerDescarga.php?nombreDecarga='+nombre;
+				}
+		  </script>
 
 	</head>
 	<body>
@@ -245,6 +247,45 @@
 						<div class="form-row">
 							<input type="text" class="form-control" id="color_esta" name="color_esta" value="<?php echo $color_est?>" style="display:none">
 						</div>
+						<div class="form-group col-md-6">
+						<label class="plantilla-label" for="listD">Documentos :</label>
+			</div>
+					<table class="table table-hover table-white">
+						<?php 
+							include "configuracion.php";
+
+							$sql="SELECT * from fomope WHERE id_movimiento = '$noFomope' ";
+							$result=mysqli_query($conexion,$sql);
+							$ver = mysqli_fetch_row($result);
+
+								for($i=47; $i<=117; $i++){
+									if($ver[$i] == ""){
+										
+									}else{
+										$sqlNombreDoc = "SELECT nombre_documento FROM m1ct_documentos WHERE documentos = '$ver[$i]'";
+										$resNombreDoc = mysqli_query($conexion,$sqlNombreDoc);
+										$rowNombreDoc = mysqli_fetch_row($resNombreDoc);
+										$nombreAdescargar = $ver[4]."_".$ver[$i]."_".$ver[6]."_".$ver[7]."_".$ver[8]."_.PDF";
+
+										echo "
+												<tr>
+												<td>$rowNombreDoc[0]</td>
+												<td>";
+								?>
+
+												  <button onclick="verDoc('<?php echo $nombreAdescargar ?>')" type="button" class="btn btn-outline-secondary" > Ver</button>
+							<?php	echo "
+
+												</td>
+										";	
+									}
+								}
+						 ?>
+
+					
+
+					</table>
+			<br>
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label class="plantilla-label estilo-colorg" for="rfc_fomo">RFC:</label>
@@ -519,9 +560,7 @@
 
 <script src="js/bootstrap.min.js"></script>
    	<script src="js/main.js"></script>
-							
-
-			
+								
 
 	</body>
 </html>

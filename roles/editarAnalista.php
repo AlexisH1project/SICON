@@ -1,8 +1,3 @@
-
-<?php
-  $mysqli = new mysqli('localhost', 'root', '', 'p_fomopes');
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -147,11 +142,16 @@
 					});
 				});
 			});
+
+			function verDoc(nombre){
+				window.location.href = 'Controller/controllerDescarga.php?nombreDecarga='+nombre;
+			}
+
+			function eliminarReq(){
+					 $('#MotivoRechazo').removeAttr("required");
+
+			}
 		</script>
-
-
-
-		
 
 	</head>
 	<body>
@@ -225,7 +225,8 @@
 
 			 if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
 			 		$rowF = mysqli_fetch_row($resultHoy);  // cambiamos formato de hora 
-			 		$fechaSistema = date("d-m-Y", strtotime($rowF[0])); //"05-04-2020";;
+			 		$fechaSistema = date("d-m-Y", strtotime($rowF[0])); //"14-04-2020";
+			 		$anioActual = explode("-", $fechaSistema);
 			 		$rowHora = mysqli_fetch_row($resultTime);
 
 					$diaActual=date("w", strtotime($fechaSistema));
@@ -239,6 +240,7 @@
 			 	//echo "OOOOOLLAA";
 			 	$fehaI = date("d-m-Y", strtotime($rowQna[4])); 
 			 	$fehaF = date("d-m-Y", strtotime($rowQna[5])); 
+			 	$newQna = $rowQna[0];
 
 			 }else{
 			 
@@ -405,16 +407,55 @@
 			<br><br>
 
 			 <form name="captura2" action="agregar_FOMOPE.php" method="POST"> 
+			 	<div class="form-group col-md-6">
+						<label class="plantilla-label" for="listD">Documentos :</label>
+			</div>
+					<table class="table table-hover table-white">
+						<?php 
+							include "configuracion.php";
 
+							$sql="SELECT * from fomope WHERE id_movimiento = '$noFomope' ";
+							$result=mysqli_query($conexion,$sql);
+							$ver = mysqli_fetch_row($result);
+
+								for($i=47; $i<=117; $i++){
+									if($ver[$i] == ""){
+										
+									}else{
+										$sqlNombreDoc = "SELECT nombre_documento FROM m1ct_documentos WHERE documentos = '$ver[$i]'";
+										$resNombreDoc = mysqli_query($conexion,$sqlNombreDoc);
+										$rowNombreDoc = mysqli_fetch_row($resNombreDoc);
+										$nombreAdescargar = $ver[4]."_".$ver[$i]."_".$ver[6]."_".$ver[7]."_".$ver[8]."_.PDF";
+
+										echo "
+												<tr>
+												<td>$rowNombreDoc[0]</td>
+												<td>";
+								?>
+
+												  <button onclick="verDoc('<?php echo $nombreAdescargar ?>')" type="button" class="btn btn-outline-secondary" > Ver</button>
+							<?php	echo "
+
+												</td>
+										";	
+									}
+								}
+						 ?>
+
+					
+
+					</table>
+			<br>
 				<div class=" plantilla-inputb text-center">
 						<div class="col text-center">
-						<div class="form-row">
+					<div class="form-row">
 						<div class="form-group col-md-12">
 						<label class="plantilla-label estilo-colorg" for="justirech" style="color:red;">Justificación rechazo:</label>
 						 <textarea class="form-control z-depth-1" onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="justirech" name="justirech" readonly ><?php  echo $justificacio_fom; ?></textarea>
 						</div>
 
 				</div>
+
 				<div class="form-row">
 				<div class="form-group col-md-6">
 						<label class="plantilla-label estilo-colorg" for="unidad1">Unidad:</label>
@@ -422,6 +463,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="form-row">
 							<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope ?>" style="display:none">
 						</div>
@@ -483,27 +525,16 @@
 
 					
 				
-									 <div class="form-group col-md-3">
-								<label  class="plantilla-label estilo-colorg" for="laQna">*QNA: </label>
-									 
-									<select class="form-control unexp border border-dark custom-select" name="qnaOption">
-										<option  value="<?php echo $qnaActual; ?>"><?php echo $qnaActual; ?></option>
-										<option  value="<?php echo $rango1; ?>"><?php echo $rango1; ?></option>
-										<option value="<?php echo $qnaMax; ?>"><?php echo $qnaMax ; ?></option>
-
-									</select>
+							<div class="form-group col-md-2">
+									<label  class="plantilla-label" for="laQna">*QNA: </label>
+									 <input type="text" class="form-control" id="qnaOption" name="qnaOption" value="<?php echo $newQna ?>" readonly >
 							</div>
 
 				
 
 							<div class="form-group col-md-3">
 								<label  class="plantilla-label estilo-colorg" for="elAnio">AÑO: </label>
-									 
-									<select class="form-control unexp border border-dark custom-select" name="anio">
-										<option value="<?php echo $anio_Add;?>"><?php echo $anio_Add; ?></option>
-										<option value="2019">2019</option>
-	  									<option value="2020">2020</option>	
-									</select>
+								<input type="text" class="form-control" id="anio" name="anio" value="<?php echo $anioActual[2] ?>" readonly >
 							</div>
 					<div class="form-group col-md-4">
 						<label class="plantilla-label estilo-colorg" for="ofunid">*Oficio Unidad:</label>
@@ -629,7 +660,42 @@
 								Guardar Fomope 
 								</button>
 						</div>
+						<br>
+
+						<div class="form-row">
+							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalRT" >Rechazo por validacion </button>
+
+
+						</div>
+
+							<div class="modal fade" id="exampleModalRT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title" id="exampleModalLabel">Volante de rechazo</h5>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+							         <textarea class="form-control border border-dark" id="MotivoRechazo" rows = "4" name="comentarioR" placeholder="Redactar el volante de rechazo" required></textarea>
+							       
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">REGRESAR</button>
+									<input type="submit" class="btn btn-primary" name="accionB"  value="descargar">
+							      </div>
+							      <div class="modal-footer">
+									<input type="submit" class="btn btn-danger" name="accionB"  value="bandeja principal">
+							      </div>
+							    </div>
+							  </div>
+							</div>
+
+				</div>
+
 								<br>
+
+
 								<br>
 								<br>
 							
@@ -648,7 +714,7 @@
 								      </div>
 								      <div class="modal-footer">
 								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-								       	<input type="submit" class="btn btn-primary" value="aceptar y modificar" name="accionB">
+								       	<input type="submit" class="btn btn-primary" onclick="eliminarReq()" value="aceptar y modificar" name="accionB">
 								       	
 								      </div>
 								    </div>
@@ -659,7 +725,6 @@
 					
 
 				</div>
-			</form>
 
 		</center>
 		

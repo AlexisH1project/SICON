@@ -17,6 +17,7 @@
 		$fechaAl = $_POST['al3'];
 
 		$laQna = $_POST['qnaActual'];
+		$documentosList = $_POST['guardarDoc'];
 
 		$fechaArchivoAdd = 'Pendiente'; //strtoupper($_POST['fechaArchivo']
 		$fechaRLaboralesAdd = 'Pendiente'; // strtoupper($_POST['fechaRLaborales'];
@@ -130,13 +131,31 @@
 		             	}
 
 				}else{
-					$sql2 = "SELECT MAX(id_movimiento) AS id FROM fomope";
+					$sql2 = "SELECT MAX(id_movimiento) AS id FROM fomope";	
+
+
 
 		             	if($resultado = mysqli_query($conexion,$sql2)){
 
 	             			if ($row = mysqli_fetch_row($resultado)) {
 								$id = trim($row[0]);
+								$arrayDoc = explode("_", $documentosList) ;
+								//$limite = count($arrayDoc);
+
+								//actualizamos la base para poder tener el registro de los documentos
+								for($i=0; $i < count($arrayDoc)-1 ; $i++){
+									$nombreAsignar = $arrayDoc[$i];
+									$sqlAgregar =  "UPDATE fomope SET $arrayDoc[$i] = '$nombreAsignar' WHERE id_movimiento = '$id'";
+									if ($resUpdate = mysqli_query($conexion, $sqlAgregar)){
+
+									}else{
+										echo "<script> alert ('error');</script>";
+									}
+
+								}
+								
 							}
+
 							if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
 						 		$row = mysqli_fetch_row($resultHoy);
 						 		$row2 = mysqli_fetch_row($resultTime);

@@ -47,11 +47,6 @@
 		  }
 		  </style>
 
-
-		
-
-		</style>
-
 				
 		<script type="text/javascript">
 			
@@ -59,6 +54,8 @@
   				tecla = (document.all) ? e.keyCode :e.which; 
   				return (tecla!=13); 
 			} 
+
+			
 
 		</script>
 
@@ -204,6 +201,16 @@ $(document).ready(function(){
 					});
 				});
 			});
+
+
+			function verDoc(nombre){
+				window.location.href = 'Controller/controllerDescarga.php?nombreDecarga='+nombre;
+			}
+
+			function eliminarReq(){
+					 $('#MotivoRechazo').removeAttr("required");
+
+			}
 		</script>
 
 		
@@ -243,7 +250,7 @@ $(document).ready(function(){
 
 			 if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
 			 		$rowF = mysqli_fetch_row($resultHoy);  // cambiamos formato de hora 
-			 		$fechaSistema = date("d-m-Y", strtotime($rowF[0])); //"05-04-2020";
+			 		$fechaSistema = date("d-m-Y", strtotime($rowF[0])); //"14-04-2020";
 			 		$elDia = explode("-", $fechaSistema);
 			 		$rowHora = mysqli_fetch_row($resultTime);
 
@@ -258,7 +265,7 @@ $(document).ready(function(){
 			 	//echo "OOOOOLLAA";
 			 	$fehaI = date("d-m-Y", strtotime($rowQna[4])); 
 			 	$fehaF = date("d-m-Y", strtotime($rowQna[5])); 
-
+			 	$newQna = $rowQna[0];
 			 }else{
 			 
 			 	echo "error sql";
@@ -391,7 +398,7 @@ $(document).ready(function(){
       <div id="content" class="p-4 p-md-5 pt-5">
       	<?php
 
- if($diaActual != 0 && $diaActual != 6 && (strtotime($fechaSistema) >=  strtotime($fehaI) &&  strtotime($fechaSistema) <=  strtotime($fehaF))){
+ 		if($diaActual != 0 && $diaActual != 6 && (strtotime($fechaSistema) >=  strtotime($fehaI) &&  strtotime($fechaSistema) <=  strtotime($fehaF))){
 
 				 		// echo $fehaF;
 				 		// echo $fechaSistema . " ";
@@ -414,47 +421,47 @@ $(document).ready(function(){
 						<label class="plantilla-label" for="NombrU">Unidad:</label>
 						<input type="text" class="form-control border border-dark" id="nameComp" name="nameComp" value="<?php echo $row[4] ?>" readonly >
 			</div>
+			<div class="form-group col-md-6">
+						<label class="plantilla-label" for="listD">Documentos :</label>
+			</div>
+					<table class="table table-hover table-white">
+						<?php 
+							include "configuracion.php";
+
+							$sql="SELECT * from fomope WHERE id_movimiento = '$noFomope' ";
+							$result=mysqli_query($conexion,$sql);
+							$ver = mysqli_fetch_row($result);
+
+								for($i=47; $i<=117; $i++){
+									if($ver[$i] == ""){
+										
+									}else{
+										$sqlNombreDoc = "SELECT nombre_documento FROM m1ct_documentos WHERE documentos = '$ver[$i]'";
+										$resNombreDoc = mysqli_query($conexion,$sqlNombreDoc);
+										$rowNombreDoc = mysqli_fetch_row($resNombreDoc);
+										$nombreAdescargar = $ver[4]."_".$ver[$i]."_".$ver[6]."_".$ver[7]."_".$ver[8]."_.PDF";
+
+										echo "
+												<tr>
+												<td>$rowNombreDoc[0]</td>
+												<td>";
+								?>
+
+												  <button onclick="verDoc('<?php echo $nombreAdescargar ?>')" type="button" class="btn btn-outline-secondary" > Ver</button>
+							<?php	echo "
+
+												</td>
+										";	
+									}
+								}
+						 ?>
+
+					
+
+					</table>
 			<br>
 
-			<div class="form-group col-md-6">
-
-							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalR" data-whatever="@getbootstrap">Rechazar por captura</button>
-			</div>
-							<div class="modal fade" id="exampleModalR" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-							  <div class="modal-dialog" role="document">
-							    <div class="modal-content">
-							      <div class="modal-header">
-							        <h5 class="modal-title" id="exampleModalLabel">Motivo de rechazo</h5>
-							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							          <span aria-hidden="true">&times;</span>
-							        </button>
-							      </div>
-							      <div class="modal-body">
-							        <form action="./Controller/rechazoAblanco.php" method="POST">
-							         <textarea class="form-control border border-dark" id="obs" rows = "4" name="comentarioR" placeholder="Observación por rechazo"><?php echo $row[5] ?></textarea>
-							          <div class="form-row">
-										<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope?>" style="display:none">
-										</div>
-										<div class="form-row">
-											<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $id_rol?>" style="display:none">
-										</div>
-										<div class="form-row">
-											<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
-										</div>
-							      </div>
-							      <div class="modal-footer">
-							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-
-							        <button type="submit" class="btn btn-primary">Aceptar</button>
-							        </form>
-
-							      </div>
-							    </div>
-							  </div>
-							</div>
-
-			<br><br>
-
+		
 			<form method="post" name="ffomope" action="agregar_FOMOPE.php"> 
 				<div class="form-row">
 						<div class="modal fade" id="exampleModalR" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -479,7 +486,7 @@ $(document).ready(function(){
 							
 								<div class="form-group col-md-2">
 								<label  class="plantilla-label" for="laQna">*QNA: </label>
-									 <input type="text" class="form-control" id="qnaOption" name="qnaOption" value="<?php echo $newQna?>" readonly >
+									 <input type="text" class="form-control" id="qnaOption" name="qnaOption" value="<?php echo $newQna ?>" readonly >
 							</div>
 
 							<div class="form-group col-md-2">
@@ -498,6 +505,7 @@ $(document).ready(function(){
 
 							
 				</div>
+
 
 							
 				</div>
@@ -565,7 +573,7 @@ $(document).ready(function(){
 					<div class="form-row">
 						<div class="form-group col-mt-8">
 						<label class="plantilla-label" for="estad">*Estado:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control cod3 border border-dark" id="cod3_1" name="cod3_1" placeholder="Ej. Ciudad de México" value="" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+						<input onkeypress="return pulsar(event)" type="text" class="form-control cod3 border border-dark" id="cod3_1" name="cod3_1" placeholder="Ej. Ciudad de México" value="Ciudad de México" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
 					</div>
 
 					<div class="form-group col-mt-8">
@@ -623,24 +631,6 @@ $(document).ready(function(){
 						
 
 
-
-				 <form name="captura" action="observacion.php" method="POST"> 
-					<div class="form-row">
-					<div class="form-group col-md-8">
-								
-
-							
-<br>
-								
-						<div class="form-row">
-							<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope?>" style="display:none">
-						</div>
-						<div class="form-row">
-							<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $id_rol?>" style="display:none">
-						</div>
-						<div class="form-row">
-							<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
-						</div>
 					
 								<br>
 							
@@ -660,7 +650,7 @@ $(document).ready(function(){
 								      </div>
 								      <div class="modal-footer">
 								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-										<input type="submit" class="btn btn-primary" name="accionB"  value="Capturar">
+										<input type="submit" class="btn btn-primary" name="accionB" onclick="eliminarReq()" value="Capturar">
 
 								       	<!-- <button type="submit" class="btn btn-primary">Capturar</button> -->
 								       	
@@ -684,7 +674,7 @@ $(document).ready(function(){
 							        </button>
 							      </div>
 							      <div class="modal-body">
-							         <textarea class="form-control border border-dark" id="obs" rows = "4" name="comentarioR" placeholder="Redactar el volante de rechazo" required></textarea>
+							         <textarea class="form-control border border-dark" id="MotivoRechazo" rows = "4" name="comentarioR" placeholder="Redactar el volante de rechazo" required></textarea>
 							       
 							      <div class="modal-footer">
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">REGRESAR</button>
@@ -708,7 +698,7 @@ $(document).ready(function(){
 
 		</div>
 <?php
-	 }else{	
+	 	}else{	
 	 
 
 			 			echo("
@@ -721,7 +711,7 @@ $(document).ready(function(){
 										</div>
 										</div>");
 				 }
-			}
+	}
 
 		?>
 	

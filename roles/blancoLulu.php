@@ -200,8 +200,9 @@
 				      	formulario.submit();}
 			}
 
-			function listaDeDoc(text){
+			function listaDeDoc(text, listaEnviar){
 				document.getElementById("listaDoc").value = text;
+				document.getElementById("guardarDoc").value = listaEnviar;
 
 			}
 
@@ -248,13 +249,14 @@
 			 	//echo "OOOOOLLAA";
 			 	$fehaI = date("d-m-Y", strtotime($rowQna[2])); 
 			 	$fehaF = date("d-m-Y", strtotime($rowQna[3])); 
+			 	$fehaLimite = date("d-m-Y", strtotime($rowQna[5])); 
 
 			 }else{
 			 
 			 	echo "error sql";
 			 }
 
-			 if( strtotime($fehaF) < strtotime($fechaSistema)){
+			 if( strtotime($fehaLimite) < strtotime($fechaSistema) ){
 			 		if($rowQna[0] != 24){
 			 			$newQna = $rowQna[0] + 1;
 			 		}else {
@@ -272,7 +274,7 @@
 			 }else{
 
 
-				 if($diaActual != 0 && $diaActual != 6 && (  strtotime($fechaSistema) >=  strtotime($fehaI) &&  strtotime($fechaSistema) <=  strtotime($fehaF))){
+				 if($diaActual != 0 && $diaActual != 6 && (  strtotime($fechaSistema) >=  strtotime($fehaI) &&  strtotime($fechaSistema) <=  strtotime($fehaF) ) ){
 
 				 		// echo $fehaF;
 				 		// echo $fechaSistema . " ";
@@ -312,13 +314,11 @@
 	          <li class=" estilo-color">
               <a ><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
 	          </li>
-<<<<<<< HEAD
 	          </li>
 	          <li class=" estilo-color">
              
 	          </li>
 
-=======
 	            <br><br><br>
 	            <center>
 			          <li class="active estilo-color">
@@ -330,7 +330,6 @@
 			          </li>
 				</center>
 	     
->>>>>>> 2340dfbe3caf5172fb5e1f813b01aeba4910b676
 	        </ul>
 
 
@@ -402,6 +401,7 @@
 							<input type="text" class="form-control" id="userName" name="userName" value="<?php echo $usuarioSeguir ?>" style="display:none">
 							<input type="text" class="form-control" id="botonAccion" name="botonAccion" value="<?php if(isset($_POST["botonAccion"])){ echo $_POST["botonAccion"];} ?>" style="display:none">
 							<input type="text" class="form-control" id="qnaActual" name="qnaActual" value="<?php  echo  $rowQna[0]?>" style="display:none">
+							<input type="text" class="form-control" id="guardarDoc" name="guardarDoc" value="<?php if(isset($_POST["guardarDoc"])){ echo $_POST["guardarDoc"];} ?>" style="display:none">
 						</div> 
 						<div class="form-row">
 							<div class="form-group col-md-12" >
@@ -530,8 +530,9 @@
 						</div>	
 						<div class="col">
 						  	<div class="md-form md-0">
-								<input type="submit" name="guardarAdj" onclick="eliminarRequier()" class="btn btn-outline-info tamanio-button" value="Adjuntar"><br>
+								<input type="submit" name="guardarAdj" onclick="eliminarRequier()" class="btn btn-outline-info tamanio-button" value="Guardar Documento"><br>
 							</div>	
+							<br>
 						</div>	
 								<?php 
 							if(isset($_POST['guardarAdj'])){
@@ -541,10 +542,17 @@
 									$elApellido2 = strtoupper ($_POST['apellido2']);
 									$nombreArch = $_POST['documentoSelct'];
 									$listaCompleta = $_POST['listaDoc'];
+									$concatenarNombDoc = $_POST['guardarDoc'];
 
 									$nombreCompletoArch = $nombreArch."_".$listaCompleta;
+									// consultamos para saber el id y el nombre corto del nombre 
+									$sqlRolDoc = "SELECT id_doc, documentos FROM m1ct_documentos WHERE nombre_documento = '$nombreArch'";
+									$resRol=mysqli_query($conexion, $sqlRolDoc);
+									$idDoc = mysqli_fetch_row($resRol);
 
+									$enviarDoc = $idDoc[1].'_'.$concatenarNombDoc;
 
+								
 
 									$dir_subida = './Controller/documentos/';
 											// Arreglo con todos los nombres de los archivos
@@ -562,7 +570,7 @@
 											    $nameAdj = $data[1];
 											    // Extensión del archivo 
 
-											    if($elRfc == $extractRfc AND $nombreArch == $nameAdj){
+											    if($elRfc == $extractRfc AND $idDoc[1] == $nameAdj){
 											      		unlink($dir_subida.$elRfc."_".$nameAdj."_".$elApellido1."_".$elApellido2."_".$nombre.".".$extencion);
 											        	break;
 											    }
@@ -576,7 +584,7 @@
 
 											if (move_uploaded_file($_FILES['nameArchivo']['tmp_name'], $fichero_subido)) {
 												sleep(3);
-												$concatenarNombreC = $dir_subida.strtoupper($elRfc."_".$nombreArch."_".$elApellido1."_".$elApellido2."_".$nombre."_.".$extencion3);
+												$concatenarNombreC = $dir_subida.strtoupper($elRfc."_".$idDoc[1]."_".$elApellido1."_".$elApellido2."_".$nombre."_.".$extencion3);
 												rename ($fichero_subido,$concatenarNombreC);
 												
 													$arrayDoc = explode("_", $nombreCompletoArch);
@@ -585,7 +593,7 @@
 												 
 												echo "
 													<script>
-															listaDeDoc( '$nombreCompletoArch');
+															listaDeDoc( '$nombreCompletoArch', '$enviarDoc');
 													</script >";
 												echo '
 													<br>	<br>		<br>
