@@ -211,6 +211,21 @@ $(document).ready(function(){
 					 $('#MotivoRechazo').removeAttr("required");
 
 			}
+
+			$(function(){
+		        /*$('#show').click(function(){
+		          $('#button').show();
+		        });*/
+		        $('#descargar').click(function(){
+			      $('#capturaF').hide();
+		        });
+		      })
+
+			function verBoton(){
+			        var btn_2 = document.getElementById('bandejaEntrada');
+			            btn_2.style.display = 'inline';
+			}
+
 		</script>
 
 		
@@ -632,8 +647,10 @@ $(document).ready(function(){
 						<input  type="text" class="form-control colon border border-dark" id="foliospc" name="foliospc" placeholder="Ej. 2020" value="" maxlength="5"  >
 					</div>
 						<div class="form-group col-md-12">
-						
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Capturar Fomope </button>
+								<button type="button" class="btn btn-primary" name="capturaF" id="capturaF" data-toggle="modal" data-target="#exampleModal1">Capturar Fomope </button>
+							
+							<input type="submit" class="btn btn-primary" id="bandejaEntrada" name="accionB" style="display: none;"  value="bandeja principal">
+							 
 								 
 
 						</div>
@@ -694,11 +711,9 @@ $(document).ready(function(){
 							       
 							      <div class="modal-footer">
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">REGRESAR</button>
-									<input type="submit" class="btn btn-primary" name="accionB"  value="descargar">
+									<input type="submit" class="btn btn-primary" id="descargar" onclick="verBoton()" name="accionB"  value="descargar">
 							      </div>
-							      <div class="modal-footer">
-									<input type="submit" class="btn btn-danger" name="accionB"  value="bandeja principal">
-							      </div>
+							     
 							    </div>
 							  </div>
 							</div>
