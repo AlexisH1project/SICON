@@ -163,6 +163,11 @@
 				$id_rol = $_GET['id_rol'];
 			//echo $id_rol;
 			$usuario = $_GET['usuario'];
+
+
+			$sqlNombre = "SELECT nombrePersonal FROM usuarios WHERE usuario = '$usuario'";
+			$result = mysqli_query($conexion,$sqlNombre);
+			$nombreU = mysqli_fetch_row($result);
 			//echo $usuario;
 			$consulta2 = " SELECT * FROM fomope WHERE id_movimiento = '$noFomope'";
 
@@ -287,9 +292,12 @@
 		  		<img class="img-responsive" src="img/ss1.png" height="50" width="190">
 	        <ul class="list-unstyled components mb-5">
 	        	<br>
-	        	<li class=" estilo-color">
-	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/> Kevin Solano</span></a>
+	        	<center>
+	        		<li class=" estilo-color">
+	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/><?php echo (" $nombreU[0]"); ?></a>
 	          </li>
+	        	</center>
+	        	
 	         <li class=' estilo-color'>
 	            <a href=  <?php if($id_rol1 == 3){echo ("'./CapturistaTostado.php?usuario_rol=$usuario'"); } elseif ($id_rol1 == 2) {
 	            	
@@ -300,6 +308,15 @@
 	          </li>
 	          <li class=" estilo-color">
               <a href="#"><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
+	          </li>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <li class=" estilo-color">
+	              <a class="nav-link" href=  "../LoginMenu/vista/cerrarsesion.php" ><img src="./img/iclogout.png" alt="x" height="17" width="17"/> Cerrar Sesión</a>
 	          </li>
 	          </li>
 	          <li class=" estilo-color">
@@ -725,6 +742,52 @@
 					
 
 				</div>
+<<<<<<< HEAD
+=======
+			</form>
+			<form name="elimin" enctype="multipart/form-data" action="./Controller/eliminarFomope.php" method="POST"> 
+						
+					<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1">
+											Eliminar Fomope 
+											</button>
+							  			<br>
+
+							  				<div class="form-row">
+							<input type="text" class="form-control" id="noFomope" name="noFomope" value="<?php echo $noFomope?>" style="display:none">
+						</div>
+						<div class="form-row">
+							<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $noFomope?>" style="display:none">
+						</div>
+						<div class="form-row">
+							<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
+						</div>
+											<!-- Modal -->
+											<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											  <div class="modal-dialog" role="document">
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <h5 class="modal-title" id="exampleModalLabel">Eliminar Información</h5>
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											          <span aria-hidden="true">&times;</span>
+											        </button>
+											      </div>
+											      <div class="modal-body">
+											        ¿Estás seguro de eliminar la información del fomope?
+											      </div>
+									<center>
+						     
+										</center>
+											      <div class="modal-footer">
+
+											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+							        				<input type="submit" class="btn btn-danger" value="Eliminar" name="accionB">
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+												</form>
+>>>>>>> b3227ba18a984ae35c2ac078478e08e06606bdb2
 
 		</center>
 		

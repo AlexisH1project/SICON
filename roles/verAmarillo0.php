@@ -79,6 +79,10 @@
 
 					
 			}
+
+			$sqlNombre = "SELECT nombrePersonal FROM usuarios WHERE usuario = '$usuarioSeguir'";
+			$result = mysqli_query($conexion,$sqlNombre);
+			$nombreU = mysqli_fetch_row($result);
 			?>
 			<br>
     	<br>
@@ -98,18 +102,33 @@
 		  		<img class="img-responsive" src="img/ss1.png" height="50" width="190">
 	        <ul class="list-unstyled components mb-5">
 	        	<br>
+	        	<center>
 	        	<li class=" estilo-color">
-	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/> Kevin Solano</span></a>
+	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/><?php echo (" $nombreU[0]"); ?></span></a>
 	          </li>
+	      </center>
 	          <li class=" estilo-color">
 	            <a href=  <?php echo ("'./lulu.php?usuario_rol=$usuarioSeguir'"); ?> ><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
+	          </li>
+	           <li class=" estilo-color">
+	            <a href=  <?php echo ("'./FiltroDescargar.php?usuario_rol=$usuarioSeguir'"); ?> ><img src="./img/icreport2.png" alt="x" height="17" width="20"/>      Descarga de Documentos</a>
+	          </li>
+	          <li class=" estilo-color">
+	            <a href=  <?php echo ("'./generarReporte.php?usuario_rol=$usuarioSeguir'"); ?> ><img src="./img/icreport.png" alt="x" height="17" width="20"/>Generar Reporte</a>
 	          </li>
 	          <li class=" estilo-color">
 	              <a ><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
 	          </li>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
+	          <br>
 	          <li class=" estilo-color">
-              <a ><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
+	              <a class="nav-link" href=  "../LoginMenu/vista/cerrarsesion.php" ><img src="./img/iclogout.png" alt="x" height="17" width="17"/> Cerrar Sesión</a>
 	          </li>
+	          
 	          </li>
 	          <li class=" estilo-color">
              
@@ -136,32 +155,43 @@
 	      </div>
     	</nav>
 
+    	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bordv plantilla-inputv fixed-top">
+		    <center>
+		    	<div class="container plantilla-inputv " align="center">
+		      <div class="collapse navbar-collapse" id="navbarResponsive">
+		      	
+		      		<div class="form-row " >
+		      		 
+		        <ul class="navbar-nav ml-auto">          
+		       
+		        	
+		        	<h3  class="estilo-colorn">Sistema de Control de Registro de Formato de Movimiento de Personal
+		          </h3>
+		          <h3  class="estilo-colorv">............
+		          </h3>
+		        </ul>
+
+		         <ul class="navbar-nav ml-auto">          
+		      
+		         <h5 class=" estilo-color">Departamento Dirección General de Recursos Humanos y Organización/Dirección integral de puestos y servicios personales</h5>
+		        </ul>
+		       
+		     
+		         
+		      </div>
+		      <br>
+		     
+		    </div> 
+		</center>
+		    <br>
+		    <br>
+		  </nav>
+
+
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark plantilla-input fixed-top">
-		    <div class="container">
-    		
-		      <div class="collapse navbar-collapse" id="navbarResponsive">
-		        <ul class="navbar-nav ml-auto">          
-		         <li class="nav-item dropdown">
-		            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		              Acciones
-		            </a>
-		            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-		              <a class="dropdown-item" href="./FiltroDescargar.php?usuario_rol=<?php echo $usuarioSeguir ?>">Descarga de documentos</a>
-		              <a class="dropdown-item" href="./generarReporte.php?usuario_rol=<?php echo $usuarioSeguir ?>">Generar reportes</a>
-		            </div>
-		          </li>
-		          <li class="nav-item">
-		            <a class="nav-link" href='LoginMenu/vista/cerrarsesion.php'>CERRAR SESIÓN</a>
-		          </li>
-		        </ul>
 
-
-		      </div>
-		    </div>
-		  </nav>
 
 
 		  <center>
