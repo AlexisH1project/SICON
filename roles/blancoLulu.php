@@ -193,10 +193,10 @@
 				    
 
 				      if (a=="" || b=="" || c==""|| d==""|| e==""|| f==""|| g=="" || h=="") {
-				      		formulario.action= './Controller/agregarNewRegistro.php';
 					        alert("Falta completar campo");		
 					        return false;
 				      } else{
+			      		formulario.action= './Controller/agregarNewRegistro.php';
 				      	formulario.submit();}
 			}
 
@@ -239,7 +239,7 @@
 
 			 if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
 			 		$rowF = mysqli_fetch_row($resultHoy);  // cambiamos formato de hora 
-			 		$fechaSistema = date("d-m-Y", strtotime($rowF[0])); //"05-04-2020";;
+			 		$fechaSistema = "27-03-2020"; //date("d-m-Y", strtotime($rowF[0])); //"05-04-2020";;
 			 		$rowHora = mysqli_fetch_row($resultTime);
 
 					$diaActual=date("w", strtotime($fechaSistema));
@@ -318,8 +318,7 @@
 	          <li class=" estilo-color">
               <a ><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
 	          </li>
-<<<<<<< HEAD
-=======
+
 	          <br>
 	          <br>
 	          <br>
@@ -330,16 +329,12 @@
 	              <a class="nav-link" href=  "../LoginMenu/vista/cerrarsesion.php" ><img src="./img/iclogout.png" alt="x" height="17" width="17"/> Cerrar Sesión</a>
 	          </li>
 
->>>>>>> b3227ba18a984ae35c2ac078478e08e06606bdb2
 	          </li>
 	          <li class=" estilo-color">
              
 	          </li>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> b3227ba18a984ae35c2ac078478e08e06606bdb2
 	            <br><br><br>
 	            <center>
 			          <li class="active estilo-color">
@@ -729,7 +724,7 @@
 							        </button>
 							      </div>
 							      <div class="modal-body">
-							          <textarea class="form-control z-depth-1" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..." required ></textarea> 
+							          <textarea class="form-control border border-dark" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..." required ></textarea> 
 							      </div>
 							      <div class="modal-footer">
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
