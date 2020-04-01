@@ -334,7 +334,10 @@
              
 	          </li>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 199c98ba7cf82b184def6de5917f183fe8ba395a
 	            <br><br><br>
 	            <center>
 			          <li class="active estilo-color">
