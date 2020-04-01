@@ -46,6 +46,21 @@
 		  }
 		  </style>
 
+		  <script type="text/javascript">
+			  	$(function(){
+			        /*$('#show').click(function(){
+			          $('#button').show();
+			        });*/
+			        $('#descargar').click(function(){
+				      $('#capturaF').hide();
+			        });
+			      })
+
+				function verBoton(){
+				        var btn_2 = document.getElementById('bandejaEntrada');
+				            btn_2.style.display = 'inline';
+				}
+		  </script>
 	
 		
 
@@ -315,7 +330,7 @@
 												';
 										?>		
 						<br>	
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+						<button type="button" class="btn btn-primary" id="capturaF" data-toggle="modal" data-target="#exampleModal">
 											 Autorizar
 											</button>
 							  			<br>
@@ -339,7 +354,7 @@
 											      <div class="modal-footer">
 
 											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-											       	<button type="submit" class="btn btn-primary">Aceptar</button>
+											       	<button type="submit"  class="btn btn-primary">Aceptar</button>
 											      </div>
 											    </div>
 											  </div>
@@ -359,6 +374,8 @@
 					<div class="form-group col-md-6">
 
 							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="@getbootstrap">Rechazar</button>
+							<input type="submit" name="tipButton" style="display: none;" id="bandejaEntrada" class="btn btn-primary" value="bandeja de entrada">
+
 					</div>
 							<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							  <div class="modal-dialog" role="document">
@@ -388,12 +405,9 @@
 
 							      <div class="modal-footer">
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">REGRESAR</button>
-							        <input type="submit" name="tipButton" class="btn btn-primary" value="aceptar">
+							        <input type="submit" name="tipButton" id="descargar" onclick="verBoton()" class="btn btn-primary" value="aceptar">
 							      </div>
-							      <div class="modal-footer">
-							        
-							        <input type="submit" name="tipButton" class="btn btn-danger" value="bandeja de entrada">
-							      </div>
+							      
 							    </div>
 							  </div>
 							</div>
