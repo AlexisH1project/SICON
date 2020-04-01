@@ -318,8 +318,7 @@
 	          <li class=" estilo-color">
               <a ><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>
 	          </li>
-<<<<<<< HEAD
-=======
+
 	          <br>
 	          <br>
 	          <br>
@@ -330,16 +329,11 @@
 	              <a class="nav-link" href=  "../LoginMenu/vista/cerrarsesion.php" ><img src="./img/iclogout.png" alt="x" height="17" width="17"/> Cerrar Sesión</a>
 	          </li>
 
->>>>>>> b3227ba18a984ae35c2ac078478e08e06606bdb2
 	          </li>
 	          <li class=" estilo-color">
              
 	          </li>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b3227ba18a984ae35c2ac078478e08e06606bdb2
 	            <br><br><br>
 	            <center>
 			          <li class="active estilo-color">

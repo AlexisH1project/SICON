@@ -187,7 +187,23 @@
 
 
 							$sqlColor="SELECT colorAsignado FROM usuarios WHERE usuario='$usuarioSeguir'";
+							$sqlu="SELECT unidadCorrespondiente from usuarios WHERE usuario = '$usuarioSeguir'";
 
+							if($unidad = mysqli_query($conexion,$sqlu)){
+					        		$rowU = mysqli_fetch_assoc($unidad);
+					        		$unidades = $rowU['unidadCorrespondiente'];
+					        		$unidadUsuario = explode(" ", $unidades);
+					        		//echo $unidadUsuario[0];
+					        		
+					        	
+					        $sqluni="SELECT * from ct_unidades WHERE UR = '$unidadUsuario[0]'";
+					        if($unidadR = mysqli_query($conexion,$sqluni)){
+					        		$row1 = mysqli_fetch_assoc($unidadR);
+					        		$descrip = $row1['descripcion'];
+					        			
+					        	}
+							
+							$result=mysqli_query($conexion,$sql);
 
 							if ($result = mysqli_query($conexion,$sql)) {
 
@@ -231,7 +247,7 @@
 										$datosCaptura = $ver[0]."||".$usuarioSeguir."||0";
 
 										if($totalColor != 0){
-											if($ver[1] == "negro" ){
+											if($ver[1] == "negro" && $ver[2] == $descrip){
 													$datosCaptura = $ver[0]."||".$usuarioSeguir."||1";
 
 										
@@ -248,6 +264,7 @@
 						</tr>
 						<?php 
 										}
+									}
 									}
 							}else{
 								echo '<script type="text/javascript">alert("Error en la conexion");</script>';
@@ -325,7 +342,7 @@
 							<td>
 							   <?php
 								
-											if($ver[1] == "negro" ){
+											if($ver[1] == "negro" && $ver[2] == $descrip){
 												$datosCaptura = $ver[0]."||".$usuarioSeguir."||1";
 
 										
