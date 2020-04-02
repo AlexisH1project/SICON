@@ -3,18 +3,18 @@
 	include "configuracion.php";
 		//header ('Content-type: text/html; charset=utf-8');
 		
-		$usuarioSegimiento = $_POST['usuario'];
+		$usuarioSegimiento = $_POST['usuarioSeguir'];
 		$noFomope = $_POST['noFomope'];
 		$usuario_rol = $_POST['id_rol'];
-		$usuario = $_POST['usuario'];
+		$usuario = $_POST['usuarioSeguir'];
 
 		$elBoton = $_POST['accionB'];
 
 		$idFomope = $_POST['noFomope'];
 		$elRol = $_POST['id_rol'];
-		$usuarioEdito = $_POST['usuario'];
+		$usuarioEdito = $_POST['usuarioSeguir'];
 
-		//echo $usuario;
+		
 		$qna_Add =$_POST['qnaOption'];
 		$anio_Add =$_POST['anio'];
 		$of_unidad =$_POST['ofunid'];
@@ -23,6 +23,7 @@
 		$codigo =$_POST['codigo'];
 		$no_puesto =$_POST['num_pues'];
 		$clave_presupuestaria =$_POST['clavepres'];
+		
 		//$codigo_movimiento =$_POST['cod2_1'];
 		//$concepto =$_POST['concept'];//descripción del movimiento		 
 		$movimientoYcodigo = $_POST['cod2_1'];
@@ -105,7 +106,6 @@
 
 		if($fecha_recibido <= $row[0] AND $fecha_oficio <= $row[0] AND $fecha_recibido_spc <= $row[0] AND $fecha_envio_spc <= $row[0] AND $fecha_recibo_dspo <= $row[0] ){
 
-
 			$sql1 = "UPDATE fomope SET usuario_name='$usuario',color_estado='cafe',quincenaAplicada='$qna_Add',anio='$anio_Add',oficioUnidad='$of_unidad',fechaOficio='$fecha_oficio',fechaRecibido='$fecha_recibido',codigo='$codigo',n_puesto='$no_puesto',clavePresupuestaria='$clave_presupuestaria',codigoMovimiento='$codigo_movimiento',descripcionMovimiento='$concepto',vigenciaDel='$del_1',vigenciaAl='$al_1',entidad='$estado_en',consecutivoMaestroPuestos='$consecutivo_maestro_impuestos',observaciones='$observaciones',fechaRecepcionSpc='$fecha_recibido_spc',fechaEnvioSpc='$fecha_envio_spc',fechaReciboDspo='$fecha_recibo_dspo',folioSpc='$folio_spc', fechaCaptura = '$row[0] - $usuario' WHERE id_movimiento = '$noFomope' " ;
 
 				$hoy = "select CURDATE()";
@@ -130,7 +130,7 @@
 					
 					if (mysqli_query($conexion,$sql1)) {
 						if($datoId[0] == 2){
-							   echo "<script> alert('el fomope fue capturado'); window.location.href = './analista.php?usuario_rol=Tostado'</script>";
+							   echo "<script> alert('el fomope fue capturado'); window.location.href = './analista.php?usuario_rol=$usuario'</script>";
 							}elseif ($datoId[0] == 3) {
 								  echo "<script> alert('el fomope fue actualizado'); window.location.href = './capturistaTostado.php?usuario_rol=$usuario'</script>";
 							}

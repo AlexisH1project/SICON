@@ -5,7 +5,7 @@
 	//echo $noFomope;
 	$idRol = $_POST['id_rol'];
 	//echo $idRol;
-		$usuario = $_POST['usuario'];
+		$usuario = $_POST['usuarioSeguir'];
 		//echo $usuario;
 		$color_es = $_POST['color_esta'];
 	
@@ -52,6 +52,14 @@
 							}
 
 					}else if ($idRol == 4 && $color_es == 'naranja') {
+						$hoy = "select CURDATE()";
+							$tiempo ="select curTime()";
+								
+									
+							if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
+											 		$row = mysqli_fetch_row($resultHoy);
+											 		$row2 = mysqli_fetch_row($resultTime);
+											 }
 						 $sql = "UPDATE fomope SET color_estado  = 'azul', usuario_name = '$usuario',  fechaAutorizacion = '$row[0] - $usuario' WHERE id_movimiento= '$noFomope'";
 							$hoy = "select CURDATE()";
 							$tiempo ="select curTime()";
@@ -82,6 +90,14 @@
 							    echo "Error updating record: " . mysqli_error($conexion);
 							}
 					}else if ($idRol == 4 && $color_es == 'azul') {
+						$hoy = "select CURDATE()";
+							$tiempo ="select curTime()";
+								
+									
+							if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
+											 		$row = mysqli_fetch_row($resultHoy);
+											 		$row2 = mysqli_fetch_row($resultTime);
+											 }
 						 $sql = "UPDATE fomope SET color_estado  = 'rosa', usuario_name = '$usuario',  fechaAutorizacion = '$row[0] - $usuario' WHERE id_movimiento= '$noFomope'";
 						 
 							$hoy = "select CURDATE()";

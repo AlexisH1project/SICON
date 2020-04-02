@@ -162,10 +162,10 @@
 				//echo $noFomope;
 				$id_rol = $_GET['id_rol'];
 			//echo $id_rol;
-			$usuario = $_GET['usuario'];
+			$usuarioSeguir = $_GET['usuario'];
 
 
-			$sqlNombre = "SELECT nombrePersonal FROM usuarios WHERE usuario = '$usuario'";
+			$sqlNombre = "SELECT nombrePersonal FROM usuarios WHERE usuario = '$usuarioSeguir'";
 			$result = mysqli_query($conexion,$sqlNombre);
 			$nombreU = mysqli_fetch_row($result);
 			//echo $usuario;
@@ -213,7 +213,7 @@
 					$fecha_entrega_archivo_gral = $row['fechaEntregaArchivo'];
 	        		$clave_concepto = "$codigo_movimiento"."_"."$concepto";
 			}
-						$consultaR = " SELECT * FROM usuarios WHERE usuario = '$usuario'";
+						$consultaR = " SELECT * FROM usuarios WHERE usuario = '$usuarioSeguir'";
 
 		        if($resultado3 = mysqli_query($conexion,$consultaR)){
 	        		$row = mysqli_fetch_assoc($resultado3);
@@ -299,9 +299,9 @@
 	        	</center>
 	        	
 	         <li class=' estilo-color'>
-	            <a href=  <?php if($id_rol1 == 3){echo ("'./CapturistaTostado.php?usuario_rol=$usuario'"); } elseif ($id_rol1 == 2) {
+	            <a href=  <?php if($id_rol1 == 3){echo ("'./CapturistaTostado.php?usuario_rol=$usuarioSeguir'"); } elseif ($id_rol1 == 2) {
 	            	
-	            echo ("'./analista.php?usuario_rol=$usuario'"); }?>  > <img src='./img/icbuzon.png' alt='x' height='17' width='20'/>      Bandeja</a>
+	            echo ("'./analista.php?usuario_rol=$usuarioSeguir'"); }?>  > <img src='./img/icbuzon.png' alt='x' height='17' width='20'/>      Bandeja</a>
 			</li>
 	          <li class=" estilo-color">
 	              <a href=""><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
@@ -488,7 +488,7 @@
 							<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $id_rol?>" style="display:none">
 						</div>
 						<div class="form-row">
-							<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
+							<input type="text" class="form-control" id="usuarioSeguir" name="usuarioSeguir" value="<?php echo $usuarioSeguir?>" style="display:none">
 						</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
@@ -669,7 +669,7 @@
 							<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $id_rol?>" style="display:none">
 						</div>
 						<div class="form-row">
-							<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
+							<input type="text" class="form-control" id="usuarioSeguir" name="usuarioSeguir" value="<?php echo $usuarioSeguir?>" style="display:none">
 						</div>
 						<br>
 						<div class="form-row">
@@ -742,8 +742,7 @@
 					
 
 				</div>
-<<<<<<< HEAD
-=======
+
 			</form>
 			<form name="elimin" enctype="multipart/form-data" action="./Controller/eliminarFomope.php" method="POST"> 
 						
@@ -759,7 +758,7 @@
 							<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $noFomope?>" style="display:none">
 						</div>
 						<div class="form-row">
-							<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
+							<input type="text" class="form-control" id="usuarioSeguir" name="usuarioSeguir" value="<?php echo $usuarioSeguir?>" style="display:none">
 						</div>
 											<!-- Modal -->
 											<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -787,7 +786,7 @@
 											</div>
 
 												</form>
->>>>>>> b3227ba18a984ae35c2ac078478e08e06606bdb2
+
 
 		</center>
 		

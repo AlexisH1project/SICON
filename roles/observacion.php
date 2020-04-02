@@ -9,13 +9,13 @@
 
 		$noFomope = $_POST['noFomope'];
 		$idRol = $_POST['id_rol'];
-		$usuario = $_POST['usuario'];
+		$usuario = $_POST['usuarioSeguir'];
 		$observacion = $_POST['obs'];
 
 
 		/*echo $observacion;
 		echo $idRol;
-		echo $usuario;
+		
 		echo $noFomope;	*/
 
 	if(($observacion == "" AND $idRol == 2) OR ($observacion == "" AND $idRol == 3)){

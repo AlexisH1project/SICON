@@ -62,7 +62,7 @@
 				//echo $noFomope;
 				$id_rol = $_GET['id_rol'];
 				//echo $id_rol;
-				$usuario = $_GET['usuario'];
+				$usuarioSeguir = $_GET['usuario'];
 			//echo $usuario;
 			$consulta2 = " SELECT * FROM fomope WHERE id_movimiento =" .$noFomope;
 
@@ -112,7 +112,7 @@
 	
 			$v = "-";
 	        	
-			$consultaR = " SELECT * FROM usuarios WHERE usuario = '$usuario'";
+			$consultaR = " SELECT * FROM usuarios WHERE usuario = '$usuarioSeguir'";
 
 		        if($resultado3 = mysqli_query($conexion,$consultaR)){
 	        		$row = mysqli_fetch_assoc($resultado3);
@@ -121,7 +121,7 @@
 					
 			}
 			
-			$sqlNombre = "SELECT nombrePersonal FROM usuarios WHERE usuario = '$usuario'";
+			$sqlNombre = "SELECT nombrePersonal FROM usuarios WHERE usuario = '$usuarioSeguir'";
 			$result = mysqli_query($conexion,$sqlNombre);
 			$nombreU = mysqli_fetch_row($result);
 
@@ -150,7 +150,7 @@
 	          </li>
 	        	</center>
 	          <li class=" estilo-color">
-	            <a href= <?php echo ("'./dario.php?usuario_rol=$usuario'");?> ><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
+	            <a href= <?php echo ("'./dario.php?usuario_rol=$usuarioSeguir'");?> ><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
 	          </li>
 	          <li class=" estilo-color">
 	              <a ><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
@@ -262,7 +262,7 @@
 							<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $id_rol?>" style="display:none">
 						</div>
 						<div class="form-row">
-							<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
+							<input type="text" class="form-control" id="usuarioSeguir" name="usuarioSeguir" value="<?php echo $usuarioSeguir?>" style="display:none">
 						</div>
 						<div class="form-row">
 							<input type="text" class="form-control" id="color_esta" name="color_esta" value="<?php echo $color_est?>" style="display:none">
@@ -518,7 +518,7 @@
 											<input type="text" class="form-control" id="id_rol" name="id_rol" value="<?php echo $id_rol?>" style="display:none">
 										</div>
 										<div class="form-row">
-											<input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario?>" style="display:none">
+											<input type="text" class="form-control" id="usuarioSeguir" name="usuarioSeguir" value="<?php echo $usuarioSeguir?>" style="display:none">
 										</div>
 							        </form>
 							      </div>
