@@ -222,7 +222,7 @@
 							$elApellido2 = strtoupper($_POST['apellido2']);
 							//echo $elApellido1 . $elApellido2 .  $elNombre;
 
-								$dir_subida = './documentos/';
+								$dir_subida = './Controller/documentos/';
 
 								// Arreglo con todos los nombres de los archivos
 								$files = array_diff(scandir($dir_subida), array('.', '..')); 
@@ -237,23 +237,31 @@
 								    // Nombre del archivo
 								    $extractRfc = $data[0];
 								    $nameAdj = $data[1];
-								    $banderHay = 1;
+
+								    //Identificamos que nombre real de archivo es, interpretanso la nombreclatura doc_ 
+					
+						
+										$sqlNombreDoc = "SELECT nombre_documento FROM m1ct_documentos WHERE documentos = '$nameAdj'";
+										$resNombreDoc = mysqli_query($conexion,$sqlNombreDoc);
+										$rowNombreDoc = mysqli_fetch_row($resNombreDoc);
+										//$nombreAdescargar = $ver[4]."_".$ver[$i]."_".$ver[6]."_".$ver[7]."_".$ver[8]."_.PDF";
+
 								    //echo $data[4];
 								    // Extensión del archivo 
 
 								    if(($data[2] == $elApellido1) AND ($data[3] == $elApellido2) AND ($data[4] == $elNombre)){
 								      		$nombreCompleto = $elApellido1." ".$elApellido2." ".$elNombre;
-								    		$banderHay ++;
-								      		
+								   			$banderHay ++;
+								    		
 
 						?>        	
 						<tr>
 													<td><?php echo $nombreCompleto  ?></td>
-													<td><?php echo $nameAdj ?></td>
+													<td><?php echo $rowNombreDoc[0] ?></td>
 													<td>
-													<form method="post" action="../model/controllerDescarga.php">
+													<form method="post" action="./Controller/verPDF.php">
 														<input type="text" name="nombreDecarga" value="<?php echo $file ?>" style="display:none" >
-														<input type="submit" name="Descargar" value="Descargar"  class="btn btn-info">
+														<input type="submit" name="Descargar" value="Ver"  class="btn btn-info">
 														<!-- <button type="button" class="btn btn-info" id="" >Descargar</button>  -->
 													</form>
 													</td>
@@ -263,8 +271,7 @@
 
 									    }
 									}
-
-									if($banderHay == 1){
+									if($banderHay == 0){
 											
 											echo('
 												<br>
@@ -275,7 +282,9 @@
 											</div>
 											</div>');
 									}
+
 								}
+								
 							?>
 
 		</table>

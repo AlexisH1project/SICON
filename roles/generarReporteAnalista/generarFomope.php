@@ -117,12 +117,12 @@
 		                        $writer->save('php://output');
 			                    }else{
 
-			                            echo "<script> alert('La informacion agregada no es correcta o no se encontro coincidencia , vuelve a intentar'); window.location.href = '../lulu.php?usuario_rol=$nombreUser'</script>";
+			                            echo "<script> alert('La informacion agregada no es correcta o no se encontro coincidencia , vuelve a intentar'); window.location.href = '../generarReporte.php?usuario_rol=$nombreUser'</script>";
 
 			                    }
 
                         }else{
-                            echo "<script> alert('Existe error en la busqueda'); window.location.href = '../lulu.php?usuario_rol=$nombreUser'</script>";
+                            echo "<script> alert('Existe error en la busqueda'); window.location.href = '../generarReporte.php?usuario_rol=$nombreUser'</script>";
 
                         }
       
