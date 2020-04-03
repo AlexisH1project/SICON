@@ -46,10 +46,16 @@
 		  }
 		  </style>
 
-<?php 
-			include "Controller/configuracion.php";
-			$usuarioSeguir =  $_GET['usuario_rol'];
-			$idMovSeg = $_GET['id_mov'];
+			<?php 
+					include "Controller/configuracion.php";
+					$usuarioSeguir =  $_GET['usuario_rol'];
+					$idMovSeg = $_GET['id_mov'];
+
+					if(isset($_POST["listaDoc"])){ 
+						$listaMostrar = $_POST["listaDoc"];
+					}else{
+						$listaMostrar = "";
+					}
 			?>
 
 		<script type="text/javascript">
@@ -181,8 +187,9 @@
 				?>
 			}	
 
-			function listaDeDoc(text){
+			function listaDeDoc(text, listaEnviar){
 				document.getElementById("listaDoc").value = text;
+				document.getElementById("guardarDoc").value = listaEnviar;
 
 			}
 
@@ -416,6 +423,7 @@
 							<input type="text" class="form-control" id="idFom" name="idFom" value="<?php echo $idMovSeg ?>" style="display:none">
 							<input type="text" class="form-control" id="botonAccion" name="botonAccion" value="<?php if(isset($_POST["botonAccion"])){ echo $_POST["botonAccion"];} ?>" style="display:none">
 							<input type="text" class="form-control" id="qnaActual" name="qnaActual" value="<?php  echo  $rowQna[0]?>" style="display:none">
+							<input type="text" class="form-control" id="guardarDoc" name="guardarDoc" value="<?php if(isset($_POST["guardarDoc"])){ echo $_POST["guardarDoc"];} ?>" style="display:none">	
 						</div>
 
 						<div class="form-row">
@@ -548,11 +556,27 @@
 						</div>	
 						<div class="col">
 						  	<div class="md-form md-0">
-								<input type="submit" name="guardarAdj" onclick="eliminarRequier()" class="btn btn-outline-info tamanio-button" value="Adjuntar"><br>
+								<input type="submit" name="guardarAdj" onclick="eliminarRequier()" class="btn btn-outline-info tamanio-button" value="Guardar Documento"><br>
 							</div>	
 						</div>	
 
-					<?php 
+
+				<?php 
+												$arrayView = explode("_", $listaMostrar);
+												 $tamanio = count($arrayView);
+												if($tamanio > 1 ){
+												echo '
+													<div class="form-group col-md-12 estilo-colorn" >	
+					  									<label for="existe">Existen Documentos adjuntos. </label>
+													</div>
+
+												';	
+												}
+
+							
+
+
+
 							if(isset($_POST['guardarAdj'])){
 									$nombre = strtoupper($_POST['nombre'] );
 									$elRfc =  strtoupper($_POST['rfcL_1']);
@@ -560,10 +584,17 @@
 									$elApellido2 = strtoupper ($_POST['apellido2']);
 									$nombreArch = $_POST['documentoSelct'];
 									$listaCompleta = $_POST['listaDoc'];
+									$concatenarNombDoc = $_POST['guardarDoc'];
 
 									$nombreCompletoArch = $nombreArch."_".$listaCompleta;
+									// consultamos para saber el id y el nombre corto del nombre 
+									$sqlRolDoc = "SELECT id_doc, documentos FROM m1ct_documentos WHERE nombre_documento = '$nombreArch'";
+									$resRol=mysqli_query($conexion, $sqlRolDoc);
+									$idDoc = mysqli_fetch_row($resRol);
 
+									$enviarDoc = $idDoc[1].'_'.$concatenarNombDoc;
 
+								
 
 									$dir_subida = './Controller/documentos/';
 											// Arreglo con todos los nombres de los archivos
@@ -581,7 +612,7 @@
 											    $nameAdj = $data[1];
 											    // Extensión del archivo 
 
-											    if($elRfc == $extractRfc AND $nombreArch == $nameAdj){
+											    if($elRfc == $extractRfc AND $idDoc[1] == $nameAdj){
 											      		unlink($dir_subida.$elRfc."_".$nameAdj."_".$elApellido1."_".$elApellido2."_".$nombre.".".$extencion);
 											        	break;
 											    }
@@ -595,16 +626,17 @@
 
 											if (move_uploaded_file($_FILES['nameArchivo']['tmp_name'], $fichero_subido)) {
 												sleep(3);
-												$concatenarNombreC = $dir_subida.strtoupper($elRfc."_".$nombreArch."_".$elApellido1."_".$elApellido2."_".$nombre."_.".$extencion3);
+												$concatenarNombreC = $dir_subida.strtoupper($elRfc."_".$idDoc[1]."_".$elApellido1."_".$elApellido2."_".$nombre."_.".$extencion3);
 												rename ($fichero_subido,$concatenarNombreC);
 												
+
 													$arrayDoc = explode("_", $nombreCompletoArch);
 												 	$tamanioList = count($arrayDoc);
-												
+										
 												 
 												echo "
 													<script>
-															listaDeDoc( '$nombreCompletoArch');
+															listaDeDoc( '$nombreCompletoArch', '$enviarDoc');
 													</script >";
 												echo '
 													<br>	<br>		<br>

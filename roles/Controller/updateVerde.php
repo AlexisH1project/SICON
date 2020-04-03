@@ -48,19 +48,18 @@
 			}
 
 			$fichero_subido = $dir_subida . basename($_FILES['nameArchivo']['name']);
+
+
 			if (move_uploaded_file($_FILES['nameArchivo']['tmp_name'], $fichero_subido)) {
 				sleep(3);
 				rename ($fichero_subido,$dir_subida.$rfcRow[0]."_".$id_Fom.".zip");
 			} else {
-				if ($result = mysqli_query($conexion,$sqlRol)) {
-					$rowRol = mysqli_fetch_row($result);
-
-			   		if($rowRol[0] == '0'){
-	               			echo "<script> alert('Existe un error al guardar el archivo'); window.location.href = '../verdeLulu.php?usuario_rol=$rolSegimiento'</script>";
-					}else if($rowRol[0] == '1'){
-	               			echo "<script> alert('Existe un error al guardar el archivo'); window.location.href = '../verdeLulu.php?usuario_rol=$rolSegimiento'</script>";
+					if($_FILES['nameArchivo']['name'] == ''){
+							// no pasa nada sigue ... 
+					}else{
+				
+						echo "<script> alert('Existe un problema al subir archivo'); window.location.href = '../grisEditar.php?usuario_rol=$rolSegimiento&id_mov=$id_Fom'</script>";
 					}
-				}
 			}
 
 		
@@ -94,7 +93,7 @@
 				}
 
 			}else{
-			 		echo "<script> alert('La fecha no puede ser mayor a la actual'); window.location.href = '../verdeLulu.php?usuario_rol=$rolSegimiento&id_mov=$id_Fom'</script>";
+			 		echo "<script> alert('La fecha no puede ser mayor a la actual'); window.location.href = '../grisEditar.php?usuario_rol=$rolSegimiento&id_mov=$id_Fom'</script>";
 			}
 
 

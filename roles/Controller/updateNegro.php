@@ -15,6 +15,8 @@
 		$tipoEntregaUp = strtoupper($_POST['TipoEntregaArchivo']);
 
 		$laQna = $_POST['qnaActual'];
+		$documentosList = $_POST['guardarDoc'];
+
 		
 		$radioUpRechazar = "agregar";
 		$motivoRUp = $_POST['comentarioR'];	
@@ -59,8 +61,23 @@
 		               			echo "<script> alert('Fomope Actualizado'); window.location.href = '../unidadCaptura.php?usuario_rol=$rolSegimiento'</script>";
 
 						}
-						$sqlH = "INSERT INTO historial (usuario,fechaMovimiento,horaMovimiento) VALUES ('$rolSegimiento','$row[0]','$row2[0]')";
-										$resultH = mysqli_query($conexion,$sqlH);	
+						$sqlH = "INSERT INTO historial (id_movimiento,usuario,fechaMovimiento,horaMovimiento) VALUES ('$id_Fom', $rolSegimiento','$row[0]','$row2[0]')";
+								$resultH = mysqli_query($conexion,$sqlH);
+
+								$arrayDoc = explode("_", $documentosList) ;
+								//$limite = count($arrayDoc);
+
+								//actualizamos la base para poder tener el registro de los documentos
+								for($i=0; $i < count($arrayDoc)-1 ; $i++){
+									$nombreAsignar = $arrayDoc[$i];
+									$sqlAgregar =  "UPDATE fomope SET $arrayDoc[$i] = '$nombreAsignar' WHERE id_movimiento = '$id_Fom'";
+									if ($resUpdate = mysqli_query($conexion, $sqlAgregar)){
+
+									}else{
+										echo "<script> alert ('error');</script>";
+									}
+
+								}
 
 					}else {
 						echo '<script type="text/javascript">alert("Error en la conexion");</script>';

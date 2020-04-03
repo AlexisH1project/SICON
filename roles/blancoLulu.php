@@ -219,6 +219,12 @@
 			include "Controller/configuracion.php";
 			$usuarioSeguir =  $_GET['usuario_rol'];
 
+					if(isset($_POST["listaDoc"])){ 
+						$listaMostrar = $_POST["listaDoc"];
+					}else{
+						$listaMostrar = "";
+					}
+
 			$valor = "";
 			$hoy = "select CURDATE()";
 			$tiempo ="select curTime()";
@@ -239,7 +245,7 @@
 
 			 if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
 			 		$rowF = mysqli_fetch_row($resultHoy);  // cambiamos formato de hora 
-			 		$fechaSistema = "27-03-2020"; //date("d-m-Y", strtotime($rowF[0])); //"05-04-2020";;
+			 		$fechaSistema = date("d-m-Y", strtotime($rowF[0])); //"05-04-2020";;
 			 		$rowHora = mysqli_fetch_row($resultTime);
 
 					$diaActual=date("w", strtotime($fechaSistema));
@@ -557,7 +563,19 @@
 							</div>	
 							<br>
 						</div>	
-								<?php 
+					<?php 
+
+								$arrayView = explode("_", $listaMostrar);
+												 $tamanio = count($arrayView);
+												if($tamanio > 1 ){
+												echo '
+													<div class="form-group col-md-12 estilo-colorn" >	
+					  									<label for="existe">Existen Documentos adjuntos. </label>
+													</div>
+
+												';	
+												}
+
 							if(isset($_POST['guardarAdj'])){
 									$nombre = strtoupper($_POST['nombre'] );
 									$elRfc =  strtoupper($_POST['rfcL_1']);

@@ -279,9 +279,9 @@
 
 				  		  
 				  		  <div class="form-group">
-						    <label class="plantilla-label estilo-colorg" for="archivo_1">Adjuntar un archivo (.zip)</label>
+						    <label class="plantilla-label estilo-colorg" for="archivo_1"><i>(Opcional)</i>  Adjuntar un archivo (.zip)</label>
 						    <!--  <input type="hidden" name="MAX_FILE_SIZE" value="30000" /> -->
-						    <input type="file" name="nameArchivo" required>
+						    <input type="file" name="nameArchivo">
 						   <!--  <p class="help-block">Ejemplo de texto de ayuda.</p> -->
 						  </div>
 						<br>
