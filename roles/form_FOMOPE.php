@@ -218,6 +218,7 @@ $(document).ready(function(){
 		        });*/
 		        $('#descargar').click(function(){
 			      $('#capturaF').hide();
+			      $('#rechazo').hide();
 		        });
 		      })
 
@@ -656,7 +657,7 @@ $(document).ready(function(){
 						</div>
 
 						<div class="form-group col-md-6">
-							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalRT" >Rechazo por validacion </button>
+							<button type="button" name="rechazo" id="rechazo" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalRT" >Rechazo por validacion </button>
 
 
 						</div>

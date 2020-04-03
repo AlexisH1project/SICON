@@ -151,6 +151,21 @@
 					 $('#MotivoRechazo').removeAttr("required");
 
 			}
+
+			$(function(){
+		        /*$('#show').click(function(){
+		          $('#button').show();
+		        });*/
+		        $('#descargar').click(function(){
+			      $('#guardarF').hide();
+			      $('#rechazoF').hide();
+		        });
+		      })
+
+			function verBoton(){
+			        var btn_2 = document.getElementById('bandejaEntrada');
+			            btn_2.style.display = 'inline';
+			}
 		</script>
 
 	</head>
@@ -673,14 +688,15 @@
 						</div>
 						<br>
 						<div class="form-row">
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+						<button type="button" name="guardarF" id="guardarF" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
 								Guardar Fomope 
 								</button>
+									<input type="submit" class="btn btn-primary" id="bandejaEntrada" name="accionB" style="display: none;"  value="bandeja principal">
 						</div>
 						<br>
 
 						<div class="form-row">
-							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalRT" >Rechazo por validacion </button>
+							<button type="button" name="rechazoF" id="rechazoF" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalRT" >Rechazo por validacion </button>
 
 
 						</div>

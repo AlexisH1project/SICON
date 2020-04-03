@@ -53,6 +53,7 @@
 			        });*/
 			        $('#descargar').click(function(){
 				      $('#capturaF').hide();
+				      $('#rechazo').hide();
 			        });
 			      })
 
@@ -373,7 +374,7 @@
 						
 					<div class="form-group col-md-6">
 
-							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="@getbootstrap">Rechazar</button>
+							<button type="button" name="rechazo" id="rechazo" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="@getbootstrap">Rechazar</button>
 							<input type="submit" name="tipButton" style="display: none;" id="bandejaEntrada" class="btn btn-primary" value="bandeja de entrada">
 
 					</div>

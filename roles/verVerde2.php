@@ -294,7 +294,7 @@
 					
 							<div class="form-group shadow-textarea">
 							  <label class="plantilla-label estilo-colorg" for="exampleFormControlTextarea6">*Agregar la justificacion</label>
-							  <textarea class="form-control unexp border border-dark" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..."><?php echo $ver[13] ?></textarea>
+							  <textarea class="form-control unexp border border-dark" id="comentarioR" name="comentarioR" rows="3" placeholder="Escribe el motivo del rechazo..."></textarea>
 							</div>
 
 							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2">

@@ -301,10 +301,10 @@
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="fechIngr" name="fechIngr" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $fecha_ingreso; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
 
-					<div class="form-group col-md-6">
+					<!-- <div class="form-group col-md-6">
 						<label class="plantilla-label estilo-colorg" for="ofentre">*Oficio entrega:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control unexp border border-dark" id="ofentre" name="ofentre" placeholder="Ej. OAG-CA-3735-2020" value="<?php echo $oficio_entrega; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
-					</div>
+					</div> -->
 
 					<div class="form-group col-md-6">
 						<label class="plantilla-label estilo-colorg" for="tipoentre">Tipo de entrega:</label>
@@ -401,12 +401,12 @@
 						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="consema" name="consema" placeholder="Ej. 170" value="<?php echo $consecutivo_maestro_impuestos; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					
 				</div>
-				<div class="form-row">
+				<!-- <div class="form-row">
 					<div class="form-group col-md-5">
 						<label class="plantilla-label estilo-colorg" for="plaza1">*Plaza:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="plaza1" name="plaza1" placeholder="Ej. 1" value="<?php echo $plaza; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
-				</div>
+				</div> -->
 					<div class="form-group col-md-5">
 						<label class="plantilla-label estilo-colorg" for="observ">*Observaciones:</label>
 						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="observ" name="observ" placeholder="Ej. 11-01-19 LA DIRECTORA GENERAL INDICA QUE SE REQUIERE OFICIO DE AUTORIZACION CON JUSTIFICACION PARA OCUPACION." value="<?php echo $observaciones; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
@@ -445,18 +445,7 @@
 						<label class="plantilla-label estilo-colorg" for="foliospc">*Folio SPC:</label>
 						<input onkeypress="return pulsar(event)"  type="text" class="form-control colon border border-dark" id="foliospc" name="foliospc" placeholder="Ej. 2020" value="<?php echo $folio_spc; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly>
 					</div>
-					<div class="form-group col-md-6">
-							<div class="text-center">
-								<label class="plantilla-label estilo-colorg" for="fechanom">Fecha captura nomina:</label>
-							</div>
-							<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechanom" name="fechanom" placeholder="Ej" value="<?php echo $fecha_capt_nomin; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly> <!--required-->
-						</div>
-					 <div class="form-group col-md-6">
-							<div class="text-center">
-								<label class="plantilla-label estilo-colorg" for="al3">Fecha entregada del trabajador para archivo gral.- Lourdes Arredondo Cortes:</label>
-							</div>
-							<input onkeypress="return pulsar(event)" type="date" class="form-control border border-dark" id="fechaenlo" name="fechaenlo" placeholder="fechaenlo" value="<?php echo $fecha_entrega_archivo_gral; ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required readonly> <!--required-->
-						</div>
+					
 
 			<!--</form>-->
 

@@ -827,7 +827,7 @@
 											      </div>
 											      <form method="post">
 											      <div class="modal-body">
-											        ¿Quieres mandar a loter el fomope?
+											        ¿Quieres mandar a lotear el fomope?
 											      </div>
 											      <div class="form-row">
 														<input type="text" class="form-control" id="idDatosA" name="idDatosA" style="display:none">
