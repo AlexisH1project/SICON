@@ -271,6 +271,51 @@
 
 									    }
 									}
+									
+								
+							?>
+
+			<?php
+								$dir_subida = './Controller/documentosLoteo/';
+
+								// Arreglo con todos los nombres de los archivos
+								$files = array_diff(scandir($dir_subida), array('.', '..')); 
+								
+								foreach($files as $file){
+								    // Divides en dos el nombre de tu archivo utilizando el . 
+								    $data = explode("_",$file);
+								    $data2 = explode("_.",$file);
+									$indice = count($data2);	
+
+									$extencion = $data2[$indice-1];
+								    // Nombre del archivo
+								    $extractRfc = $data[0];
+								    $nameAdj = $data[1];
+
+								    
+
+								    if(($data[1] == $elApellido1) AND ($data[2] == $elApellido2) AND ($data[3] == $elNombre)){
+								      		$nombreCompleto = $elApellido1." ".$elApellido2." ".$elNombre;
+								   			$banderHay ++;
+								    		
+
+						?>        	
+						<tr>
+													<td><?php echo $nombreCompleto  ?></td>
+													<td>Archivos de Loteo</td>
+													<td>
+													<form method="post" action="./Controller/decargaZip.php">
+														<input type="text" name="nombreDecarga" value="<?php echo $file ?>" style="display:none" >
+														<input type="submit" name="Descargar" value="Descargar"  class="btn btn-info">
+														<!-- <button type="button" class="btn btn-info" id="" >Descargar</button>  -->
+													</form>
+													</td>
+						</tr>
+												
+							<?php
+
+									    }
+									}
 									if($banderHay == 0){
 											
 											echo('

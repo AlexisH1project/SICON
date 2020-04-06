@@ -12,7 +12,7 @@
 		$ofEntregaUnidadAdd = $_POST['ofEntregaUnidad'];
 		$ofEntregaSeg = $_POST['ofEntrega'];
 		$motivoR = $_POST['comentarioR'];
-		$dir_subida = '../../documentos/';
+		$dir_subida = './documentosLoteo/';
 
 		$hoy = "select CURDATE()";
 		$tiempo ="select curTime()";
@@ -22,7 +22,7 @@
 			 		$row2 = mysqli_fetch_row($resultTime);
 			 }
 
-		$sqlNameArch = "SELECT rfc, id_movimiento FROM fomope WHERE id_movimiento = $id_Fom";
+		$sqlNameArch = "SELECT rfc, id_movimiento, nombre, apellido_1, apellido_2 FROM fomope WHERE id_movimiento = $id_Fom";
 
 			if($result = mysqli_query($conexion,$sqlNameArch)){
 				$rfcRow = mysqli_fetch_row($result);
@@ -41,7 +41,7 @@
 			  
 			    if($rfcRow[0] == $fileName){
 			    	if($idArch[0] == $id_Fom ){
-			      		unlink($dir_subida.$rfcRow[0]."_".$id_Fom.".zip");
+			      		unlink($dir_subida.$rfcRow[0]."_".$rfcRow[4]."_".$rfcRow[3]."_".$rfcRow[2]."_".$id_Fom.".zip");
 			        	break;
 			    	}
 			    }
@@ -52,7 +52,7 @@
 
 			if (move_uploaded_file($_FILES['nameArchivo']['tmp_name'], $fichero_subido)) {
 				sleep(3);
-				rename ($fichero_subido,$dir_subida.$rfcRow[0]."_".$id_Fom.".zip");
+				rename ($fichero_subido,$dir_subida.$rfcRow[0]."_".$rfcRow[4]."_".$rfcRow[3]."_".$rfcRow[2]."_".$id_Fom.".zip");
 			} else {
 					if($_FILES['nameArchivo']['name'] == ''){
 							// no pasa nada sigue ... 
@@ -93,7 +93,7 @@
 				}
 
 			}else{
-			 		echo "<script> alert('La fecha no puede ser mayor a la actual'); window.location.href = '../grisEditar.php?usuario_rol=$rolSegimiento&id_mov=$id_Fom'</script>";
+			 		echo "<script> alert('La fecha no puede ser mayor a la actual. Si se adjunto un archivo, es necesario volver adjuntar'); window.location.href = '../grisEditar.php?usuario_rol=$rolSegimiento&id_mov=$id_Fom'</script>";
 			}
 
 
