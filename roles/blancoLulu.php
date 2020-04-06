@@ -18,16 +18,23 @@
 
 		  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
+
+		<script language="javascript" type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js"></script>
+   		<script src= "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 		<script src="js/funciones.js"></script>
+		<script src="js/validar_RFC_CURP.js"></script>
+
 
 		<script src="jquery/jquery-3.4.1.min.js" type="text/javascript"></script>
 		<script src="jquery/jquery-ui.min.js" type="text/javascript"></script>
 		<script src="jquery/jquery-ui.js" type="text/javascript"></script>
 		<script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" ></script>	
 
-	<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
 		<script src="js/jquery-ui.min.js" type="text/javascript"></script>
 		<script src="js/jquery-ui.js" type="text/javascript"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -160,15 +167,28 @@
 				    var f = $("#nombre").val();
 				    var g = $("#fechaIngreso").val();
 				    //var h = $("#TipoEntregaArchivo").val();
-				    
+				     if (b !== '') {
+					      var tamRFC = b.length;
+					 	if (tamRFC<13){
+					    	alert("RFC no valido");
+					    }
+					 }
+					 if (c !== '') {
+					      var tamCURP = c.length;
+					 	if (tamCURP<18){
+					    	alert("CURP no valido");
+					    }
 
-				      if (a=="" || b=="" || c==""|| d==""|| e==""|| f==""|| g==""|| $('input:radio[name=TipoEntregaArchivo]:checked').val() =="Ninguno" ) {
+					 }
+				     var tamCURP = c.length;
+
+				      if (a=="" || tamRFC<13 || tamCURP<18 || d==""|| e==""|| f==""|| g==""|| $('input:radio[name=TipoEntregaArchivo]:checked').val() =="Ninguno" ) {
 				        alert("Falta completar campo");		
 				        return false;
 				      } else 
 				      	formulario.submit();
-			}	
-
+		 }
+		
 			function eliminarRequier(){
 					 $('#comentarioR').removeAttr("required");
 
@@ -245,7 +265,7 @@
 
 			 if ($resultHoy = mysqli_query($conexion,$hoy) AND $resultTime = mysqli_query($conexion,$tiempo)) {
 			 		$rowF = mysqli_fetch_row($resultHoy);  // cambiamos formato de hora 
-			 		$fechaSistema = date("d-m-Y", strtotime($rowF[0])); //"05-04-2020";;
+			 		$fechaSistema = "03-04-2020";//date("d-m-Y", strtotime($rowF[0])); //"05-04-2020";;
 			 		$rowHora = mysqli_fetch_row($resultTime);
 
 					$diaActual=date("w", strtotime($fechaSistema));
@@ -260,6 +280,7 @@
 			 	$fehaI = date("d-m-Y", strtotime($rowQna[2])); 
 			 	$fehaF = date("d-m-Y", strtotime($rowQna[3])); 
 			 	$fehaLimite = date("d-m-Y", strtotime($rowQna[5])); 
+			 	$newQna = $rowQna[0];
 
 			 }else{
 			 
@@ -429,7 +450,7 @@
 				 		<div class="form-row">
 							<input type="text" class="form-control" id="userName" name="userName" value="<?php echo $usuarioSeguir ?>" style="display:none">
 							<input type="text" class="form-control" id="botonAccion" name="botonAccion" value="<?php if(isset($_POST["botonAccion"])){ echo $_POST["botonAccion"];} ?>" style="display:none">
-							<input type="text" class="form-control" id="qnaActual" name="qnaActual" value="<?php  echo  $rowQna[0]?>" style="display:none">
+							<input type="text" class="form-control" id="qnaActual" name="qnaActual" value="<?php  echo  $newQna?>" style="display:none">
 							<input type="text" class="form-control" id="guardarDoc" name="guardarDoc" value="<?php if(isset($_POST["guardarDoc"])){ echo $_POST["guardarDoc"];} ?>" style="display:none">
 						</div> 
 						<div class="form-row">

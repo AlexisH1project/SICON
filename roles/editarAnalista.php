@@ -600,7 +600,7 @@
 
 				<div class="form-group col-mt-8">
 						<label class="plantilla-label estilo-colorg" for="NO">No. de puesto:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="num_pues" name="num_pues" placeholder="Ej. 0001" value="<?php echo $no_puesto; ?>" maxlength="4"  required >
+						<input onkeypress="return pulsar(event)" type="text" class="form-control border border-dark" id="num_pues" name="num_pues" placeholder="Ej. 0001" value="<?php echo $no_puesto; ?>" maxlength="4" >
 
 				</div>
 					<div class="form-group col-md-8">
@@ -641,7 +641,7 @@
 					</div>
 					<div class="form-group col-md-5">
 						<label class="plantilla-label estilo-colorg" for="consema">*Consecutivo maestro de puestos:</label>
-						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="consema" name="consema" placeholder="Ej. 170" value="<?php echo $consecutivo_maestro_impuestos; ?>" maxlength="5"  required >
+						<input onkeypress="return pulsar(event)" type="text" class="form-control colon border border-dark" id="consema" name="consema" placeholder="Ej. 170" value="<?php echo $consecutivo_maestro_impuestos; ?>" maxlength="5" >
 					</div>
 				
 					<div class="form-group col-md-5">

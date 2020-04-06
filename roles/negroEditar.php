@@ -157,9 +157,9 @@
 
 			function enviarDatos(){
 				var formulario = document.captura1;
-				
-				
-				$('#nameArchivo').removeAttr("required");
+				formulario.action= './Controller/agregarNewRegistro.php';
+				document.getElementById("botonAccion").value = "Aceptar";
+
 				    var a = $("#unexp_1").val();
 				    var b = $("#rfcL_1").val();
 				    var c = $("#curp").val();
@@ -168,16 +168,28 @@
 				    var f = $("#nombre").val();
 				    var g = $("#fechaIngreso").val();
 				    //var h = $("#TipoEntregaArchivo").val();
-				    
+				     if (b !== '') {
+					      var tamRFC = b.length;
+					 	if (tamRFC<13){
+					    	alert("RFC no valido");
+					    }
+					 }
+					 if (c !== '') {
+					      var tamCURP = c.length;
+					 	if (tamCURP<18){
+					    	alert("CURP no valido");
+					    }
 
-				      if (a=="" || b=="" || c==""|| d==""|| e==""|| f==""|| g==""|| $('input:radio[name=TipoEntregaArchivo]:checked').val() =="Ninguno" ) {
+					 }
+				     var tamCURP = c.length;
+
+				      if (a=="" || tamRFC<13 || tamCURP<18 || d==""|| e==""|| f==""|| g==""|| $('input:radio[name=TipoEntregaArchivo]:checked').val() =="Ninguno" ) {
 				        alert("Falta completar campo");		
 				        return false;
-				      } else{ 
-				      	formulario.action= './Controller/updateNegro.php';
-				      //	formulario.submit();
-				      }
-			}	
+				      } else 
+				      	formulario.submit();
+		 }
+		
 
 			function elimiarDatos(){
 				<?php 
