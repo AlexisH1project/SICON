@@ -169,7 +169,14 @@
 		      </div>
 		    </div>
 		  </nav>
-		<img class="img-responsive" src="img/img-salud.jpg" height="150" width="354">
+		  	<?php
+				include "configuracion.php";
+				$usuarioSeguir =  $_GET['usuario_rol'];
+
+			?>
+			<br>
+		  <a  href= <?php echo ("'./menuPrincipal.php?usuario_rol=$usuarioSeguir'");?>><img class="img-responsive" src="img/ss1.png" height="90" width="280"/></a>
+		
 		
 		<center>			
 				
