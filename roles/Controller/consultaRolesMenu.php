@@ -2,7 +2,7 @@
 <?php
 
     include "configuracion.php";
-   $user =  $_GET["usuario"];
+   $user =  $_POST["usuarioSeguir"];
     // $ROL = $_POST['rol'];
     // /*
    
@@ -16,12 +16,12 @@
                 // $alc_mun = utf8_encode($row['alc_mun']);
                 // $estado = utf8_encode($row['estado']);
                 // $colonia = utf8_encode($row['colonia']);  
-                   echo $ROL;
+                  
 
              if($ROL == 0 && $unidad == ''){
              
                         // echo '<script language="javascript">alert("Datos correctos/ Puedes dar de Baja o Actualizar");</script>';
-                    header('Location:../../roles/menuPrincipal.php?usuario_rol='.urlencode($user));
+                    header('Location:../../roles/luluConsulta.php?usuario_rol='.urlencode($user));
                        // echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=./capturista.php>';
 
             }

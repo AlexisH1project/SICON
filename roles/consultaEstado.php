@@ -92,7 +92,14 @@
 				$usuarioSeguir =  $_GET['usuario_rol'];
 
 			?>
-		<a  href= <?php echo ("'./dario.php?usuario_rol=$usuarioSeguir'");?>><img class="img-responsive" src="img/ss1.png" height="90" width="280"/></a>
+				<?php
+				include "configuracion.php";
+				$usuarioSeguir =  $_GET['usuario_rol'];
+
+			?>
+			<br>
+		  <a  href= <?php echo ("'./menuPrincipal.php?usuario_rol=$usuarioSeguir'");?>><img class="img-responsive" src="img/ss1.png" height="90" width="280"/></a>
+	
 		
 		<center>			
 			

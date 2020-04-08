@@ -99,14 +99,14 @@
 	        	<br>
 	        	<center>
 	        		<li class=" estilo-color">
-	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/><?php echo (" $nombreU[0]"); ?></a>
+	            <a  href= <?php echo ("'./menuPrincipal.php?usuario_rol=$usuarioSeguir'");?> ><img src="./img/iclogin.png" alt="x" height="17" width="17"/><?php echo (" $nombreU[0]"); ?></a>
 	          </li>
 	        	</center>
 	          <li class=" estilo-color">
 	            <a href= <?php echo ("'./lulu.php?usuario_rol=$usuarioSeguir'"); ?>  ><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
 	          </li>
 	          <li class=" estilo-color">
-	              <a ><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
+	              <a href= <?php echo ("'./consultaEstado.php?usuario_rol=$usuarioSeguir'");?> ><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
 	          </li>
 	          <li class=" estilo-color">
               <a ><img src="./img/icreport.png" alt="x" height="17" width="17"/> Reporte</a>

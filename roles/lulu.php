@@ -187,7 +187,9 @@
 		  </nav>
 
 
-		<img class="img-responsive" src="img/img-salud.jpg" height="150" width="400">
+			<br>
+		  <a  href= <?php echo ("'./menuPrincipal.php?usuario_rol=$usuarioSeguir'");?>><img class="img-responsive" src="img/ss1.png" height="90" width="280"/></a>
+		
 		
 		<center>			
 						<h3 class="estilo-color plantilla-subtitulospr">Sistema de Control de Registro de Formato de Movimiento de Personal (SICON).</h3>
