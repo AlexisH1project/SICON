@@ -9,6 +9,7 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 		<link href='css/jquery-ui.min.css' type='text/css' rel='stylesheet'>
 		<link href='css/jquery-ui.css' type='text/css' rel='stylesheet'>
 
@@ -155,15 +156,33 @@
 
 	</head>
 	<body>
+
+		<?php
+				include "configuracion.php";
+				$usuarioSeguir =  $_GET['usuario_rol'];
+
+			?>
+
+
 		<nav class="navbar fixed-top navbar-expand-lg navbar-dark plantilla-input fixed-top">
 		    <div class="container">
 		      <div class="collapse navbar-collapse" id="navbarResponsive">
 		        <ul class="navbar-nav ml-auto">          
-		        
+		         <li class="nav-item dropdown">
+		            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		              Acciones
+		            </a>
+		            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+		              <a class="dropdown-item" href="./FiltroDescargar.php?usuario_rol=<?php echo $usuarioSeguir ?>">Descarga de documentos</a>
+		              <a class="dropdown-item" href="./generarReporte.php?usuario_rol=<?php echo $usuarioSeguir ?>">Generar reportes</a>
+		            </div>
+		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href='../LoginMenu/vista/cerrarsesion.php'>CERRAR SESIÓN</a>
 		          </li>
 		        </ul>
+
+
 		      </div>
 		    </div>
 		  </nav>	
@@ -173,15 +192,14 @@
 
 			?>
 			<br>
-	 <a  href= <?php echo ("'./menuPrincipal.php?usuario_rol=$usuarioSeguir'");?>><img class="img-responsive" src="img/ss1.png" height="90" width="280"/></a>
+	 <a  href= <?php echo ("'./menuPrincipal.php?usuario_rol=$usuarioSeguir'");?>><img class="img-responsive" src="img/ss1.png" height="90" width="282"/></a>
 		
 		<center>			
 				<h3 class="estilo-color plantilla-subtitulospr">Sistema de Control de Registro de Formato de Movimiento de Personal (SICON).</h3>
 				<br>
 				<h5  class=" plantilla-subtitulop" > DEPARTAMENTO DE DICTAMINACIÓN SALARIAL Y CONTRATOS POR HONORARIOS - DDSCH</h5>
 			
-			
-		
+
 <!-- 			<div class="row">
 				<div class="col text-center">
 

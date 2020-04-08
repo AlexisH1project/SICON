@@ -92,6 +92,7 @@
 				$usuarioSeguir =  $_GET['usuario_rol'];
 
 			?>
+
 				<?php
 				include "configuracion.php";
 				$usuarioSeguir =  $_GET['usuario_rol'];
@@ -100,13 +101,31 @@
 			<br>
 		  <a  href= <?php echo ("'./menuPrincipal.php?usuario_rol=$usuarioSeguir'");?>><img class="img-responsive" src="img/ss1.png" height="90" width="280"/></a>
 	
+
+		<nav class="navbar fixed-top navbar-expand-lg navbar-dark plantilla-input fixed-top">
+		    <div class="container">
+		      <div class="collapse navbar-collapse" id="navbarResponsive">
+		        <ul class="navbar-nav ml-auto">          
+		        
+		          <li class="nav-item">
+		            <a class="nav-link" href='../LoginMenu/vista/cerrarsesion.php'>CERRAR SESIÓN</a>
+		          </li>
+		        </ul>
+		      </div>
+		    </div>
+		  </nav>		
+		  <br>
+
+		
+
 		
 		<center>			
 			
 			
 			
 
-		<center>			
+		<center>	
+
 				
 			<h3 class="estilo-color plantilla-subtitulospr">Sistema de Control de Registro de Formato de Movimiento de Personal (SICON).</h3>
 				<br>
@@ -122,45 +141,44 @@
 						<div class="col">
 							<div class="form-group col-md-12">
 								<label class="plantilla-labe estilo-colorg" for="elRfc">RFC:</label>
-								<input type="text" class="form-control unexp border border-dark" id="rfc" name="rfc" placeholder="Ingresa rfc" maxlength="13">
+								<input type="text" class="form-control border-dark" id="rfc" name="rfc" value="<?php if(isset($_POST['rfc'])){ echo $_POST['rfc']; } ?>"  maxlength="13">
 							</div>
-
+					
 						</div>
 						<div class="col">
 							<div class="form-group col-md-12">
 								<label class="plantilla-label estilo-colorg" for="nombreB">Nombre:</label>
-								<input type="text" class="form-control unexp border border-dark" id="nombreBus" name="nombreBus" placeholder="Nombre" maxlength="40">
+								<input type="text" class="form-control border-dark" id="nombreBus" name="nombreBus" value="<?php if(isset($_POST['nombreBus'])){ echo $_POST['nombreBus']; } ?>" maxlength="40">
 							</div>
 
 						</div>
 						<div class="col">
 							<div class="form-group col-md-12">
 								<label class="plantilla-label estilo-colorg" for="apellidoB">Apellido Paterno:</label>
-								<input type="text" class="form-control unexp border border-dark" id="apellidoBus" name="apellidoBus" placeholder="Apellido Parterno" maxlength="30">
+								<input type="text" class="form-control border-dark" id="apellidoBus" name="apellidoBus" value="<?php if(isset($_POST['apellidoBus'])){ echo $_POST['apellidoBus']; }  ?>" maxlength="30">
 							</div>
 
 						</div>
 						<div class="col">
 							<div class="form-group col-md-12">
 								<label class="plantilla-label estilo-colorg" for="apellidoM">Apellido Materno:</label>
-								<input type="text" class="form-control unexp border border-dark" id="apellidoMb" name="apellidoMb" placeholder="Apellido Materno" maxlength="30">
+								<input type="text" class="form-control border-dark" value="<?php if(isset($_POST['apellidoMb'])){ echo $_POST['apellidoMb']; } ?>" id="apellidoMb" name="apellidoMb" maxlength="30">
 							</div>
 
 						</div>
 						<div class="col">
 							<div class="form-group col-md-12">
 								<label class="plantilla-label estilo-colorg" for="unidadB">Unidad:</label>
-								<input type="text" class="form-control unexp border border-dark" id="unidadBus" name="unidadBus" placeholder="Unidad" maxlength="60">
+								<input type="text" class="form-control unexp border border-dark" id="unidadBus" value="<?php if(isset($_POST['unidadBus'])) { echo $_POST['unidadBus']; } ?>" name="unidadBus" maxlength="60">
 							</div>
 
 						</div>
-
 						<div class="col">
 
 							<div class="form-group col-md-12">
 								<label  class="plantilla-label estilo-colorg" for="laQna">QNA: </label>
 									 
-									<select class="form-control unexp border border-dark" name="qnaOption">
+									<select class="form-control border-dark" name="qnaOption">
 										<?php
 										if (!$conexion->set_charset("utf8")) {//asignamos la codificación comprobando que no falle
 										       die("Error cargando el conjunto de caracteres utf8");
@@ -405,10 +423,12 @@
 
 								$sql="SELECT id_movimiento,color_estado,unidad,rfc,usuario_name,quincenaAplicada,fechaIngreso,codigoMovimiento, fechaAutorizacion,descripcionMovimiento FROM fomope WHERE (rfc='$rfcBuscar' AND nombre='$nombreBuscar' AND apellido_1='$apellidoBuscar' AND apellido_2='$apellidomBuscar' AND unidad='$unidadBuscar'  AND quincenaAplicada='$qnaBuscar')";
 
+ 							}elseif($rfcBuscar != "" && $nombreBuscar != "" && $apellidoBuscar != "" && $apellidomBuscar != "" && $unidadBuscar != ""  &&  $qnaBuscar == ""){
+
+								$sql="SELECT id_movimiento,color_estado,unidad,rfc,usuario_name,quincenaAplicada,fechaIngreso,codigoMovimiento, fechaAutorizacion,descripcionMovimiento FROM fomope WHERE (rfc='$rfcBuscar' AND nombre='$nombreBuscar' AND apellido_1='$apellidoBuscar' AND apellido_2='$apellidomBuscar' AND unidad='$unidadBuscar'  AND quincenaAplicada='$qnaBuscar')";
+
  							}
 							
-
-
 
 
 							$sqlColor="SELECT colorAsignado FROM usuarios WHERE usuario='$usuarioSeguir'";
