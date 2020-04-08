@@ -32,6 +32,11 @@
 		  .modal-footer {
 		    background-color: #f9f9f9;
 		  }
+
+		  .columnaBoton {
+			  width:50%;
+			  float:left;
+		}
 		  
 		  </style>
 		  <script type="text/javascript">
@@ -80,7 +85,9 @@
 					});
 				});
 			});
-	
+
+
+
 		</script>
 
 
@@ -109,9 +116,6 @@
 		<a  href= <?php echo ("'./dario.php?usuario_rol=$usuarioSeguir'");?>><img class="img-responsive" src="img/ss1.png" height="90" width="280"/></a>
 		
 		<center>			
-			
-			
-			
 
 		<center>	
 
@@ -191,9 +195,15 @@
 
 					<div class="form-group col-md-12">
 						<div class="col text-center">
-							<input type="submit" name="buscar" onclick="'<?php $_GET['usuario_rol']; ?>'" class="btn btn btn-danger tamanio-button plantilla-input text-white bord" value="Buscar"><br>
+							<div class="columnaBoton">
+								<input type="reset" class="btn btn-secondary" value="Borrar">
+							</div>
+							<div class="columnaBoton">	
+								<input type="submit" name="buscar" onclick="'<?php $_GET['usuario_rol']; ?>'" class="btn btn btn-danger tamanio-button plantilla-input text-white bord" value="Buscar">
 
+							</div>
 							<!-- <button type="submit" name="buscar" class="btn btn-outline-info tamanio-button">Buscar</button> -->
+							<br>
 						</div>
 					</div>
 
@@ -204,7 +214,8 @@
 		</div>
 	
 	</div>
-
+					
+		<br>
 		<br>
 		<br>
 <div class="col-sm-12">
@@ -422,7 +433,7 @@
 
 							$sqlColor="SELECT colorAsignado FROM usuarios WHERE usuario='$usuarioSeguir'";
 
-
+							$idMatriz = 0;
 							if ($result = mysqli_query($conexion,$sql)) {
 
 								$totalFilas    =    mysqli_num_rows($result);  
@@ -478,8 +489,6 @@
 
 											$ver[1] = 'Finalizado';
 										}
-
-
 						 ?>
 						<tr>
 							<td><?php echo $ver[3] ?></td>
@@ -487,14 +496,12 @@
 							<td><?php echo $ver[2] ?></td>
 							<td><?php echo $ver[8] ?></td>
 							<td><?php echo $ver[9] ?></td>
-
-
 							<td>
-
-															
 							</td>
 						</tr>
 						<?php 
+							$matriz[$idMatriz]= $ver;
+							$idMatriz++;
 										}
 									}
 							}else{
@@ -504,8 +511,47 @@
 						}
 						 ?>
 		</table>
+	<!-- 	<form method="post" action="./generarFiltroExcel/reporteExcel.php">
+						<div class="col text-center">
+							<input type="text" style="display: none;" name="nombreUsuario" value="<?php echo $usuarioSeguir ?> ">
+							<input type="text" style="display: none;" name="matrizBuscada" value="<?php echo $matriz ?> ">
+
+							<div class="columnaBoton">	
+								<button type="submit" name="reporte" class="btn btn btn-success text-white bord"> Generar Excel </button>
+
+							</div>
+						
+						</div>
+					</form> -->
+
+					<!-- <div class="columnaBoton">	
+								<button type="submit" name="reporte" onclick="generarReporte(<?php echo $matriz ?>)" class="btn btn btn-success text-white bord"> Generar Excel </button>
+
+							</div> -->
+					<form method="post">
+
+						<input type='submit' class='btn btn btn-success text-white bord' value="Generar Excel" > 
+						<input type='hidden' name='lista' class='btn btn btn-success text-white bord' value="<?php echo $matriz?>" > 
+					</form>
+
+					<?php
+						if(isset($_POST['lista'])){
+							$arr = $_POST['lista'];
+							/*echo "window.location.href = './generarFiltroExcel/reporteExcel.php?usuario_rol=$usuarioSeguir&matrizBuscada=$matriz'</script>";*/
+							echo $arr[0];
+							//$frutas = unserialize(stripslashes($_POST['lista']));
+							//var_dump($frutas);
+							/*$data = preg_replace('!s:(\d+):"(.*?)";!e',"'s:'.strlen('$2').':\"$2\";'", $frutas);
+							var_dump(unserialize($data));*/
+
+						}
+
+					?>
+
 
 	</center>
+
+	
 	</body>
 
 </html>
