@@ -99,6 +99,16 @@
 				$usuarioSeguir =  $_GET['usuario_rol'];
 
 			?>
+
+				<?php
+				include "configuracion.php";
+				$usuarioSeguir =  $_GET['usuario_rol'];
+
+			?>
+			<br>
+		  <a  href= <?php echo ("'./menuPrincipal.php?usuario_rol=$usuarioSeguir'");?>><img class="img-responsive" src="img/ss1.png" height="90" width="280"/></a>
+	
+
 		<nav class="navbar fixed-top navbar-expand-lg navbar-dark plantilla-input fixed-top">
 		    <div class="container">
 		      <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -113,7 +123,8 @@
 		  </nav>		
 		  <br>
 
-		<a  href= <?php echo ("'./dario.php?usuario_rol=$usuarioSeguir'");?>><img class="img-responsive" src="img/ss1.png" height="90" width="280"/></a>
+		
+
 		
 		<center>			
 

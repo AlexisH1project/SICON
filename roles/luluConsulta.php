@@ -185,16 +185,21 @@
 
 		      </div>
 		    </div>
-		  </nav>
-		<img class="img-responsive" src="img/img-salud.jpg" height="150" width="400">
+		  </nav>	
+		  <?php
+				include "configuracion.php";
+				$usuarioSeguir =  $_GET['usuario_rol'];
+
+			?>
+			<br>
+	 <a  href= <?php echo ("'./menuPrincipal.php?usuario_rol=$usuarioSeguir'");?>><img class="img-responsive" src="img/ss1.png" height="90" width="282"/></a>
 		
 		<center>			
 				<h3 class="estilo-color plantilla-subtitulospr">Sistema de Control de Registro de Formato de Movimiento de Personal (SICON).</h3>
 				<br>
 				<h5  class=" plantilla-subtitulop" > DEPARTAMENTO DE DICTAMINACIÓN SALARIAL Y CONTRATOS POR HONORARIOS - DDSCH</h5>
 			
-			
-			
+
 <!-- 			<div class="row">
 				<div class="col text-center">
 

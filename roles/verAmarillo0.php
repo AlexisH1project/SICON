@@ -120,11 +120,11 @@
 	        	<br>
 	        	<center>
 	        	<li class=" estilo-color">
-	            <a ><img src="./img/iclogin.png" alt="x" height="17" width="17"/><?php echo (" $nombreU[0]"); ?></span></a>
+	            <a href= <?php echo ("'./menuPrincipal.php?usuario_rol=$usuarioSeguir'");?> ><img src="./img/iclogin.png" alt="x" height="17" width="17"/><?php echo (" $nombreU[0]"); ?></span></a>
 	          </li>
 	      </center>
 	          <li class=" estilo-color">
-	            <a href=  <?php echo ("'./lulu.php?usuario_rol=$usuarioSeguir'"); ?> ><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
+	            <a href=  <?php echo ("'./Controller/consultaRoles.php?usuarioSeguir=$usuarioSeguir''"); ?> ><img src="./img/icbuzon.png" alt="x" height="17" width="20"/>      Bandeja</a>
 	          </li>
 	           <li class=" estilo-color">
 	            <a href=  <?php echo ("'./FiltroDescargar.php?usuario_rol=$usuarioSeguir'"); ?> ><img src="./img/icreport2.png" alt="x" height="17" width="20"/>      Descarga de Documentos</a>
@@ -133,7 +133,7 @@
 	            <a href=  <?php echo ("'./generarReporte.php?usuario_rol=$usuarioSeguir'"); ?> ><img src="./img/icreport.png" alt="x" height="17" width="20"/>Generar Reporte</a>
 	          </li>
 	          <li class=" estilo-color">
-	              <a ><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
+	              <a href= <?php echo ("'./consultaEstado.php?usuario_rol=$usuarioSeguir'");?>><img src="./img/ic-consulta.png" alt="x" height="17" width="17"/> Consulta</a>
 	          </li>
 	          <br>
 	          <br>

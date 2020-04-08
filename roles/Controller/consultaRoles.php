@@ -2,7 +2,7 @@
 <?php
 
     include "configuracion.php";
-   $user =  $_GET["usuario"];
+   $user =  $_GET["usuarioSeguir"];
     // $ROL = $_POST['rol'];
     // /*
    
@@ -16,12 +16,12 @@
                 // $alc_mun = utf8_encode($row['alc_mun']);
                 // $estado = utf8_encode($row['estado']);
                 // $colonia = utf8_encode($row['colonia']);  
-                   echo $ROL;
+                  
 
              if($ROL == 0 && $unidad == ''){
              
                         // echo '<script language="javascript">alert("Datos correctos/ Puedes dar de Baja o Actualizar");</script>';
-                    header('Location:../../roles/menuPrincipal.php?usuario_rol='.urlencode($user));
+                    header('Location:../../roles/luluConsulta.php?usuario_rol='.urlencode($user));
                        // echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=./capturista.php>';
 
             }
@@ -36,13 +36,13 @@
             if($ROL == 1){
                         
                       //  echo '<script language="javascript">alert("Datos correctos/ Puedes dar Alta");</script>';
-                    header('Location:../../roles/menuPrincipal.php?usuario_rol='.urlencode($user));
+                    header('Location:../../roles/lulu.php?usuario_rol='.urlencode($user));
                   
             }
 
            if($ROL == 2){
                         //echo '<script language="javascript">alert("Datos correctos/ Puedes dar Alta");</script>';
-                    header('Location:../../roles/menuPrincipal.php?usuario_rol='.urlencode($user));
+                     header('Location:../../roles/analista.php?usuario_rol='.urlencode($user));
             }  
 
             if($ROL == 3){
@@ -51,7 +51,7 @@
             }
             if($ROL == 4){
                         //echo '<script language="javascript">alert("Datos correctos/ Puedes dar Alta");</script>';
-                    header('Location:../../roles/menuPrincipal.php?usuario_rol='.urlencode($user));//cambiar
+                    header('Location:../../roles/dario.php?usuario_rol='.urlencode($user));//cambiar
             }
 
              
