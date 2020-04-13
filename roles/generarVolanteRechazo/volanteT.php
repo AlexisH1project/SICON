@@ -1,6 +1,6 @@
 <?php 
 
-		include "configuracion.php";
+		include "../configuracion.php";
 
 		$idFomope = $_POST['noFomope'];
 		$elRol = $_POST['id_rol'];
@@ -35,7 +35,7 @@
 						echo '<script type="text/javascript">alert("error '. mysqli_error($conexion).'");</script>';
 					}
 	
-		/*require "conexion_excel.php";
+		require "conexion_excel.php";
 
 		include 'Classes/PHPExcel/IOFactory.php';
 
@@ -77,5 +77,5 @@
 
 
 
-	    $writer->save('php://output');*/
+	    $writer->save('php://output');
  ?>

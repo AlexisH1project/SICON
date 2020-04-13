@@ -439,8 +439,7 @@
 								$sql="SELECT id_movimiento,color_estado,unidad,rfc,usuario_name,quincenaAplicada,fechaIngreso,codigoMovimiento, fechaAutorizacion,descripcionMovimiento FROM fomope WHERE (rfc='$rfcBuscar' AND nombre='$nombreBuscar' AND apellido_1='$apellidoBuscar' AND apellido_2='$apellidomBuscar' AND unidad='$unidadBuscar'  AND quincenaAplicada='$qnaBuscar')";
 
  							}
-							
-
+ 						
 
 							$sqlColor="SELECT colorAsignado FROM usuarios WHERE usuario='$usuarioSeguir'";
 
@@ -511,7 +510,8 @@
 							</td>
 						</tr>
 						<?php 
-							$matriz[$idMatriz]= $ver;
+							//$matriz = array($idMatriz => $ver[0] );
+							$matriz[$idMatriz]= $ver[0];							
 							$idMatriz++;
 										}
 									}
@@ -522,42 +522,14 @@
 						}
 						 ?>
 		</table>
-	<!-- 	<form method="post" action="./generarFiltroExcel/reporteExcel.php">
-						<div class="col text-center">
-							<input type="text" style="display: none;" name="nombreUsuario" value="<?php echo $usuarioSeguir ?> ">
-							<input type="text" style="display: none;" name="matrizBuscada" value="<?php echo $matriz ?> ">
+	
+					<form method="post" action="./generarFiltroExcel/reporteBusqueda.php">
+				
 
-							<div class="columnaBoton">	
-								<button type="submit" name="reporte" class="btn btn btn-success text-white bord"> Generar Excel </button>
-
-							</div>
-						
-						</div>
-					</form> -->
-
-					<!-- <div class="columnaBoton">	
-								<button type="submit" name="reporte" onclick="generarReporte(<?php echo $matriz ?>)" class="btn btn btn-success text-white bord"> Generar Excel </button>
-
-							</div> -->
-					<form method="post">
-
-						<input type='submit' class='btn btn btn-success text-white bord' value="Generar Excel" > 
-						<input type='hidden' name='lista' class='btn btn btn-success text-white bord' value="<?php echo $matriz?>" > 
+							<input type='submit' name='lista' class='btn btn btn-success text-white bord' value="Generar Excel">
+							<input type='hidden' name='array' class='btn btn btn-success text-white bord' value='<?php  echo serialize($matriz); ?>'>
 					</form>
 
-					<?php
-						if(isset($_POST['lista'])){
-							$arr = $_POST['lista'];
-							/*echo "window.location.href = './generarFiltroExcel/reporteExcel.php?usuario_rol=$usuarioSeguir&matrizBuscada=$matriz'</script>";*/
-							echo $arr[0];
-							//$frutas = unserialize(stripslashes($_POST['lista']));
-							//var_dump($frutas);
-							/*$data = preg_replace('!s:(\d+):"(.*?)";!e',"'s:'.strlen('$2').':\"$2\";'", $frutas);
-							var_dump(unserialize($data));*/
-
-						}
-
-					?>
 
 
 	</center>

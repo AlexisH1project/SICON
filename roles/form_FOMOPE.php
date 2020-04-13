@@ -430,7 +430,7 @@ $(document).ready(function(){
       <div id="content" class="p-4 p-md-5 pt-5">
       	<?php
 
- 		if($diaActual != 0 && $diaActual != 6 && (strtotime($fechaSistema) >=  strtotime($fehaI) &&  strtotime($fechaSistema) <=  strtotime($fehaF))){
+ 		if($diaActual != 0 ){
 
 				 		// echo $fehaF;
 				 		// echo $fechaSistema . " ";

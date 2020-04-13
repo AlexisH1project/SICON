@@ -42,9 +42,9 @@
 
 
 	function genearExcel(){
-				require "./generarVolanteRechazo/conexion_excel.php";
+				require "./librerias/conexion_excel.php";
 				include "configuracion.php";
-				include './generarVolanteRechazo/Classes/PHPExcel/IOFactory.php';
+				include './librerias/Classes/PHPExcel/IOFactory.php';
 
 				$fileType = 'Excel5';
 				$fileName = './generarVolanteRechazo/rechazoT.xls';

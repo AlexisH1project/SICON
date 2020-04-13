@@ -10,9 +10,9 @@
 		
 		<?php
 
-				require "conexion_excel.php";
-				include "configuracion.php";
-				include 'Classes/PHPExcel/IOFactory.php';
+				require "../librerias/conexion_excel.php";
+				include "../configuracion.php";
+				include '../librerias/Classes/PHPExcel/IOFactory.php';
 			
 				$fileType = 'Excel5';
 				$fileName = 'rechazoT.xls';

@@ -2,10 +2,10 @@
 <?php
 
 	//require 'Classes/PHPExcel.php';
-    include "configuracion.php";
-    require "conexion_excel.php";
+    include "../configuracion.php";
+    require "../librerias/conexion_excel.php";
 
-	include 'Classes/PHPExcel/IOFactory.php';
+	include '../librerias/Classes/PHPExcel/IOFactory.php';
 
 		$fileType = 'Excel5';
 		$fileName = 'reporteAnalista.xls';
