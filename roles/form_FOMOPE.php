@@ -36,15 +36,15 @@
 		<link rel="stylesheet" href="css/estilossicon.css">
 
 		  <style>
-		  .modal-header, h4, .close {
-		    background-color: #5cb85c;
-		    color:white !important;
-		    text-align: center;
-		    font-size: 30px;
-		  }
-		  .modal-footer {
-		    background-color: #f9f9f9;
-		  }
+			  .modal-header, h4, .close {
+			    background-color: #5cb85c;
+			    color:white !important;
+			    text-align: center;
+			    font-size: 30px;
+			  }
+			  .modal-footer {
+			    background-color: #f9f9f9;
+			  }
 		  </style>
 
 				
@@ -430,7 +430,7 @@ $(document).ready(function(){
       <div id="content" class="p-4 p-md-5 pt-5">
       	<?php
 
- 		if($diaActual != 0 ){
+ 		if($diaActual != 0 && $diaActual != 6){
 
 				 		// echo $fehaF;
 				 		// echo $fechaSistema . " ";
